@@ -47,11 +47,11 @@ public class VentanaInicio extends Application {
 		p4.setTop(imalabel);
 		p4.setPadding(new Insets(15,15,15,15));
 		p4.setAlignment(ingre, Pos.CENTER);
-		//p4.setAlignment(imalabel, Pos.CENTER);
+		p4.setAlignment(imalabel, Pos.CENTER);
 		
 		///////////////////////////////////////////
 		p2.setTop(p5);
-		Label hoja1 = new Label("Pues me gustan los monitos chinos y pues tambien soy JOvenciTO,\r\n tengo 20 y me gusta la pepsi dos mas dos es cuatro y me quiero morir");
+		Label hoja1 = new Label("Pues me gustan los monitos chinos y pues tambien soy JOvenciTO,\r\ntengo 20 y me gusta la pepsi dos mas dos es cuatro y me quiero morir");
 		
 		hoja1.setTextFill(Color.web("#000000"));
 		hoja1.setPrefWidth(380);
