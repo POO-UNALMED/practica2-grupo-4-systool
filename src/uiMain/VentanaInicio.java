@@ -24,96 +24,110 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class VentanaInicio extends Application {
-	
-	//MOUSE EVENTO CLICK
-	
-	EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() { 
-	@Override
-	public void handle(MouseEvent mouseEvent) {
-			if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia")) {
-				hoja.setText("Daniela Guardia Cuervo, 21 años de edad.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.");
-				fot01=new Image(getClass().getResourceAsStream("/fotos/dani.png"));
-				prog.setImage(fot01);
-				
-			}
-			else if(mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Daniela Guardia Cuervo, 21 años de edad.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.")) {
-				hoja.setText("Cristian David Quinchia Ramirez, 21 años.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.\r\nMe interesan las redes y telecomunicaciones.");
-				fot01=new Image(getClass().getResourceAsStream("/fotos/cris.png"));
-				prog.setImage(fot01);
-			}
-			else if(mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Cristian David Quinchia Ramirez, 21 años.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.\r\nMe interesan las redes y telecomunicaciones.")) {
-				hoja.setText("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
-				fot01=new Image(getClass().getResourceAsStream("/fotos/sebas.png"));
-				prog.setImage(fot01);
-			}
-	}	
-	
-	};
-	
-	
-	EventHandler<MouseEvent> movimiento = new EventHandler<MouseEvent>() { 
+
+	// MOUSE EVENTO CLICK
+
+	EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() {
 		@Override
 		public void handle(MouseEvent mouseEvent) {
-			
-			if(mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("01") ) {
+			if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals(
+					"Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia")) {
+				hoja.setText(
+						"Daniela Guardia Cuervo, 21 años de edad.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.");
+				fot01 = new Image(getClass().getResourceAsStream("/fotos/dani.png"));
+				prog.setImage(fot01);
+
+			} else if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals(
+					"Daniela Guardia Cuervo, 21 años de edad.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.")) {
+				hoja.setText(
+						"Cristian David Quinchia Ramirez, 21 años.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.\r\nMe interesan las redes y telecomunicaciones.");
+				fot01 = new Image(getClass().getResourceAsStream("/fotos/cris.png"));
+				prog.setImage(fot01);
+			} else if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals(
+					"Cristian David Quinchia Ramirez, 21 años.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.\r\nMe interesan las redes y telecomunicaciones.")) {
+				hoja.setText(
+						"Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
+				fot01 = new Image(getClass().getResourceAsStream("/fotos/sebas.png"));
+				prog.setImage(fot01);
+			}
+		}
+
+	};
+
+	EventHandler<MouseEvent> movimiento = new EventHandler<MouseEvent>() {
+		@Override
+		public void handle(MouseEvent mouseEvent) {
+
+			if (mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("01")) {
 				ini = "02";
 				imaini = new Image(getClass().getResourceAsStream("/imagenes/01.jpg"));
 				im01.setImage(imaini);
-			}
-			else if(mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("02")) {
+			} else if (mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("02")) {
 				ini = "03";
 				imaini = new Image(getClass().getResourceAsStream("/imagenes/02.jpeg"));
 				im01.setImage(imaini);
-			}else if(mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("03")) {
+			} else if (mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("03")) {
 				ini = "04";
 				imaini = new Image(getClass().getResourceAsStream("/imagenes/03.jpg"));
 				im01.setImage(imaini);
-			}else if(mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("04")) {
+			} else if (mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("04")) {
 				ini = "05";
 				imaini = new Image(getClass().getResourceAsStream("/imagenes/04.jpeg"));
 				im01.setImage(imaini);
-			}else if(mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("05")) {
+			} else if (mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("05")) {
 				ini = "01";
 				imaini = new Image(getClass().getResourceAsStream("/imagenes/05.png"));
 				im01.setImage(imaini);
 			}
-			
-			
-			
-			}	
-		
-		};
-		
-		
-		
 
-		
-		//////////////////////////
-		EventHandler<ActionEvent> descre = new EventHandler<ActionEvent>() { 
-			@Override
-			public void handle(ActionEvent e) {
-				Object control  = e.getSource();
-				if(control instanceof MenuItem) {
-					if(control.equals(descripcion)) {
-						des = new Label("SYSTOOL es un sistema\r\nde monitoreo y muestra de\r\napartados educativos para el\r\nacceso a información de notas.");
-						des.setFont(new Font("Tahoma", 15));
-						p4.setCenter(des);
-					}
-					else if(control.equals(salir)) {
-						primario.close();
-					}
+		}
+
+	};
+
+	//////////////////////////
+	EventHandler<ActionEvent> descre = new EventHandler<ActionEvent>() {
+		@Override
+		public void handle(ActionEvent e) {
+			Object control = e.getSource();
+			if (control instanceof MenuItem) {
+				if (control.equals(descripcion)) {
+					des = new Label(
+							"SYSTOOL es un sistema\r\nde monitoreo y muestra de\r\napartados educativos para el\r\nacceso a información de notas.");
+					des.setFont(new Font("Tahoma", 15));
+					p4.setCenter(des);
+				} else if (control.equals(salir)) {
+					primario.close();
 				}
-				
-			}	
-			
-			};
-		
-		
-		
+			}
+
+		}
+
+	};
 	
+	EventHandler<ActionEvent> clase = new EventHandler<ActionEvent>() {
+		@Override
+		public void handle(ActionEvent c) {
+			Object control = c.getSource();
+			if (control instanceof MenuItem) {
+				if (control.equals(est)) {
+					
+				} else if(control.equals(prof)) {
+					
+				} else if (control.equals(gr)) {
+					
+				} else if (control.equals(asig)) {
+					
+				}
+			}
+		}
+	};
+	
+	
+
 	public static void main(String args[]) {
 		launch(args);
 	}
+
 	String ini = "01";
 	Stage primario;
 	Scene prisce;
@@ -129,93 +143,104 @@ public class VentanaInicio extends Application {
 	Menu menucito;
 	MenuItem descripcion;
 	MenuItem salir;
-	
+	MenuItem est;
+	MenuItem prof;
+	MenuItem gr;
+	MenuItem asig;
+
 	Label des;
-	
-	
+
 	@Override
-	public void start(Stage primaryStage) throws Exception{
+	public void start(Stage primaryStage) throws Exception {
 		primario = primaryStage;
 
-		//ESCENARIO USER -------------------------------------------------------------------------------
+		// ESCENARIO USER
+		// -------------------------------------------------------------------------------
 		BorderPane ustage = new BorderPane();
-		Scene user = new Scene(ustage,650,420);
+		Scene user = new Scene(ustage, 650, 420);
 		MenuBar mainmenu = new MenuBar();
 		Menu archivo = new Menu("Archivo");
 		Menu pyc = new Menu("Procesos y consultas");
 		Menu aiuda = new Menu("Ayuda");
 		mainmenu.getMenus().addAll(archivo, pyc, aiuda);
 		ustage.setTop(mainmenu);
-		
-		//BorderPane arch = new BorderPane();
+
+		// BorderPane arch = new BorderPane();
 		GridPane a = new GridPane();
 		ustage.setCenter(a);
 		Label title = new Label("SYSTOOL");
 		title.setTextFill(Color.web("LIGHTSEAGREEN"));
-		title.setFont(new Font("Nirmala UI Semilight Bold",  50));
+		title.setFont(new Font("Nirmala UI Semilight Bold", 50));
 		a.setAlignment(Pos.CENTER);
 		a.add(title, 1, 1);
-		
+
 		Button exit = new Button("Salir");
 		exit.setFont(new Font("Tahoma", 17));
 		ustage.setBottom(exit);
-		a.setPadding(new Insets(15,15,15,15));
+		a.setPadding(new Insets(15, 15, 15, 15));
 		BorderPane.setAlignment(exit, Pos.CENTER);
-		//HANDLER DEL BOTON
+		// HANDLER DEL BOTON
 		exit.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
 				primario.setScene(prisce);
 				primario.setTitle("SYSTOOL 2.0v");
 			}
-				
+
 		});
-		
-		
-		////////////////////////////////////////////
-		
-		
-		
-		
+
+		// -------------------------------------------------------------------------------------------
+
+		est = new MenuItem("Estudiante");
+		prof = new MenuItem("Profesor");
+		gr = new MenuItem("Grado");
+		asig = new MenuItem("Asignatura");
+		pyc.getItems().addAll(est, prof, gr, asig);
+		est.setOnAction(clase);
+		prof.setOnAction(clase);
+		gr.setOnAction(clase);
+		asig.setOnAction(clase);
+
+		// -------------------------------------------------------------------------------------------
+
 		///////////////////////////////////////
-		//ESCENARIO DEFAULT
+		// ESCENARIO DEFAULT
 		BorderPane inicio = new BorderPane();
-		inicio.setPadding(new Insets(0,15,15,15));
-		BorderPane p1 = new BorderPane(); //PANEL IZQUIERDO
-		BorderPane p2 = new BorderPane(); //PANEL DERECHO
-		
-		//MENU INICIAL
+		inicio.setPadding(new Insets(0, 15, 15, 15));
+		BorderPane p1 = new BorderPane(); // PANEL IZQUIERDO
+		BorderPane p2 = new BorderPane(); // PANEL DERECHO
+
+		// MENU INICIAL
 		MenuBar inimenu = new MenuBar();
 		menucito = new Menu("Menu");
-		inimenu.getMenus().add(menucito);				
+		inimenu.getMenus().add(menucito);
 		inicio.setTop(inimenu);
 		descripcion = new MenuItem("Descripcion");
 		salir = new MenuItem("Salir");
-		menucito.getItems().addAll(descripcion,salir);
-		
+		menucito.getItems().addAll(descripcion, salir);
+
 		descripcion.setOnAction(descre);
 		salir.setOnAction(descre);
-		
+
 		//////////////////////////////
-		
-		
-		//PANELES IZQUIERDOS
+
+		// PANELES IZQUIERDOS
 		GridPane p3 = new GridPane();
 		p4 = new BorderPane();
-		//PANELES DERECHOS
+		// PANELES DERECHOS
 		GridPane p5 = new GridPane();
 		GridPane p6 = new GridPane();
 		inicio.setLeft(p1);
 		inicio.setRight(p2);
 		p1.setStyle("-fx-border-color: black");
 		p2.setStyle("-fx-border-color: black");
-		//DEFAULT DE LOS PANELES
+		// DEFAULT DE LOS PANELES
 		////////////////////////////////////////
 		p1.setTop(p3);
 		Label bienvenida = new Label("BIENVENIDO A SYSTOOL");
 		bienvenida.setTextFill(Color.web("LIGHTSEAGREEN"));
-		bienvenida.setFont(new Font("Nirmala UI Semilight Bold",  22));
-		p3.setPadding(new Insets(15,15,15,15));
+		bienvenida.setFont(new Font("Nirmala UI Semilight Bold", 22));
+		p3.setPadding(new Insets(15, 15, 15, 15));
 		p3.setAlignment(Pos.CENTER);
 		p3.add(bienvenida, 1, 1);
 		p3.setStyle("-fx-border-color: black");
@@ -223,81 +248,66 @@ public class VentanaInicio extends Application {
 		p1.setCenter(p4);
 		Button ingre = new Button("Ingresar");
 		ingre.setFont(new Font("Tahoma", 17));
-		
-		//HANDLER DEL BOTON
+
+		// HANDLER DEL BOTON
 		ingre.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
 				primario.setScene(user);
 				primario.setTitle("SYSTOOL: Encantado de ayudar");
 			}
-				
+
 		});
-		
-		
+
 		imaini = new Image(getClass().getResourceAsStream("/imagenes/sparta.jpg"));
 		im01 = new ImageView(imaini);
 		im01.setOnMouseEntered(movimiento);
-		
+
 		im01.setFitHeight(150);
 		im01.setFitWidth(250);
 		p4.setBottom(ingre);
 		p4.setTop(im01);
-		p4.setPadding(new Insets(15,15,15,15));
+		p4.setPadding(new Insets(15, 15, 15, 15));
 		BorderPane.setAlignment(ingre, Pos.CENTER);
 		BorderPane.setAlignment(im01, Pos.CENTER);
 		p4.setStyle("-fx-border-color: black");
 		///////////////////////////////////////////
 		p2.setTop(p5);
-		hoja = new Label("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
+		hoja = new Label(
+				"Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
 		hoja.setFont(new Font("Tahoma", 15));
 		hoja.setOnMousePressed(mouseHandler);
 		hoja.setTextFill(Color.web("#000000"));
 		hoja.setPrefWidth(300);
 		hoja.setPrefHeight(80);
-		p5.setPadding(new Insets(15,15,15,15));
+		p5.setPadding(new Insets(15, 15, 15, 15));
 		p5.setAlignment(Pos.CENTER);
-		p5.add(hoja,1,1);
+		p5.add(hoja, 1, 1);
 		p5.setStyle("-fx-border-color: black");
-		
+
 		//////////////////////////////////
 		p2.setCenter(p6);
 		fot01 = new Image(getClass().getResourceAsStream("/fotos/sebas.png"));
 		prog = new ImageView(fot01);
 		prog.setFitHeight(200);
 		prog.setFitWidth(150);
-		p6.add(prog,1,1);
-		p6.setPadding(new Insets(15,15,15,15));
+		p6.add(prog, 1, 1);
+		p6.setPadding(new Insets(15, 15, 15, 15));
 		p6.setAlignment(Pos.CENTER);
 		p6.setStyle("-fx-border-color: black");
-		//FIN DEL DEFAULT
+		// FIN DEL DEFAULT
 		///////////////////////////////////////////
-		
+
 		///////////////////////////////////
-		
-		//ESCENARIO INCICIAL
+
+		// ESCENARIO INCICIAL
 		primario.setTitle("SYSTOOL 2.0v");
-		Scene prisce = new Scene (inicio,650,420);
+		Scene prisce = new Scene(inicio, 650, 420);
 		primario.setScene(prisce);
 		primario.show();
-		
+
 		/////////////////////////////////
-		
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
-	
-	
-	
-
