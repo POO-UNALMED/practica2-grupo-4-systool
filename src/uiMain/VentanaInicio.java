@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -81,11 +82,32 @@ public class VentanaInicio extends Application {
 			}	
 		
 		};
-	
-	
-	
-	
-	
+		
+		
+		
+
+		
+		//////////////////////////
+		EventHandler<ActionEvent> descre = new EventHandler<ActionEvent>() { 
+			@Override
+			public void handle(ActionEvent e) {
+				Object control  = e.getSource();
+				if(control instanceof MenuItem) {
+					if(control.equals(descripcion)) {
+						des = new Label("SYSTOOL es programa amiglable\nal uso, para la gestion escolar/academica");
+						p4.setCenter(des);
+					}
+					else if(control.equals(salir)) {
+						primario.close();
+					}
+				}
+				
+			}	
+			
+			};
+		
+		
+		
 	
 	public static void main(String args[]) {
 		launch(args);
@@ -95,13 +117,18 @@ public class VentanaInicio extends Application {
 	Scene prisce;
 	Scene user;
 	BorderPane ustage;
+	BorderPane p4;
 	GridPane p5;
 	Label hoja;
 	Image imaini;
 	ImageView im01;
 	Image fot01;
 	ImageView prog;
+	Menu menucito;
+	MenuItem descripcion;
+	MenuItem salir;
 	
+	Label des;
 	
 	
 	@Override
@@ -120,15 +147,33 @@ public class VentanaInicio extends Application {
 		////////////////////////////////////////////
 		
 		
+		
+		
 		///////////////////////////////////////
 		//ESCENARIO DEFAULT
 		BorderPane inicio = new BorderPane();
-		inicio.setPadding(new Insets(15,15,15,15));
+		inicio.setPadding(new Insets(0,15,15,15));
 		BorderPane p1 = new BorderPane(); //PANEL IZQUIERDO
 		BorderPane p2 = new BorderPane(); //PANEL DERECHO
+		
+		//MENU INICIAL
+		MenuBar inimenu = new MenuBar();
+		menucito = new Menu("Menu");
+		inimenu.getMenus().add(menucito);				
+		inicio.setTop(inimenu);
+		descripcion = new MenuItem("Descripcion");
+		salir = new MenuItem("Salir");
+		menucito.getItems().addAll(descripcion,salir);
+		
+		descripcion.setOnAction(descre);
+		salir.setOnAction(descre);
+		
+		//////////////////////////////
+		
+		
 		//PANELES IZQUIERDOS
 		GridPane p3 = new GridPane();
-		BorderPane p4 = new BorderPane();
+		p4 = new BorderPane();
 		//PANELES DERECHOS
 		GridPane p5 = new GridPane();
 		GridPane p6 = new GridPane();
@@ -164,8 +209,8 @@ public class VentanaInicio extends Application {
 		im01 = new ImageView(imaini);
 		im01.setOnMouseEntered(movimiento);
 		
-		im01.setFitHeight(200);
-		im01.setFitWidth(200);
+		im01.setFitHeight(150);
+		im01.setFitWidth(250);
 		p4.setBottom(ingre);
 		p4.setTop(im01);
 		p4.setPadding(new Insets(15,15,15,15));
@@ -209,7 +254,15 @@ public class VentanaInicio extends Application {
 		
 	}
 	
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 }
