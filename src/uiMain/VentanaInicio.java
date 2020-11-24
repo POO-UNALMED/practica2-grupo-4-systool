@@ -95,7 +95,8 @@ public class VentanaInicio extends Application {
 				Object control  = e.getSource();
 				if(control instanceof MenuItem) {
 					if(control.equals(descripcion)) {
-						des = new Label("SYSTOOL es programa amiglable\nal uso, para la gestion escolar/academica");
+						des = new Label("SYSTOOL es un sistema\r\nde monitoreo y muestra de\r\napartados educativos para el\r\nacceso a información de notas.");
+						des.setFont(new Font("Tahoma", 15));
 						p4.setCenter(des);
 					}
 					else if(control.equals(salir)) {
@@ -136,15 +137,41 @@ public class VentanaInicio extends Application {
 	public void start(Stage primaryStage) throws Exception{
 		primario = primaryStage;
 
-		//ESCENARIO USER
+		//ESCENARIO USER -------------------------------------------------------------------------------
 		BorderPane ustage = new BorderPane();
 		Scene user = new Scene(ustage,650,420);
 		MenuBar mainmenu = new MenuBar();
-		Menu profe = new Menu("Profesor");
-		Menu grado = new Menu("Grado");
-		Menu studen = new Menu("Estudiante");
-		mainmenu.getMenus().addAll(profe, grado, studen);
+		Menu archivo = new Menu("Archivo");
+		Menu pyc = new Menu("Procesos y consultas");
+		Menu aiuda = new Menu("Ayuda");
+		mainmenu.getMenus().addAll(archivo, pyc, aiuda);
 		ustage.setTop(mainmenu);
+		
+		//BorderPane arch = new BorderPane();
+		GridPane a = new GridPane();
+		ustage.setCenter(a);
+		Label title = new Label("SYSTOOL");
+		title.setTextFill(Color.web("LIGHTSEAGREEN"));
+		title.setFont(new Font("Nirmala UI Semilight Bold",  50));
+		a.setAlignment(Pos.CENTER);
+		a.add(title, 1, 1);
+		
+		Button exit = new Button("Salir");
+		exit.setFont(new Font("Tahoma", 17));
+		ustage.setBottom(exit);
+		a.setPadding(new Insets(15,15,15,15));
+		BorderPane.setAlignment(exit, Pos.CENTER);
+		//HANDLER DEL BOTON
+		exit.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent e) {
+				primario.setScene(prisce);
+				primario.setTitle("SYSTOOL 2.0v");
+			}
+				
+		});
+		
+		
 		////////////////////////////////////////////
 		
 		
@@ -186,7 +213,7 @@ public class VentanaInicio extends Application {
 		////////////////////////////////////////
 		p1.setTop(p3);
 		Label bienvenida = new Label("BIENVENIDO A SYSTOOL");
-		bienvenida.setTextFill(Color.web("#6666FF"));
+		bienvenida.setTextFill(Color.web("LIGHTSEAGREEN"));
 		bienvenida.setFont(new Font("Nirmala UI Semilight Bold",  22));
 		p3.setPadding(new Insets(15,15,15,15));
 		p3.setAlignment(Pos.CENTER);
@@ -195,6 +222,7 @@ public class VentanaInicio extends Application {
 		////////////////////////////////
 		p1.setCenter(p4);
 		Button ingre = new Button("Ingresar");
+		ingre.setFont(new Font("Tahoma", 17));
 		
 		//HANDLER DEL BOTON
 		ingre.setOnAction(new EventHandler<ActionEvent>() {
