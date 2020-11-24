@@ -37,11 +37,11 @@ public class VentanaInicio extends Application {
 				
 			}
 			else if(mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Daniela Guardia Cuervo, 21 años de edad.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.")) {
-				hoja.setText("Cristian David Quinchia Ramirez,\r\n20 años, me gusta la pepsi, la animación y la musica");
+				hoja.setText("Cristian David Quinchia Ramirez, 21 años.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.\r\nMe interesan las redes y telecomunicaciones.");
 				fot01=new Image(getClass().getResourceAsStream("/fotos/cris.png"));
 				prog.setImage(fot01);
 			}
-			else if(mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Cristian David Quinchia Ramirez,\r\n20 años, me gusta la pepsi, la animación y la musica")) {
+			else if(mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Cristian David Quinchia Ramirez, 21 años.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.\r\nMe interesan las redes y telecomunicaciones.")) {
 				hoja.setText("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
 				fot01=new Image(getClass().getResourceAsStream("/fotos/sebas.png"));
 				prog.setImage(fot01);
@@ -226,7 +226,7 @@ public class VentanaInicio extends Application {
 		hoja.setOnMousePressed(mouseHandler);
 		hoja.setTextFill(Color.web("#000000"));
 		hoja.setPrefWidth(300);
-		hoja.setPrefHeight(60);
+		hoja.setPrefHeight(80);
 		p5.setPadding(new Insets(15,15,15,15));
 		p5.setAlignment(Pos.CENTER);
 		p5.add(hoja,1,1);
