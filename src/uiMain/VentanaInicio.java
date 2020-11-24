@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,23 +15,44 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class VentanaInicio extends Application {
+	
+	//MOUSE EVENTO CLICK
+	
+	EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() { 
+	@Override
+	public void handle(MouseEvent mouseEvent) {
+		if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED")) {
+				hoja.setText("Daniela Guardia Cuervo,\r\n20 años, me gusta la pepsi, la animación y la musica");
+				p5.add(hoja,1,1);
+			}
+		else {
+			
+		}
+		
+		}
+	};	
 	public static void main(String args[]) {
 		launch(args);
 	}
+	
+	
+	
+	
 	
 	Stage primario;
 	Scene prisce;
 	Scene user;
 	BorderPane ustage;
 	GridPane p5;
-	Label hoja1;
-	TextArea hoja;
+	Label hoja;
+	@Override
 	public void start(Stage primaryStage) throws Exception{
 		primario = primaryStage;
 
@@ -46,8 +68,7 @@ public class VentanaInicio extends Application {
 		////////////////////////////////////////////
 		
 		
-		
-		
+		///////////////////////////////////////
 		//ESCENARIO DEFAULT
 		BorderPane inicio = new BorderPane();
 		inicio.setPadding(new Insets(15,15,15,15));
@@ -61,6 +82,8 @@ public class VentanaInicio extends Application {
 		GridPane p6 = new GridPane();
 		inicio.setLeft(p1);
 		inicio.setRight(p2);
+		p1.setStyle("-fx-border-color: black");
+		p2.setStyle("-fx-border-color: black");
 		//DEFAULT DE LOS PANELES
 		////////////////////////////////////////
 		p1.setTop(p3);
@@ -69,7 +92,7 @@ public class VentanaInicio extends Application {
 		p3.setPadding(new Insets(15,15,15,15));
 		p3.setAlignment(Pos.CENTER);
 		p3.add(bienvenida, 1, 1);
-		
+		p3.setStyle("-fx-border-color: black");
 		////////////////////////////////
 		p1.setCenter(p4);
 		Button ingre = new Button("Ingresar");
@@ -94,18 +117,19 @@ public class VentanaInicio extends Application {
 		p4.setPadding(new Insets(15,15,15,15));
 		BorderPane.setAlignment(ingre, Pos.CENTER);
 		BorderPane.setAlignment(im01, Pos.CENTER);
-		
+		p4.setStyle("-fx-border-color: black");
 		///////////////////////////////////////////
 		p2.setTop(p5);
-		Label hoja1 = new Label("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica");
+		Label hoja = new Label("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
+		hoja.setOnMousePressed(mouseHandler);
 		Label hoja2 = new Label("Daniela Guardia Cuervo,\r\n20 años, me gusta la pepsi, la animación y la musica");
-		Label hoja3 = new Label("Cristian David Quinchia Ramirez,\r\n20 años, me gusta la pepsi, la animación y la musica");
-		hoja1.setTextFill(Color.web("#000000"));
-		hoja1.setPrefWidth(50);
-		hoja1.setPrefHeight(50);
+		//Label hoja3 = new Label("Cristian David Quinchia Ramirez,\r\n20 años, me gusta la pepsi, la animación y la musica");
+		hoja.setTextFill(Color.web("#000000"));
+		hoja.setPrefWidth(300);
+		hoja.setPrefHeight(50);
 		p5.setPadding(new Insets(15,15,15,15));
 		p5.setAlignment(Pos.CENTER);
-		p5.add(hoja1,1,1);
+		p5.add(hoja,1,1);
 		p5.setStyle("-fx-border-color: black");
 		
 		//////////////////////////////////
