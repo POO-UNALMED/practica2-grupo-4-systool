@@ -28,30 +28,82 @@ public class VentanaInicio extends Application {
 	EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() { 
 	@Override
 	public void handle(MouseEvent mouseEvent) {
-		if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED")) {
+			if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia")) {
 				hoja.setText("Daniela Guardia Cuervo,\r\n20 años, me gusta la pepsi, la animación y la musica");
-				p5.add(hoja,1,1);
+				fot01=new Image(getClass().getResourceAsStream("/fotos/dani.png"));
+				prog.setImage(fot01);
+				
 			}
-		else {
+			else if(mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Daniela Guardia Cuervo,\r\n20 años, me gusta la pepsi, la animación y la musica")) {
+				hoja.setText("Cristian David Quinchia Ramirez,\r\n20 años, me gusta la pepsi, la animación y la musica");
+				fot01=new Image(getClass().getResourceAsStream("/fotos/cris.png"));
+				prog.setImage(fot01);
+			}
+			else if(mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Cristian David Quinchia Ramirez,\r\n20 años, me gusta la pepsi, la animación y la musica")) {
+				hoja.setText("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
+				fot01=new Image(getClass().getResourceAsStream("/fotos/sebas.png"));
+				prog.setImage(fot01);
+			}
+	}	
+	
+	};
+	
+	
+	EventHandler<MouseEvent> movimiento = new EventHandler<MouseEvent>() { 
+		@Override
+		public void handle(MouseEvent mouseEvent) {
 			
-		}
+			if(mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("01") ) {
+				ini = "02";
+				imaini = new Image(getClass().getResourceAsStream("/imagenes/01.jpg"));
+				im01.setImage(imaini);
+			}
+			else if(mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("02")) {
+				ini = "03";
+				imaini = new Image(getClass().getResourceAsStream("/imagenes/02.jpeg"));
+				im01.setImage(imaini);
+			}else if(mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("03")) {
+				ini = "04";
+				imaini = new Image(getClass().getResourceAsStream("/imagenes/03.jpg"));
+				im01.setImage(imaini);
+			}else if(mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("04")) {
+				ini = "05";
+				imaini = new Image(getClass().getResourceAsStream("/imagenes/04.jpeg"));
+				im01.setImage(imaini);
+			}else if(mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("05")) {
+				ini = "01";
+				imaini = new Image(getClass().getResourceAsStream("/imagenes/05.png"));
+				im01.setImage(imaini);
+			}
+			
+			
+			
+			}	
 		
-		}
-	};	
+		};
+	
+	
+	
+	
+	
+	
 	public static void main(String args[]) {
 		launch(args);
 	}
-	
-	
-	
-	
-	
+	String ini = "01";
 	Stage primario;
 	Scene prisce;
 	Scene user;
 	BorderPane ustage;
 	GridPane p5;
 	Label hoja;
+	Image imaini;
+	ImageView im01;
+	Image fot01;
+	ImageView prog;
+	
+	
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception{
 		primario = primaryStage;
@@ -108,8 +160,10 @@ public class VentanaInicio extends Application {
 		});
 		
 		
-		Image imaini = new Image(getClass().getResourceAsStream("/imagenes/sparta.jpg"));
-		ImageView im01 = new ImageView(imaini);
+		imaini = new Image(getClass().getResourceAsStream("/imagenes/sparta.jpg"));
+		im01 = new ImageView(imaini);
+		im01.setOnMouseEntered(movimiento);
+		
 		im01.setFitHeight(200);
 		im01.setFitWidth(200);
 		p4.setBottom(ingre);
@@ -120,10 +174,8 @@ public class VentanaInicio extends Application {
 		p4.setStyle("-fx-border-color: black");
 		///////////////////////////////////////////
 		p2.setTop(p5);
-		Label hoja = new Label("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
+		hoja = new Label("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
 		hoja.setOnMousePressed(mouseHandler);
-		Label hoja2 = new Label("Daniela Guardia Cuervo,\r\n20 años, me gusta la pepsi, la animación y la musica");
-		//Label hoja3 = new Label("Cristian David Quinchia Ramirez,\r\n20 años, me gusta la pepsi, la animación y la musica");
 		hoja.setTextFill(Color.web("#000000"));
 		hoja.setPrefWidth(300);
 		hoja.setPrefHeight(50);
@@ -134,8 +186,8 @@ public class VentanaInicio extends Application {
 		
 		//////////////////////////////////
 		p2.setCenter(p6);
-		Image fot01 = new Image(getClass().getResourceAsStream("/fotos/sebas.png"));
-		ImageView prog = new ImageView(fot01);
+		fot01 = new Image(getClass().getResourceAsStream("/fotos/sebas.png"));
+		prog = new ImageView(fot01);
 		prog.setFitHeight(200);
 		prog.setFitWidth(150);
 		p6.add(prog,1,1);
@@ -155,15 +207,9 @@ public class VentanaInicio extends Application {
 		
 		/////////////////////////////////
 		
-		
-		
-		
-		
-		
-		
 	}
 	
-	
+
 	
 
 }
