@@ -20,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class VentanaInicio extends Application {
@@ -30,12 +31,12 @@ public class VentanaInicio extends Application {
 	@Override
 	public void handle(MouseEvent mouseEvent) {
 			if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia")) {
-				hoja.setText("Daniela Guardia Cuervo,\r\n20 años, me gusta la pepsi, la animación y la musica");
+				hoja.setText("Daniela Guardia Cuervo, 21 años de edad.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.");
 				fot01=new Image(getClass().getResourceAsStream("/fotos/dani.png"));
 				prog.setImage(fot01);
 				
 			}
-			else if(mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Daniela Guardia Cuervo,\r\n20 años, me gusta la pepsi, la animación y la musica")) {
+			else if(mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Daniela Guardia Cuervo, 21 años de edad.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.")) {
 				hoja.setText("Cristian David Quinchia Ramirez,\r\n20 años, me gusta la pepsi, la animación y la musica");
 				fot01=new Image(getClass().getResourceAsStream("/fotos/cris.png"));
 				prog.setImage(fot01);
@@ -186,6 +187,7 @@ public class VentanaInicio extends Application {
 		p1.setTop(p3);
 		Label bienvenida = new Label("BIENVENIDO A SYSTOOL");
 		bienvenida.setTextFill(Color.web("#6666FF"));
+		bienvenida.setFont(new Font("Nirmala UI Semilight Bold",  22));
 		p3.setPadding(new Insets(15,15,15,15));
 		p3.setAlignment(Pos.CENTER);
 		p3.add(bienvenida, 1, 1);
@@ -220,10 +222,11 @@ public class VentanaInicio extends Application {
 		///////////////////////////////////////////
 		p2.setTop(p5);
 		hoja = new Label("Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
+		hoja.setFont(new Font("Tahoma", 15));
 		hoja.setOnMousePressed(mouseHandler);
 		hoja.setTextFill(Color.web("#000000"));
 		hoja.setPrefWidth(300);
-		hoja.setPrefHeight(50);
+		hoja.setPrefHeight(60);
 		p5.setPadding(new Insets(15,15,15,15));
 		p5.setAlignment(Pos.CENTER);
 		p5.add(hoja,1,1);
