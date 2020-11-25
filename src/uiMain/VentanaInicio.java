@@ -30,8 +30,7 @@ public class VentanaInicio extends Application {
 	EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() {
 		@Override
 		public void handle(MouseEvent mouseEvent) {
-			if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals(
-					"Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia")) {
+			if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Sebastian Agudelo Osorio,\r\n20 años, estudiante de la \r\nUniversidad Nacional De Colombia,\r\nproductor, fanatico de las tecnologias")) {
 				hoja.setText(
 						"Daniela Guardia Cuervo, 21 años de edad.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.");
 				fot01 = new Image(getClass().getResourceAsStream("/fotos/dani.png"));
@@ -46,7 +45,7 @@ public class VentanaInicio extends Application {
 			} else if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals(
 					"Cristian David Quinchia Ramirez, 21 años.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.\r\nMe interesan las redes y telecomunicaciones.")) {
 				hoja.setText(
-						"Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
+						"Sebastian Agudelo Osorio,\r\n20 años, estudiante de la \r\nUniversidad Nacional De Colombia,\r\nproductor, fanatico de las tecnologias");
 				fot01 = new Image(getClass().getResourceAsStream("/fotos/sebas.png"));
 				prog.setImage(fot01);
 			}
@@ -139,6 +138,15 @@ public class VentanaInicio extends Application {
 							TextField creEs4 = new TextField();
 							TextField creEs5 = new TextField();
 							crear = new Button("Crear");
+							crear.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+								}
+								
+							});
 							Label alerta = new Label("Por favor complete todos los campos solicitados.");
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("CREAR ESTUDIANTE");
@@ -165,7 +173,11 @@ public class VentanaInicio extends Application {
 							paneCreEst.add(creEs5,3,14);
 							paneCreEst.add(new Label(""), 2, 15);
 							paneCreEst.add(crear,2,16);
+
 							ustage.setCenter(paneCreEst);
+							///EXCEPCION 
+							///int J  = Integer.parseInt(creEs1.getText());
+							
 						}
 
 					});
@@ -305,8 +317,8 @@ public class VentanaInicio extends Application {
 		GridPane p6 = new GridPane();
 		inicio.setLeft(p1);
 		inicio.setRight(p2);
-		p1.setStyle("-fx-border-color: black");
-		p2.setStyle("-fx-border-color: black");
+		//p1.setStyle("-fx-border-color: black");
+//		p2.setStyle("-fx-border-color: black");
 		// DEFAULT DE LOS PANELES
 		////////////////////////////////////////
 		p1.setTop(p3);
@@ -316,7 +328,7 @@ public class VentanaInicio extends Application {
 		p3.setPadding(new Insets(15, 15, 15, 15));
 		p3.setAlignment(Pos.CENTER);
 		p3.add(bienvenida, 1, 1);
-		p3.setStyle("-fx-border-color: black");
+//		p3.setStyle("-fx-border-color: black");
 		////////////////////////////////
 		p1.setCenter(p4);
 		Button ingre = new Button("Ingresar");
@@ -343,11 +355,11 @@ public class VentanaInicio extends Application {
 		p4.setPadding(new Insets(15, 15, 15, 15));
 		BorderPane.setAlignment(ingre, Pos.CENTER);
 		BorderPane.setAlignment(im01, Pos.CENTER);
-		p4.setStyle("-fx-border-color: black");
+//		p4.setStyle("-fx-border-color: black");
 		///////////////////////////////////////////
 		p2.setTop(p5);
 		hoja = new Label(
-				"Sebastian Agudelo Osorio,\r\n20 años, me gusta la pepsi, la animación y la musica\r\nUniversidad Nacional De Colombia");
+				"Sebastian Agudelo Osorio,\r\n20 años, estudiante de la \r\nUniversidad Nacional De Colombia,\r\nproductor, fanatico de las tecnologias");
 		hoja.setFont(new Font("Tahoma", 15));
 		hoja.setOnMousePressed(mouseHandler);
 		hoja.setTextFill(Color.web("#000000"));
@@ -356,7 +368,7 @@ public class VentanaInicio extends Application {
 		p5.setPadding(new Insets(15, 15, 15, 15));
 		p5.setAlignment(Pos.CENTER);
 		p5.add(hoja, 1, 1);
-		p5.setStyle("-fx-border-color: black");
+//		p5.setStyle("-fx-border-color: black");
 
 		//////////////////////////////////
 		p2.setCenter(p6);
@@ -367,7 +379,7 @@ public class VentanaInicio extends Application {
 		p6.add(prog, 1, 1);
 		p6.setPadding(new Insets(15, 15, 15, 15));
 		p6.setAlignment(Pos.CENTER);
-		p6.setStyle("-fx-border-color: black");
+//		p6.setStyle("-fx-border-color: black");
 		// FIN DEL DEFAULT
 		///////////////////////////////////////////
 
