@@ -211,7 +211,6 @@ public class VentanaInicio extends Application {
 	Button est3;
 	Button est4;
 	
-	
 	Label des;
 
 	@Override
@@ -231,19 +230,21 @@ public class VentanaInicio extends Application {
 
 		// BorderPane arch = new BorderPane();
 		GridPane a = new GridPane();
+		GridPane bb = new GridPane();
 		ustage.setCenter(a);
 		Label title = new Label("SYSTOOL");
 		title.setTextFill(Color.web("LIGHTSEAGREEN"));
 		title.setFont(new Font("Nirmala UI Semilight Bold", 50));
 		a.setAlignment(Pos.CENTER);
 		a.add(title, 1, 1);
-		
-
+		a.add(bb, 1, 2);
+		bb.setAlignment(Pos.CENTER);
 		Button exit = new Button("Salir");
 		exit.setFont(new Font("Tahoma", 17));
-		ustage.setBottom(exit);
+		///ustage.setBottom();
 		a.setPadding(new Insets(15, 15, 15, 15));
-		BorderPane.setAlignment(exit, Pos.CENTER);
+		bb.add(exit, 1, 1);
+		BorderPane.setAlignment(title, Pos.CENTER);
 		// HANDLER DEL BOTON
 		exit.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -253,6 +254,8 @@ public class VentanaInicio extends Application {
 			}
 
 		});
+		
+		
 
 		// -------------------------------------------------------------------------------------------
 
@@ -368,7 +371,7 @@ public class VentanaInicio extends Application {
 
 		// ESCENARIO INCICIAL
 		primario.setTitle("SYSTOOL 2.0v");
-		Scene prisce = new Scene(inicio, 650, 420);
+		prisce = new Scene(inicio, 650, 420);
 		primario.setScene(prisce);
 		primario.show();
 
