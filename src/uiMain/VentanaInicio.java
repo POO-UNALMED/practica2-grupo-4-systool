@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -14,6 +15,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -130,6 +132,12 @@ public class VentanaInicio extends Application {
 					paneEst.add(new Label(""), 1, 9);
 					paneEst.add(est4, 1, 10);
 					ustage.setCenter(paneEst);
+					
+					
+					
+					
+					////////////////////////////////////////////////
+					
 					est1.setOnAction(new EventHandler<ActionEvent>() {
 						@Override
 						public void handle(ActionEvent e) {
@@ -400,6 +408,8 @@ public class VentanaInicio extends Application {
 	MenuItem prof;
 	MenuItem gr;
 	MenuItem asig;
+	MenuItem aruser;
+	MenuItem arsalir;
 	GridPane paneEst;
 	GridPane paneCreEst;
 	GridPane paneInfEst;
@@ -445,37 +455,57 @@ public class VentanaInicio extends Application {
 		mainmenu.getMenus().addAll(archivo, pyc, aiuda);
 		ustage.setTop(mainmenu);
 
-		// BorderPane arch = new BorderPane();
+		//////////////////////////////////////////////////////
+		//USUARIO
+		aruser = new MenuItem ("Usuario");
+		arsalir = new MenuItem("Salir");
+		archivo.getItems().addAll(aruser,arsalir);
 		GridPane a = new GridPane();
 		GridPane bb = new GridPane();
 		ustage.setCenter(a);
-		Label title = new Label("SYSTOOL");
-		title.setTextFill(Color.web("LIGHTSEAGREEN"));
-		title.setFont(new Font("Nirmala UI Semilight Bold", 50));
+//		//-----//
+//		Label title = new Label("SYSTOOL");
+//		title.setTextFill(Color.web("LIGHTSEAGREEN"));
+//		title.setFont(new Font("Nirmala UI Semilight Bold", 50));
+//		BorderPane.setAlignment(title, Pos.CENTER);
+		
+		Image sys = new Image(getClass().getResourceAsStream("/imagenes/01.png"));
+		ImageView mysys = new ImageView(sys);
+		mysys.setFitWidth(300);
+		mysys.setFitHeight(200);
+		BorderPane.setAlignment(mysys, Pos.CENTER);
+		bb.add(mysys, 1, 1);
+		
 		a.setAlignment(Pos.CENTER);
-		a.add(title, 1, 1);
+		a.add(mysys, 1, 1);
 		a.add(bb, 1, 2);
 		bb.setAlignment(Pos.CENTER);
-		Button exit = new Button("Salir");
-		exit.setFont(new Font("Tahoma", 17));
-		///ustage.setBottom();
 		a.setPadding(new Insets(15, 15, 15, 15));
-		bb.add(exit, 1, 1);
-		BorderPane.setAlignment(title, Pos.CENTER);
-		// HANDLER DEL BOTON
-		exit.setOnAction(new EventHandler<ActionEvent>() {
+		bb.setPadding(new Insets(15, 15, 15, 15));
+		//EVENTOS DE ARCHIVO
+		aruser.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
-			public void handle(ActionEvent e) {
+			public void handle(ActionEvent arg0) {
+				ustage.setCenter(a);
+				
+			}
+			
+		}
+		);
+		arsalir.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
 				primario.setScene(prisce);
 				primario.setTitle("SYSTOOL 2.0v");
 			}
-
-		});
-		
-		
+			
+		}
+		);	
 
 		// -------------------------------------------------------------------------------------------
-
+		//PROCESOS Y CONSULTAS
 		est = new MenuItem("Estudiante");
 		prof = new MenuItem("Profesor");
 		gr = new MenuItem("Grado");
@@ -488,7 +518,33 @@ public class VentanaInicio extends Application {
 		
 
 		// -------------------------------------------------------------------------------------------
+		
+		//AYUDA
+		
+		MenuItem acerca = new MenuItem("Acerca de SYSTOOL");
+		aiuda.getItems().add(acerca);
+		Alert info = new Alert(AlertType.NONE);
+		acerca.setOnAction(new EventHandler<ActionEvent>() {
 
+			@Override
+			public void handle(ActionEvent event) {
+				info.setAlertType(AlertType.INFORMATION);
+				info.setTitle("Conoce sobre SYSTOOL");
+				
+				info.setHeaderText("SYSTOOL\r\nPlataforma creada por:\r\nCristian David Quinchia Ramirez\r\nDaniela Guardia Cuervo\r\nSebastian Agudelo Osorio");
+				info.setContentText("Gracias por preferir SYSTOOL");
+				
+				info.show();
+			}
+		
+		});
+		
+		
+		
+		
+		
+		
+		
 		///////////////////////////////////////
 		// ESCENARIO DEFAULT
 		BorderPane inicio = new BorderPane();
