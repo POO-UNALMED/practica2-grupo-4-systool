@@ -30,7 +30,7 @@ public class VentanaInicio extends Application {
 	EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() {
 		@Override
 		public void handle(MouseEvent mouseEvent) {
-			if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Sebastian Agudelo Osorio,\r\n20 años, estudiante de la \r\nUniversidad Nacional De Colombia,\r\nproductor, fanatico de las tecnologias")) {
+			if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Sebastian Agudelo Osorio,\r\n20 años, estudiante de la \r\nUniversidad Nacional De Colombia,\r\nproductor, fanático de las tecnologías")) {
 				hoja.setText(
 						"Daniela Guardia Cuervo, 21 años de edad.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.");
 				fot01 = new Image(getClass().getResourceAsStream("/fotos/dani.png"));
@@ -45,7 +45,7 @@ public class VentanaInicio extends Application {
 			} else if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals(
 					"Cristian David Quinchia Ramirez, 21 años.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.\r\nMe interesan las redes y telecomunicaciones.")) {
 				hoja.setText(
-						"Sebastian Agudelo Osorio,\r\n20 años, estudiante de la \r\nUniversidad Nacional De Colombia,\r\nproductor, fanatico de las tecnologias");
+						"Sebastian Agudelo Osorio,\r\n20 años, estudiante de la \r\nUniversidad Nacional De Colombia,\r\nproductor, fanático de las tecnologías");
 				fot01 = new Image(getClass().getResourceAsStream("/fotos/sebas.png"));
 				prog.setImage(fot01);
 			}
@@ -359,7 +359,7 @@ public class VentanaInicio extends Application {
 		///////////////////////////////////////////
 		p2.setTop(p5);
 		hoja = new Label(
-				"Sebastian Agudelo Osorio,\r\n20 años, estudiante de la \r\nUniversidad Nacional De Colombia,\r\nproductor, fanatico de las tecnologias");
+				"Sebastian Agudelo Osorio,\r\n20 años, estudiante de la \r\nUniversidad Nacional De Colombia,\r\nproductor, fanático de las tecnologías");
 		hoja.setFont(new Font("Tahoma", 15));
 		hoja.setOnMousePressed(mouseHandler);
 		hoja.setTextFill(Color.web("#000000"));
