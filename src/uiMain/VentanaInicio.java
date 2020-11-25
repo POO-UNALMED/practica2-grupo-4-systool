@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -14,6 +15,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,6 +24,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import uiMain.Main;
 
 public class VentanaInicio extends Application {
 
@@ -137,6 +140,7 @@ public class VentanaInicio extends Application {
 							TextField creEs3 = new TextField();
 							TextField creEs4 = new TextField();
 							TextField creEs5 = new TextField();
+							Alert confirm = new Alert(AlertType.NONE); 
 							crear = new Button("Crear");
 							crear.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -144,6 +148,22 @@ public class VentanaInicio extends Application {
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
 									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									int dni = Integer.parseInt(creEs1.getText());
+									String nombre = creEs2.getText();
+									String apellido = creEs3.getText();
+									int edad = Integer.parseInt(creEs4.getText());
+									String acudiente = creEs5.getText();
+									creEs1.setText("");
+									creEs2.setText("");
+									creEs3.setText("");
+									creEs4.setText("");
+									creEs5.setText("");
+									
+									//Main.crearEst(dni, nombre, apellido, edad, acudiente);
+									confirm.setAlertType(AlertType.INFORMATION); 
+									confirm.setTitle("Crear Estudiante");
+									confirm.setHeaderText("Estudiante creado exitosamente.");
+									confirm.show(); 
 								}
 								
 							});

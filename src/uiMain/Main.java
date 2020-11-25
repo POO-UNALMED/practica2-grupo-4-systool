@@ -21,6 +21,26 @@ public class Main {
 		System.out.println("5. Salir");
 	}
 
+	
+
+	//-------------------------------------------------------------------------------------------------------------------------
+	
+	public static void crearEst(int dni, String nombre, String apellido, int edad, String acudiente) {
+		Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
+		System.out.println(e1.getNombre());
+	}
+	
+
+
+	
+	
+	
+	
+	//-------------------------------------------------------------------------------------------------------------------------
+
+	
+	
+	
 	public static void main(String[] args) {
 
 		Serializacion.b2();
@@ -38,7 +58,7 @@ public class Main {
 		Scanner reader = new Scanner(System.in);
 		int opcion = reader.nextInt();
 		int funcionalidad;
-
+		
 		switch (opcion) {
 		case 1:
 			System.out.println("1. Crear estudiante\r\n" + "2. Informe de notas individual\r\n"
@@ -492,5 +512,8 @@ public class Main {
 		
 		System.out.println("Hasta pronto <3");
 	}
+
+
+
 
 }
