@@ -59,23 +59,23 @@ public class VentanaInicio extends Application {
 
 			if (mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("01")) {
 				ini = "02";
-				imaini = new Image(getClass().getResourceAsStream("/imagenes/01.jpg"));
+				imaini = new Image(getClass().getResourceAsStream("/imagenes/02.png"));
 				im01.setImage(imaini);
 			} else if (mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("02")) {
 				ini = "03";
-				imaini = new Image(getClass().getResourceAsStream("/imagenes/02.jpeg"));
+				imaini = new Image(getClass().getResourceAsStream("/imagenes/03.png"));
 				im01.setImage(imaini);
 			} else if (mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("03")) {
 				ini = "04";
-				imaini = new Image(getClass().getResourceAsStream("/imagenes/03.jpg"));
+				imaini = new Image(getClass().getResourceAsStream("/imagenes/04.png"));
 				im01.setImage(imaini);
 			} else if (mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("04")) {
 				ini = "05";
-				imaini = new Image(getClass().getResourceAsStream("/imagenes/04.jpeg"));
+				imaini = new Image(getClass().getResourceAsStream("/imagenes/05.png"));
 				im01.setImage(imaini);
 			} else if (mouseEvent.getEventType().toString().equals("MOUSE_ENTERED") && ini.equals("05")) {
 				ini = "01";
-				imaini = new Image(getClass().getResourceAsStream("/imagenes/05.png"));
+				imaini = new Image(getClass().getResourceAsStream("/imagenes/01.png"));
 				im01.setImage(imaini);
 			}
 
@@ -110,7 +110,7 @@ public class VentanaInicio extends Application {
 			if (control instanceof MenuItem) {
 				if (control.equals(est)) {
 					paneEst = new GridPane();
-					title1 = new Label("GONORREA");
+					title1 = new Label("ESTUDIANTE");
 					title1.setTextFill(Color.web("BLACK"));
 					title1.setFont(new Font("Nirmala UI Semilight Bold", 25));
 					est1 = new Button("Crear estudiante");
@@ -372,7 +372,7 @@ public class VentanaInicio extends Application {
 
 		});
 
-		imaini = new Image(getClass().getResourceAsStream("/imagenes/sparta.jpg"));
+		imaini = new Image(getClass().getResourceAsStream("/imagenes/01.png"));
 		im01 = new ImageView(imaini);
 		im01.setOnMouseEntered(movimiento);
 
