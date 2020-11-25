@@ -112,7 +112,6 @@ public class VentanaInicio extends Application {
 				if (control.equals(est)) {
 					paneEst = new GridPane();
 					title1 = new Label("GONORREA");
-					espacio = new Label("");
 					title1.setTextFill(Color.web("BLACK"));
 					title1.setFont(new Font("Nirmala UI Semilight Bold", 25));
 					est1 = new Button("Crear estudiante");
@@ -131,6 +130,27 @@ public class VentanaInicio extends Application {
 					paneEst.add(new Label(""), 1, 9);
 					paneEst.add(est4, 1, 10);
 					ustage.setCenter(paneEst);
+					est1.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							paneCreEst = new GridPane();
+							paneCreEst.setAlignment(Pos.CENTER);
+							paneCreEst.add(new Label("CREAR ESTUDIANTE."),1,1);
+							paneCreEst.add(new Label("Por favor complete todos los campos solicitados."),1,2);
+							paneCreEst.add(new Label("DNI: "),1,3);
+							//paneCreEst.add(creEs1,2,3);
+							paneCreEst.add(new Label("Nombre: "),1,4);
+							//paneCreEst.add(creEs2,2,4);
+							paneCreEst.add(new Label("Apellido: "),1,5);
+							//paneCreEst.add(creEs3,2,5);
+							paneCreEst.add(new Label("Edad: "),1,6);
+							//paneCreEst.add(creEs4,2,6);
+							paneCreEst.add(new Label("Acudiente: "),1,7);
+							//paneCreEst.add(creEs5,2,7);
+							ustage.setCenter(paneCreEst);
+						}
+
+					});
 				} else if(control.equals(prof)) {
 					
 				} else if (control.equals(gr)) {
@@ -141,6 +161,7 @@ public class VentanaInicio extends Application {
 			}
 		}
 	};
+	
 	
 	
 
@@ -168,13 +189,17 @@ public class VentanaInicio extends Application {
 	MenuItem gr;
 	MenuItem asig;
 	GridPane paneEst;
+	GridPane paneCreEst;
 	Label title1;
-	Label espacio;
 	Button est1;
 	Button est2;
 	Button est3;
 	Button est4;
-
+	TextField creEs1;
+	TextField creEs2;
+	TextField creEs3;
+	TextField creEs4;
+	TextField creEs5;
 	Label des;
 
 	@Override
@@ -228,6 +253,7 @@ public class VentanaInicio extends Application {
 		prof.setOnAction(clase);
 		gr.setOnAction(clase);
 		asig.setOnAction(clase);
+		
 
 		// -------------------------------------------------------------------------------------------
 
