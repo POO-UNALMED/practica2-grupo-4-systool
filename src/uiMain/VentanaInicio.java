@@ -112,6 +112,7 @@ public class VentanaInicio extends Application {
 				if (control.equals(est)) {
 					paneEst = new GridPane();
 					title1 = new Label("GONORREA");
+					espacio = new Label("");
 					title1.setTextFill(Color.web("BLACK"));
 					title1.setFont(new Font("Nirmala UI Semilight Bold", 25));
 					est1 = new Button("Crear estudiante");
@@ -120,10 +121,15 @@ public class VentanaInicio extends Application {
 					est4 = new Button("Ver informacion estudiante");
 					paneEst.setAlignment(Pos.CENTER);
 					paneEst.add(title1, 1, 1);
-					paneEst.add(est1, 1, 1);
-					paneEst.add(est2, 1, 1);
-					paneEst.add(est3, 1, 1);
-					paneEst.add(est4, 1, 1);
+					paneEst.add(new Label(""), 1, 2);
+					paneEst.add(new Label(""), 1, 3);
+					paneEst.add(est1, 1, 4);
+					paneEst.add(new Label(""), 1, 5);
+					paneEst.add(est2, 1, 6);
+					paneEst.add(new Label(""), 1, 7);
+					paneEst.add(est3, 1, 8);
+					paneEst.add(new Label(""), 1, 9);
+					paneEst.add(est4, 1, 10);
 					ustage.setCenter(paneEst);
 				} else if(control.equals(prof)) {
 					
@@ -163,6 +169,7 @@ public class VentanaInicio extends Application {
 	MenuItem asig;
 	GridPane paneEst;
 	Label title1;
+	Label espacio;
 	Button est1;
 	Button est2;
 	Button est3;
