@@ -110,7 +110,8 @@ public class VentanaInicio extends Application {
 			if (control instanceof MenuItem) {
 				if (control.equals(est)) {
 					paneEst = new GridPane();
-					title1 = new Label("ESTUDIANTE");
+
+					title1 = new Label("MENU ESTUDIANTE");
 					title1.setTextFill(Color.web("BLACK"));
 					title1.setFont(new Font("Nirmala UI Semilight Bold", 25));
 					est1 = new Button("Crear estudiante");
@@ -207,10 +208,165 @@ public class VentanaInicio extends Application {
 							ustage.setCenter(paneInfEst);
 						}
 					});
+					est3.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							paneMejEst = new GridPane();
+							paneMejEst.setAlignment(Pos.CENTER);
+							Label describ = new Label("MEJORES 10 ESTUDIANTES DEL COLEGIO");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("El programa mostrará una lista de\n\rlos 10 mejores estudiantes del colegio.");
+							descrip.setFont(new Font("Tahoma", 13));
+							paneMejEst.add(describ, 2, 1);
+							paneMejEst.add(new Label(""),1,2);
+							paneMejEst.add(descrip,2,3);
+							ustage.setCenter(paneMejEst);
+						}
+					});
+					est4.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField infoEs1 = new TextField();
+							Label alerta = new Label("Por favor complete el campo solicitado.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("INFORMACION DE ESTUDIANTE");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar el DNI del estudiante, el programa\n\rmostrará los datos del estudiante.");
+							descrip.setFont(new Font("Tahoma", 13));
+							informe = new Button("Buscar informacion");
+							paneInfoEst = new GridPane();
+							paneInfoEst.setAlignment(Pos.CENTER);
+							paneInfoEst.add(describ,2,1);
+							paneInfoEst.add(new Label(""), 1, 2);
+							paneInfoEst.add(descrip,2,3);
+							paneInfoEst.add(new Label(""), 1, 4);
+							paneInfoEst.add(alerta,3,5);
+							paneInfoEst.add(new Label(""), 1, 6);
+							paneInfoEst.add(new Label("DNI*: "),1,7);
+							paneInfoEst.add(infoEs1,3,7);
+							paneInfoEst.add(new Label(""), 1, 8);
+							paneInfoEst.add(informe, 2, 9);
+							ustage.setCenter(paneInfoEst);
+						}
+					});
 				} else if(control.equals(prof)) {
-					
+					panePro = new GridPane();
+					title1 = new Label("MENU PROFESOR");
+					title1.setTextFill(Color.web("BLACK"));
+					title1.setFont(new Font("Nirmala UI Semilight Bold", 25));
+					pro1 = new Button("Crear profesor");
+					pro2 = new Button("Ver información profesor");
+					panePro.setAlignment(Pos.CENTER);
+					panePro.add(title1, 1, 1);
+					panePro.add(new Label(""), 1, 2);
+					panePro.add(new Label(""), 1, 3);
+					panePro.add(pro1, 1, 4);
+					panePro.add(new Label(""), 1, 5);
+					panePro.add(pro2, 1, 6);
+					ustage.setCenter(panePro);
+					pro1.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField crePro1 = new TextField();
+							TextField crePro2 = new TextField();
+							TextField crePro3 = new TextField();
+							TextField crePro4 = new TextField();
+							TextField crePro5 = new TextField();
+							TextField crePro6 = new TextField();
+							crear = new Button("Crear");
+							Label alerta = new Label("Por favor complete todos los campos solicitados.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("CREAR PROFESOR");
+							describ.setFont(new Font("Tahoma", 17));
+							paneCrePro = new GridPane();
+							paneCrePro.setAlignment(Pos.CENTER);
+							paneCrePro.add(describ,2,1);
+							paneCrePro.add(new Label(""), 1, 2);
+							paneCrePro.add(alerta,3,4);
+							paneCrePro.add(new Label(""), 1, 5);
+							paneCrePro.add(new Label("DNI*: "),1,6);
+							paneCrePro.add(crePro1,3,6);
+							paneCrePro.add(new Label(""), 1, 7);
+							paneCrePro.add(new Label("Nombre*: "),1,8);
+							paneCrePro.add(crePro2,3,8);
+							paneCrePro.add(new Label(""), 1, 9);
+							paneCrePro.add(new Label("Apellido*: "),1,10);
+							paneCrePro.add(crePro3,3,10);
+							paneCrePro.add(new Label(""), 1, 11);
+							paneCrePro.add(new Label("Edad*: "),1,12);
+							paneCrePro.add(crePro4,3,12);
+							paneCrePro.add(new Label(""), 1, 13);
+							paneCrePro.add(new Label("Titulo*: "),1,14);
+							paneCrePro.add(crePro5,3,14);
+							paneCrePro.add(new Label(""), 2, 15);
+							paneCrePro.add(new Label("E-mail*: "),1,16);
+							paneCrePro.add(crePro6,3,16);
+							paneCrePro.add(new Label(""), 2, 17);
+							paneCrePro.add(crear,2,18);
+
+							ustage.setCenter(paneCrePro);
+						}
+					});
+					pro2.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField infoPro1 = new TextField();
+							Label alerta = new Label("Por favor complete el campo solicitado.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("INFORMACION DE PROFESOR");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar el DNI del prfoesor, el programa\n\rmostrará los datos del profesor.");
+							descrip.setFont(new Font("Tahoma", 13));
+							informe = new Button("Buscar informacion");
+							paneInfoPro = new GridPane();
+							paneInfoPro.setAlignment(Pos.CENTER);
+							paneInfoPro.add(describ,2,1);
+							paneInfoPro.add(new Label(""), 1, 2);
+							paneInfoPro.add(descrip,2,3);
+							paneInfoPro.add(new Label(""), 1, 4);
+							paneInfoPro.add(alerta,3,5);
+							paneInfoPro.add(new Label(""), 1, 6);
+							paneInfoPro.add(new Label("DNI*: "),1,7);
+							paneInfoPro.add(infoPro1,3,7);
+							paneInfoPro.add(new Label(""), 1, 8);
+							paneInfoPro.add(informe, 2, 9);
+							ustage.setCenter(paneInfoPro);
+						}
+					});
 				} else if (control.equals(gr)) {
-					
+					paneGra = new GridPane();
+					title1 = new Label("MENU GRADO");
+					title1.setTextFill(Color.web("BLACK"));
+					title1.setFont(new Font("Nirmala UI Semilight Bold", 25));
+					gra1 = new Button("Crear grado");
+					gra2 = new Button("Crear profesor encargado");
+					gra3 = new Button("Agregar estudiante");
+					gra4 = new Button("Agregar asignatura");
+					gra5 = new Button("Ver información de grado");
+					gra6 = new Button("Cuadro de honor");
+					gra7 = new Button("Prevención de bajo rendimiento");
+					gra8 = new Button("Ver promedios de los grados");
+					paneGra.setAlignment(Pos.CENTER);
+					paneGra.add(title1, 1, 1);
+					paneGra.add(new Label(""), 1, 2);
+					paneGra.add(new Label(""), 1, 3);
+					paneGra.add(gra1, 1, 4);
+					paneGra.add(new Label(""), 1, 5);
+					paneGra.add(gra2, 1, 6);
+					paneGra.add(new Label(""), 1, 7);
+					paneGra.add(gra3, 1, 8);
+					paneGra.add(new Label(""), 1, 9);
+					paneGra.add(gra4, 1, 10);
+					paneGra.add(new Label(""), 1, 11);
+					paneGra.add(gra5, 1, 12);
+					paneGra.add(new Label(""), 1, 13);
+					paneGra.add(gra6, 1, 14);
+					paneGra.add(new Label(""), 1, 15);
+					paneGra.add(gra7, 1, 16);
+					paneGra.add(new Label(""), 1, 17);
+					paneGra.add(gra8, 1, 18);
+					paneGra.add(new Label(""), 1, 19);
+					ustage.setCenter(paneGra);
 				} else if (control.equals(asig)) {
 					
 				}
@@ -247,6 +403,12 @@ public class VentanaInicio extends Application {
 	GridPane paneEst;
 	GridPane paneCreEst;
 	GridPane paneInfEst;
+	GridPane paneMejEst;
+	GridPane paneInfoEst;
+	GridPane panePro;
+	GridPane paneCrePro;
+	GridPane paneInfoPro;
+	GridPane paneGra;
 	Label title1;
 	Button est1;
 	Button est2;
@@ -254,6 +416,17 @@ public class VentanaInicio extends Application {
 	Button est4;
 	Button crear;
 	Button informe;
+	Button pro1;
+	Button pro2;
+	Button gra1;
+	Button gra2;
+	Button gra3;
+	Button gra4;
+	Button gra5;
+	Button gra6;
+	Button gra7;
+	Button gra8;
+	
 	
 	Label des;
 
