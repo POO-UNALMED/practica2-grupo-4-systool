@@ -333,7 +333,39 @@ public class VentanaInicio extends Application {
 						}
 					});
 				} else if (control.equals(gr)) {
-					
+					paneGra = new GridPane();
+					title1 = new Label("MENU GRADO");
+					title1.setTextFill(Color.web("BLACK"));
+					title1.setFont(new Font("Nirmala UI Semilight Bold", 25));
+					gra1 = new Button("Crear grado");
+					gra2 = new Button("Crear profesor encargado");
+					gra3 = new Button("Agregar estudiante");
+					gra4 = new Button("Agregar asignatura");
+					gra5 = new Button("Ver información de grado");
+					gra6 = new Button("Cuadro de honor");
+					gra7 = new Button("Prevención de bajo rendimiento");
+					gra8 = new Button("Ver promedios de los grados");
+					paneGra.setAlignment(Pos.CENTER);
+					paneGra.add(title1, 1, 1);
+					paneGra.add(new Label(""), 1, 2);
+					paneGra.add(new Label(""), 1, 3);
+					paneGra.add(gra1, 1, 4);
+					paneGra.add(new Label(""), 1, 5);
+					paneGra.add(gra2, 1, 6);
+					paneGra.add(new Label(""), 1, 7);
+					paneGra.add(gra3, 1, 8);
+					paneGra.add(new Label(""), 1, 9);
+					paneGra.add(gra4, 1, 10);
+					paneGra.add(new Label(""), 1, 11);
+					paneGra.add(gra5, 1, 12);
+					paneGra.add(new Label(""), 1, 13);
+					paneGra.add(gra6, 1, 14);
+					paneGra.add(new Label(""), 1, 15);
+					paneGra.add(gra7, 1, 16);
+					paneGra.add(new Label(""), 1, 17);
+					paneGra.add(gra8, 1, 18);
+					paneGra.add(new Label(""), 1, 19);
+					ustage.setCenter(paneGra);
 				} else if (control.equals(asig)) {
 					
 				}
@@ -375,6 +407,7 @@ public class VentanaInicio extends Application {
 	GridPane panePro;
 	GridPane paneCrePro;
 	GridPane paneInfoPro;
+	GridPane paneGra;
 	Label title1;
 	Button est1;
 	Button est2;
@@ -384,6 +417,15 @@ public class VentanaInicio extends Application {
 	Button informe;
 	Button pro1;
 	Button pro2;
+	Button gra1;
+	Button gra2;
+	Button gra3;
+	Button gra4;
+	Button gra5;
+	Button gra6;
+	Button gra7;
+	Button gra8;
+	
 	
 	Label des;
 
