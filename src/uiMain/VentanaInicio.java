@@ -138,30 +138,33 @@ public class VentanaInicio extends Application {
 							TextField creEs3 = new TextField();
 							TextField creEs4 = new TextField();
 							TextField creEs5 = new TextField();
+							crear = new Button("Crear");
 							Label alerta = new Label("Por favor complete todos los campos solicitados.");
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("CREAR ESTUDIANTE");
 							describ.setFont(new Font("Tahoma", 17));
 							paneCreEst = new GridPane();
 							paneCreEst.setAlignment(Pos.CENTER);
-							paneCreEst.add(describ,1,1);
+							paneCreEst.add(describ,2,1);
 							paneCreEst.add(new Label(""), 1, 2);
-							paneCreEst.add(alerta,1,4);
+							paneCreEst.add(alerta,3,4);
 							paneCreEst.add(new Label(""), 1, 5);
-							paneCreEst.add(new Label("DNI: "),1,6);
-							paneCreEst.add(creEs1,2,6);
+							paneCreEst.add(new Label("DNI*: "),1,6);
+							paneCreEst.add(creEs1,3,6);
 							paneCreEst.add(new Label(""), 1, 7);
-							paneCreEst.add(new Label("Nombre: "),1,8);
-							paneCreEst.add(creEs2,2,8);
+							paneCreEst.add(new Label("Nombre*: "),1,8);
+							paneCreEst.add(creEs2,3,8);
 							paneCreEst.add(new Label(""), 1, 9);
-							paneCreEst.add(new Label("Apellido: "),1,10);
-							paneCreEst.add(creEs3,2,10);
+							paneCreEst.add(new Label("Apellido*: "),1,10);
+							paneCreEst.add(creEs3,3,10);
 							paneCreEst.add(new Label(""), 1, 11);
-							paneCreEst.add(new Label("Edad: "),1,12);
-							paneCreEst.add(creEs4,2,12);
+							paneCreEst.add(new Label("Edad*: "),1,12);
+							paneCreEst.add(creEs4,3,12);
 							paneCreEst.add(new Label(""), 1, 13);
-							paneCreEst.add(new Label("Acudiente: "),1,14);
-							paneCreEst.add(creEs5,2,14);
+							paneCreEst.add(new Label("Acudiente*: "),1,14);
+							paneCreEst.add(creEs5,3,14);
+							paneCreEst.add(new Label(""), 2, 15);
+							paneCreEst.add(crear,2,16);
 							ustage.setCenter(paneCreEst);
 						}
 
@@ -210,6 +213,7 @@ public class VentanaInicio extends Application {
 	Button est2;
 	Button est3;
 	Button est4;
+	Button crear;
 	
 	Label des;
 
