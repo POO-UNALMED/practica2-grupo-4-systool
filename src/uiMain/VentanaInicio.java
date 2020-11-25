@@ -159,7 +159,7 @@ public class VentanaInicio extends Application {
 									creEs4.setText("");
 									creEs5.setText("");
 									
-									//Main.crearEst(dni, nombre, apellido, edad, acudiente);
+									Main.crearEst(dni, nombre, apellido, edad, acudiente);
 									confirm.setAlertType(AlertType.INFORMATION); 
 									confirm.setTitle("Crear Estudiante");
 									confirm.setHeaderText("Estudiante creado exitosamente.");

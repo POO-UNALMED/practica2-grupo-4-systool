@@ -25,11 +25,39 @@ public class Main {
 
 	//-------------------------------------------------------------------------------------------------------------------------
 	
+	//Serializacion.b2();
+	
+	static ArrayList<Estudiante> estudiantes = Serializacion.getEstudiantes();
+	static ArrayList<Profesor> profesores = Serializacion.getProfesores();
+	static ArrayList<Asignatura> asignaturas = Serializacion.getAsignaturas();
+	static ArrayList<Grado> grados = Serializacion.getGrados();
+	
 	public static void crearEst(int dni, String nombre, String apellido, int edad, String acudiente) {
 		Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
 		System.out.println(e1.getNombre());
 	}
 	
+	public static String informeNotas(int dni) {
+		String salida = "";
+		if (estudiantes.size() > 0) {
+			ArrayList<Integer> dnis = new ArrayList<>();
+			for (Estudiante e : estudiantes) {
+				dnis.add(e.getDNI());
+				if (e.getDNI() == dni) {
+					System.out.println("Sus notas son: ");
+					System.out.println(e.misNotas());
+					salida = e.misNotas();
+				}
+			}
+			if (!dnis.contains(dni)) {
+				System.out.println("El estudiante con DNI " + dni + " no se encuentra registrado.");
+			}
+		} else {
+			System.out.println(
+					"Usted no ha creado estudiantes, por favor vaya a la sección de crear estudiantes.");
+		}
+		return salida;
+	}
 
 
 	
