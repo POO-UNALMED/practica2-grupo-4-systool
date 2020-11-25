@@ -181,6 +181,32 @@ public class VentanaInicio extends Application {
 						}
 
 					});
+					est2.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField infEs1 = new TextField();
+							Label alerta = new Label("Por favor complete el campo solicitado.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("INFORME DE NOTAS INDIVIDUAL");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar el DNI del estudiante, el programa\n\rmostrará cada nota con su materia correspondiente.");
+							descrip.setFont(new Font("Tahoma", 13));
+							informe = new Button("Ver informe");
+							paneInfEst = new GridPane();
+							paneInfEst.setAlignment(Pos.CENTER);
+							paneInfEst.add(describ,2,1);
+							paneInfEst.add(new Label(""), 1, 2);
+							paneInfEst.add(descrip,2,3);
+							paneInfEst.add(new Label(""), 1, 4);
+							paneInfEst.add(alerta,3,5);
+							paneInfEst.add(new Label(""), 1, 6);
+							paneInfEst.add(new Label("DNI*: "),1,7);
+							paneInfEst.add(infEs1,3,7);
+							paneInfEst.add(new Label(""), 1, 8);
+							paneInfEst.add(informe, 2, 9);
+							ustage.setCenter(paneInfEst);
+						}
+					});
 				} else if(control.equals(prof)) {
 					
 				} else if (control.equals(gr)) {
@@ -220,12 +246,14 @@ public class VentanaInicio extends Application {
 	MenuItem asig;
 	GridPane paneEst;
 	GridPane paneCreEst;
+	GridPane paneInfEst;
 	Label title1;
 	Button est1;
 	Button est2;
 	Button est3;
 	Button est4;
 	Button crear;
+	Button informe;
 	
 	Label des;
 
