@@ -133,20 +133,35 @@ public class VentanaInicio extends Application {
 					est1.setOnAction(new EventHandler<ActionEvent>() {
 						@Override
 						public void handle(ActionEvent e) {
+							TextField creEs1 = new TextField();
+							TextField creEs2 = new TextField();
+							TextField creEs3 = new TextField();
+							TextField creEs4 = new TextField();
+							TextField creEs5 = new TextField();
+							Label alerta = new Label("Por favor complete todos los campos solicitados.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("CREAR ESTUDIANTE");
+							describ.setFont(new Font("Tahoma", 17));
 							paneCreEst = new GridPane();
 							paneCreEst.setAlignment(Pos.CENTER);
-							paneCreEst.add(new Label("CREAR ESTUDIANTE."),1,1);
-							paneCreEst.add(new Label("Por favor complete todos los campos solicitados."),1,2);
-							paneCreEst.add(new Label("DNI: "),1,3);
-							//paneCreEst.add(creEs1,2,3);
-							paneCreEst.add(new Label("Nombre: "),1,4);
-							//paneCreEst.add(creEs2,2,4);
-							paneCreEst.add(new Label("Apellido: "),1,5);
-							//paneCreEst.add(creEs3,2,5);
-							paneCreEst.add(new Label("Edad: "),1,6);
-							//paneCreEst.add(creEs4,2,6);
-							paneCreEst.add(new Label("Acudiente: "),1,7);
-							//paneCreEst.add(creEs5,2,7);
+							paneCreEst.add(describ,1,1);
+							paneCreEst.add(new Label(""), 1, 2);
+							paneCreEst.add(alerta,1,4);
+							paneCreEst.add(new Label(""), 1, 5);
+							paneCreEst.add(new Label("DNI: "),1,6);
+							paneCreEst.add(creEs1,2,6);
+							paneCreEst.add(new Label(""), 1, 7);
+							paneCreEst.add(new Label("Nombre: "),1,8);
+							paneCreEst.add(creEs2,2,8);
+							paneCreEst.add(new Label(""), 1, 9);
+							paneCreEst.add(new Label("Apellido: "),1,10);
+							paneCreEst.add(creEs3,2,10);
+							paneCreEst.add(new Label(""), 1, 11);
+							paneCreEst.add(new Label("Edad: "),1,12);
+							paneCreEst.add(creEs4,2,12);
+							paneCreEst.add(new Label(""), 1, 13);
+							paneCreEst.add(new Label("Acudiente: "),1,14);
+							paneCreEst.add(creEs5,2,14);
 							ustage.setCenter(paneCreEst);
 						}
 
@@ -195,11 +210,8 @@ public class VentanaInicio extends Application {
 	Button est2;
 	Button est3;
 	Button est4;
-	TextField creEs1;
-	TextField creEs2;
-	TextField creEs3;
-	TextField creEs4;
-	TextField creEs5;
+	
+	
 	Label des;
 
 	@Override
