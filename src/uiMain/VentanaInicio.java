@@ -110,7 +110,21 @@ public class VentanaInicio extends Application {
 			Object control = c.getSource();
 			if (control instanceof MenuItem) {
 				if (control.equals(est)) {
-					
+					paneEst = new GridPane();
+					title1 = new Label("GONORREA");
+					title1.setTextFill(Color.web("BLACK"));
+					title1.setFont(new Font("Nirmala UI Semilight Bold", 25));
+					est1 = new Button("Crear estudiante");
+					est2 = new Button("Informe de notas individual");
+					est3 = new Button("Mejores 10 estudiantes del colegio");
+					est4 = new Button("Ver informacion estudiante");
+					paneEst.setAlignment(Pos.CENTER);
+					paneEst.add(title1, 1, 1);
+					paneEst.add(est1, 1, 1);
+					paneEst.add(est2, 1, 1);
+					paneEst.add(est3, 1, 1);
+					paneEst.add(est4, 1, 1);
+					ustage.setCenter(paneEst);
 				} else if(control.equals(prof)) {
 					
 				} else if (control.equals(gr)) {
@@ -147,6 +161,12 @@ public class VentanaInicio extends Application {
 	MenuItem prof;
 	MenuItem gr;
 	MenuItem asig;
+	GridPane paneEst;
+	Label title1;
+	Button est1;
+	Button est2;
+	Button est3;
+	Button est4;
 
 	Label des;
 
@@ -156,7 +176,7 @@ public class VentanaInicio extends Application {
 
 		// ESCENARIO USER
 		// -------------------------------------------------------------------------------
-		BorderPane ustage = new BorderPane();
+		ustage = new BorderPane();
 		Scene user = new Scene(ustage, 650, 420);
 		MenuBar mainmenu = new MenuBar();
 		Menu archivo = new Menu("Archivo");
@@ -173,6 +193,7 @@ public class VentanaInicio extends Application {
 		title.setFont(new Font("Nirmala UI Semilight Bold", 50));
 		a.setAlignment(Pos.CENTER);
 		a.add(title, 1, 1);
+		
 
 		Button exit = new Button("Salir");
 		exit.setFont(new Font("Tahoma", 17));
