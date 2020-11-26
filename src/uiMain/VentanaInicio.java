@@ -576,7 +576,88 @@ public class VentanaInicio extends Application {
 						}
 					});
 				} else if (control.equals(asig)) {
-					
+					paneAsig = new GridPane();
+					title1 = new Label("MENU ASIGNATURA");
+					title1.setTextFill(Color.web("BLACK"));
+					title1.setFont(new Font("Nirmala UI Semilight Bold", 25));
+					asig1 = new Button("Crear asignatura");
+					asig2 = new Button("Crear nota");
+					paneAsig.setAlignment(Pos.CENTER);
+					paneAsig.add(title1, 1, 1);
+					paneAsig.add(new Label(""), 1, 2);
+					paneAsig.add(new Label(""), 1, 3);
+					paneAsig.add(asig1, 1, 4);
+					paneAsig.add(new Label(""), 1, 5);
+					paneAsig.add(asig2, 1, 6);
+					ustage.setCenter(paneAsig);
+					asig1.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField crAs1 = new TextField();
+							TextField crAs2 = new TextField();
+							TextField crAs3 = new TextField();
+							Label alerta = new Label("Por favor complete los campos solicitados.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("CREAR ASIGNATURA");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar los datos solicitados, el programa\n\rcreara la asignatura.");
+							descrip.setFont(new Font("Tahoma", 13));
+							crAs = new Button("Crear");
+							paneCrAs = new GridPane();
+							paneCrAs.setAlignment(Pos.CENTER);
+							paneCrAs.add(describ,2,1);
+							paneCrAs.add(new Label(""), 1, 2);
+							paneCrAs.add(descrip,2,3);
+							paneCrAs.add(new Label(""), 1, 4);
+							paneCrAs.add(alerta,3,5);
+							paneCrAs.add(new Label(""), 1, 6);
+							paneCrAs.add(new Label("ID*: "),1,7);
+							paneCrAs.add(crAs1,3,7);
+							paneCrAs.add(new Label(""), 1, 8);
+							paneCrAs.add(new Label("Nombre*: "),1,9);
+							paneCrAs.add(crAs2,3,9);
+							paneCrAs.add(new Label(""), 1, 10);
+							paneCrAs.add(new Label("Numero de notas*: "),1,11);
+							paneCrAs.add(crAs3,3,11);
+							paneCrAs.add(new Label(""), 1, 12);
+							paneCrAs.add(crAs, 2, 13);
+							ustage.setCenter(paneCrAs);
+						}
+					});
+					asig2.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField crNo1 = new TextField();
+							TextField crNo2 = new TextField();
+							TextField crNo3 = new TextField();
+							Label alerta = new Label("Por favor complete los campos solicitados.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("CREAR NOTA");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar los datos solicitados, el programa\n\rcreara la nota.");
+							descrip.setFont(new Font("Tahoma", 13));
+							crNo = new Button("Crear");
+							paneCrNo = new GridPane();
+							paneCrNo.setAlignment(Pos.CENTER);
+							paneCrNo.add(describ,2,1);
+							paneCrNo.add(new Label(""), 1, 2);
+							paneCrNo.add(descrip,2,3);
+							paneCrNo.add(new Label(""), 1, 4);
+							paneCrNo.add(alerta,3,5);
+							paneCrNo.add(new Label(""), 1, 6);
+							paneCrNo.add(new Label("Calificacion*: "),1,7);
+							paneCrNo.add(crNo1,3,7);
+							paneCrNo.add(new Label(""), 1, 8);
+							paneCrNo.add(new Label("ID de la asignatura*: "),1,9);
+							paneCrNo.add(crNo2,3,9);
+							paneCrNo.add(new Label(""), 1, 10);
+							paneCrNo.add(new Label("DNI del estudiante*: "),1,11);
+							paneCrNo.add(crNo3,3,11);
+							paneCrNo.add(new Label(""), 1, 12);
+							paneCrNo.add(crNo, 2, 13);
+							ustage.setCenter(paneCrNo);
+						}
+					});
 				}
 			}
 		}
@@ -625,6 +706,9 @@ public class VentanaInicio extends Application {
 	GridPane paneCuaH;
 	GridPane panePrev;
 	GridPane paneProG;
+	GridPane paneAsig;
+	GridPane paneCrAs;
+	GridPane paneCrNo;
 	Label title1;
 	Button est1;
 	Button est2;
@@ -649,6 +733,10 @@ public class VentanaInicio extends Application {
 	Button vcuah;
 	Button prevB;
 	Button promGr;
+	Button asig1;
+	Button asig2;
+	Button crAs;
+	Button crNo;
 	
 	Label des;
 
