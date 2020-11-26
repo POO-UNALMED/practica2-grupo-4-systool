@@ -225,10 +225,10 @@ public class VentanaInicio extends Application {
 									GridPane resultinfo = new GridPane();
 									Label des = new Label("Hola");
 									resultinfo.add(des, 1, 1);
-									infEs1.setText("");
+									
 									int res = Integer.parseInt(infEs1.getText());
 									String resultado = Main.informeNotas(res);
-									
+									infEs1.setText("");
 									System.out.println(resultado);
 									ustage.setCenter(resultinfo);
 								}
