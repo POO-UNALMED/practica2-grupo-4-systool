@@ -24,6 +24,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import uiMain.Main;
 
 public class VentanaInicio extends Application {
 
@@ -146,6 +147,7 @@ public class VentanaInicio extends Application {
 							TextField creEs3 = new TextField();
 							TextField creEs4 = new TextField();
 							TextField creEs5 = new TextField();
+							Alert confirm = new Alert(AlertType.NONE); 
 							crear = new Button("Crear");
 							crear.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -153,6 +155,22 @@ public class VentanaInicio extends Application {
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
 									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									int dni = Integer.parseInt(creEs1.getText());
+									String nombre = creEs2.getText();
+									String apellido = creEs3.getText();
+									int edad = Integer.parseInt(creEs4.getText());
+									String acudiente = creEs5.getText();
+									creEs1.setText("");
+									creEs2.setText("");
+									creEs3.setText("");
+									creEs4.setText("");
+									creEs5.setText("");
+									
+									Main.crearEst(dni, nombre, apellido, edad, acudiente);
+									confirm.setAlertType(AlertType.INFORMATION); 
+									confirm.setTitle("Crear Estudiante");
+									confirm.setHeaderText("Estudiante creado exitosamente.");
+									confirm.show(); 
 								}
 								
 							});
@@ -710,6 +728,7 @@ public class VentanaInicio extends Application {
 	GridPane paneCrAs;
 	GridPane paneCrNo;
 	Label title1;
+	Button informe;
 	Button est1;
 	Button est2;
 	Button est3;
