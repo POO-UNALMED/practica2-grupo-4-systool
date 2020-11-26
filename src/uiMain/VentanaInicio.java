@@ -336,7 +336,7 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("INFORMACION DE PROFESOR");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar el DNI del prfoesor, el programa\n\rmostrará los datos del profesor.");
+							Label descrip = new Label("Al ingresar el DNI del profesor, el programa\n\rmostrará los datos del profesor.");
 							descrip.setFont(new Font("Tahoma", 13));
 							informe = new Button("Buscar informacion");
 							paneInfoPro = new GridPane();
@@ -360,13 +360,12 @@ public class VentanaInicio extends Application {
 					title1.setTextFill(Color.web("BLACK"));
 					title1.setFont(new Font("Nirmala UI Semilight Bold", 25));
 					gra1 = new Button("Crear grado");
-					gra2 = new Button("Crear profesor encargado");
+					gra2 = new Button("Asignar profesor encargado");
 					gra3 = new Button("Agregar estudiante");
-					gra4 = new Button("Agregar asignatura");
-					gra5 = new Button("Ver información de grado");
-					gra6 = new Button("Cuadro de honor");
-					gra7 = new Button("Prevención de bajo rendimiento");
-					gra8 = new Button("Ver promedios de los grados");
+					gra4 = new Button("Ver información de grado");
+					gra5 = new Button("Cuadro de honor");
+					gra6 = new Button("Prevención de bajo rendimiento");
+					gra7 = new Button("Ver promedios de los grados");
 					paneGra.setAlignment(Pos.CENTER);
 					paneGra.add(title1, 1, 1);
 					paneGra.add(new Label(""), 1, 2);
@@ -377,17 +376,205 @@ public class VentanaInicio extends Application {
 					paneGra.add(new Label(""), 1, 7);
 					paneGra.add(gra3, 1, 8);
 					paneGra.add(new Label(""), 1, 9);
-					paneGra.add(gra4, 1, 10);
-					paneGra.add(new Label(""), 1, 11);
-					paneGra.add(gra5, 1, 12);
+					paneGra.add(gra4, 1, 12);
 					paneGra.add(new Label(""), 1, 13);
-					paneGra.add(gra6, 1, 14);
+					paneGra.add(gra5, 1, 14);
 					paneGra.add(new Label(""), 1, 15);
-					paneGra.add(gra7, 1, 16);
+					paneGra.add(gra6, 1, 16);
 					paneGra.add(new Label(""), 1, 17);
-					paneGra.add(gra8, 1, 18);
+					paneGra.add(gra7, 1, 18);
 					paneGra.add(new Label(""), 1, 19);
 					ustage.setCenter(paneGra);
+					gra1.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField creGr = new TextField();
+							Label alerta = new Label("Por favor complete el campo solicitado.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("CREAR GRADO");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar el ID del grado, el programa\n\rcreara dicho grado.");
+							descrip.setFont(new Font("Tahoma", 13));
+							crearGr = new Button("Crear");
+							paneCreGr = new GridPane();
+							paneCreGr.setAlignment(Pos.CENTER);
+							paneCreGr.add(describ,2,1);
+							paneCreGr.add(new Label(""), 1, 2);
+							paneCreGr.add(descrip,2,3);
+							paneCreGr.add(new Label(""), 1, 4);
+							paneCreGr.add(alerta,3,5);
+							paneCreGr.add(new Label(""), 1, 6);
+							paneCreGr.add(new Label("ID*: "),1,7);
+							paneCreGr.add(creGr,3,7);
+							paneCreGr.add(new Label(""), 1, 8);
+							paneCreGr.add(crearGr, 2, 9);
+							ustage.setCenter(paneCreGr);
+						}
+					});
+					gra2.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField crePrEn1 = new TextField();
+							TextField crePrEn2 = new TextField();
+							Label alerta = new Label("Por favor complete los campos solicitados.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("ASIGNAR PROFESOR ENCARGADO");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar el ID del grado, el DNI del profesor\n\rel programa lo asignara al grado.");
+							descrip.setFont(new Font("Tahoma", 13));
+							asiPr = new Button("Asignar profesor");
+							paneCreGr = new GridPane();
+							paneCreGr.setAlignment(Pos.CENTER);
+							paneCreGr.add(describ,2,1);
+							paneCreGr.add(new Label(""), 1, 2);
+							paneCreGr.add(descrip,2,3);
+							paneCreGr.add(new Label(""), 1, 4);
+							paneCreGr.add(alerta,3,5);
+							paneCreGr.add(new Label(""), 1, 6);
+							paneCreGr.add(new Label("ID*: "),1,7);
+							paneCreGr.add(crePrEn1,3,7);
+							paneCreGr.add(new Label(""), 1, 8);
+							paneCreGr.add(new Label("DNI*: "),1,9);
+							paneCreGr.add(crePrEn2,3,9);
+							paneCreGr.add(new Label(""), 1, 10);
+							paneCreGr.add(asiPr, 2, 11);
+							ustage.setCenter(paneCreGr);
+						}
+					});
+					gra3.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField asiEs1 = new TextField();
+							TextField asiEs2 = new TextField();
+							Label alerta = new Label("Por favor complete los campos solicitados.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("ASIGNAR ESTUDIANTE");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar el ID del grado, el DNI del estudiante\n\rel programa lo asignara al grado.");
+							descrip.setFont(new Font("Tahoma", 13));
+							asiEs = new Button("Asignar estudiante");
+							paneAsiEs = new GridPane();
+							paneAsiEs.setAlignment(Pos.CENTER);
+							paneAsiEs.add(describ,2,1);
+							paneAsiEs.add(new Label(""), 1, 2);
+							paneAsiEs.add(descrip,2,3);
+							paneAsiEs.add(new Label(""), 1, 4);
+							paneAsiEs.add(alerta,3,5);
+							paneAsiEs.add(new Label(""), 1, 6);
+							paneAsiEs.add(new Label("ID*: "),1,7);
+							paneAsiEs.add(asiEs1,3,7);
+							paneAsiEs.add(new Label(""), 1, 8);
+							paneAsiEs.add(new Label("DNI*: "),1,9);
+							paneAsiEs.add(asiEs2,3,9);
+							paneAsiEs.add(new Label(""), 1, 10);
+							paneAsiEs.add(asiEs, 2, 11);
+							ustage.setCenter(paneAsiEs);
+						}
+					});
+					gra4.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField verGr = new TextField();
+							Label alerta = new Label("Por favor complete el campo solicitado.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("VER INFORMACION DEL GRADO");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar el ID del grado, el programa\n\rmostrará la información del grado.");
+							descrip.setFont(new Font("Tahoma", 13));
+							infGr = new Button("Ver informacion del grado");
+							paneInfG = new GridPane();
+							paneInfG.setAlignment(Pos.CENTER);
+							paneInfG.add(describ,2,1);
+							paneInfG.add(new Label(""), 1, 2);
+							paneInfG.add(descrip,2,3);
+							paneInfG.add(new Label(""), 1, 4);
+							paneInfG.add(alerta,3,5);
+							paneInfG.add(new Label(""), 1, 6);
+							paneInfG.add(new Label("ID*: "),1,7);
+							paneInfG.add(verGr,3,7);
+							paneInfG.add(new Label(""), 1, 8);
+							paneInfG.add(infGr, 2, 9);
+							ustage.setCenter(paneInfG);
+						}
+					});
+					gra5.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField cuaHo = new TextField();
+							Label alerta = new Label("Por favor complete el campo solicitado.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("CUADRO DE HONOR");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar el ID del grado, el programa\n\rmostrará el cuadro de honor.");
+							descrip.setFont(new Font("Tahoma", 13));
+							vcuah = new Button("Ver cuadro de honor");
+							paneCuaH = new GridPane();
+							paneCuaH.setAlignment(Pos.CENTER);
+							paneCuaH.add(describ,2,1);
+							paneCuaH.add(new Label(""), 1, 2);
+							paneCuaH.add(descrip,2,3);
+							paneCuaH.add(new Label(""), 1, 4);
+							paneCuaH.add(alerta,3,5);
+							paneCuaH.add(new Label(""), 1, 6);
+							paneCuaH.add(new Label("ID*: "),1,7);
+							paneCuaH.add(cuaHo,3,7);
+							paneCuaH.add(new Label(""), 1, 8);
+							paneCuaH.add(vcuah, 2, 9);
+							ustage.setCenter(paneCuaH);
+						}
+					});
+					gra6.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField prev = new TextField();
+							Label alerta = new Label("Por favor complete el campo solicitado.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("PREVENCION DE BAJO RENDIMIENTO");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar el ID del grado, el programa mostrará\n\rlos estudiantes con malos promedios academicos.");
+							descrip.setFont(new Font("Tahoma", 13));
+							prevB = new Button("Ver prevencion por bajo rendimiento");
+							panePrev = new GridPane();
+							panePrev.setAlignment(Pos.CENTER);
+							panePrev.add(describ,2,1);
+							panePrev.add(new Label(""), 1, 2);
+							panePrev.add(descrip,2,3);
+							panePrev.add(new Label(""), 1, 4);
+							panePrev.add(alerta,3,5);
+							panePrev.add(new Label(""), 1, 6);
+							panePrev.add(new Label("ID*: "),1,7);
+							panePrev.add(prev,3,7);
+							panePrev.add(new Label(""), 1, 8);
+							panePrev.add(prevB, 2, 9);
+							ustage.setCenter(panePrev);
+						}
+					});
+					gra7.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							TextField promG = new TextField();
+							Label alerta = new Label("Por favor complete el campo solicitado.");
+							alerta.setTextFill(Color.web("FIREBRICK"));
+							Label describ = new Label("PROMEDIO DEL GRADO");
+							describ.setFont(new Font("Tahoma", 17));
+							Label descrip = new Label("Al ingresar el ID del grado, el programa mostrará\n\rel promedio del grado.");
+							descrip.setFont(new Font("Tahoma", 13));
+							promGr = new Button("Ver promedio");
+							paneProG = new GridPane();
+							paneProG.setAlignment(Pos.CENTER);
+							paneProG.add(describ,2,1);
+							paneProG.add(new Label(""), 1, 2);
+							paneProG.add(descrip,2,3);
+							paneProG.add(new Label(""), 1, 4);
+							paneProG.add(alerta,3,5);
+							paneProG.add(new Label(""), 1, 6);
+							paneProG.add(new Label("ID*: "),1,7);
+							paneProG.add(promG,3,7);
+							paneProG.add(new Label(""), 1, 8);
+							paneProG.add(promGr, 2, 9);
+							ustage.setCenter(paneProG);
+						}
+					});
 				} else if (control.equals(asig)) {
 					
 				}
@@ -432,6 +619,12 @@ public class VentanaInicio extends Application {
 	GridPane paneCrePro;
 	GridPane paneInfoPro;
 	GridPane paneGra;
+	GridPane paneCreGr;
+	GridPane paneAsiEs;
+	GridPane paneInfG;
+	GridPane paneCuaH;
+	GridPane panePrev;
+	GridPane paneProG;
 	Label title1;
 	Button est1;
 	Button est2;
@@ -449,7 +642,13 @@ public class VentanaInicio extends Application {
 	Button gra6;
 	Button gra7;
 	Button gra8;
-	
+	Button crearGr;
+	Button asiPr;
+	Button asiEs;
+	Button infGr;
+	Button vcuah;
+	Button prevB;
+	Button promGr;
 	
 	Label des;
 
