@@ -224,8 +224,12 @@ public class VentanaInicio extends Application {
 								public void handle(ActionEvent event) {
 									GridPane resultinfo = new GridPane();
 									Label des = new Label("Hola");
-									
 									resultinfo.add(des, 1, 1);
+									
+									int res = Integer.parseInt(infEs1.getText());
+									String resultado = Main.informeNotas(res);
+									infEs1.setText("");
+									System.out.println(resultado);
 									ustage.setCenter(resultinfo);
 								}
 								
@@ -259,6 +263,11 @@ public class VentanaInicio extends Application {
 							paneMejEst.add(describ, 2, 1);
 							paneMejEst.add(new Label(""),1,2);
 							paneMejEst.add(descrip,2,3);
+							//PROCESO DE MUESTRA
+							
+							
+							
+							
 							ustage.setCenter(paneMejEst);
 						}
 					});
@@ -273,6 +282,25 @@ public class VentanaInicio extends Application {
 							Label descrip = new Label("Al ingresar el DNI del estudiante, el programa\n\rmostrará los datos del estudiante.");
 							descrip.setFont(new Font("Tahoma", 13));
 							informe = new Button("Buscar informacion");
+							informe.setOnAction(new EventHandler<ActionEvent>() {
+								@Override
+								public void handle(ActionEvent arg0) {
+									GridPane resultinfo = new GridPane();
+									Label des = new Label("Hola");
+									resultinfo.add(des, 1, 1);
+									
+//									int res = Integer.parseInt(describ.getText());
+//									String resultado = Main.informeNotas(res);
+//									describ.setText("");
+//									System.out.println(resultado);
+									ustage.setCenter(resultinfo);
+									
+								}
+								
+							});
+							
+							
+							
 							paneInfoEst = new GridPane();
 							paneInfoEst.setAlignment(Pos.CENTER);
 							paneInfoEst.add(describ,2,1);
@@ -342,6 +370,15 @@ public class VentanaInicio extends Application {
 							paneCrePro.add(crePro6,3,16);
 							paneCrePro.add(new Label(""), 2, 17);
 							paneCrePro.add(crear,2,18);
+							crear.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+							});
 
 							ustage.setCenter(paneCrePro);
 						}
@@ -369,6 +406,15 @@ public class VentanaInicio extends Application {
 							paneInfoPro.add(infoPro1,3,7);
 							paneInfoPro.add(new Label(""), 1, 8);
 							paneInfoPro.add(informe, 2, 9);
+							informe.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+							});
 							ustage.setCenter(paneInfoPro);
 						}
 					});
@@ -426,6 +472,17 @@ public class VentanaInicio extends Application {
 							paneCreGr.add(creGr,3,7);
 							paneCreGr.add(new Label(""), 1, 8);
 							paneCreGr.add(crearGr, 2, 9);
+							crearGr.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+							});
+							
+							
 							ustage.setCenter(paneCreGr);
 						}
 					});
@@ -456,6 +513,15 @@ public class VentanaInicio extends Application {
 							paneCreGr.add(crePrEn2,3,9);
 							paneCreGr.add(new Label(""), 1, 10);
 							paneCreGr.add(asiPr, 2, 11);
+							asiPr.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+							});
 							ustage.setCenter(paneCreGr);
 						}
 					});
@@ -486,6 +552,15 @@ public class VentanaInicio extends Application {
 							paneAsiEs.add(asiEs2,3,9);
 							paneAsiEs.add(new Label(""), 1, 10);
 							paneAsiEs.add(asiEs, 2, 11);
+							asiEs.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+							});
 							ustage.setCenter(paneAsiEs);
 						}
 					});
@@ -512,6 +587,15 @@ public class VentanaInicio extends Application {
 							paneInfG.add(verGr,3,7);
 							paneInfG.add(new Label(""), 1, 8);
 							paneInfG.add(infGr, 2, 9);
+							infGr.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+							});
 							ustage.setCenter(paneInfG);
 						}
 					});
@@ -538,6 +622,15 @@ public class VentanaInicio extends Application {
 							paneCuaH.add(cuaHo,3,7);
 							paneCuaH.add(new Label(""), 1, 8);
 							paneCuaH.add(vcuah, 2, 9);
+							vcuah.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+							});
 							ustage.setCenter(paneCuaH);
 						}
 					});
@@ -564,6 +657,15 @@ public class VentanaInicio extends Application {
 							panePrev.add(prev,3,7);
 							panePrev.add(new Label(""), 1, 8);
 							panePrev.add(prevB, 2, 9);
+							prevB.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+							});
 							ustage.setCenter(panePrev);
 						}
 					});
@@ -590,6 +692,15 @@ public class VentanaInicio extends Application {
 							paneProG.add(promG,3,7);
 							paneProG.add(new Label(""), 1, 8);
 							paneProG.add(promGr, 2, 9);
+							promGr.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+							});
 							ustage.setCenter(paneProG);
 						}
 					});
@@ -639,6 +750,15 @@ public class VentanaInicio extends Application {
 							paneCrAs.add(crAs3,3,11);
 							paneCrAs.add(new Label(""), 1, 12);
 							paneCrAs.add(crAs, 2, 13);
+							crAs.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+							});
 							ustage.setCenter(paneCrAs);
 						}
 					});
@@ -673,6 +793,15 @@ public class VentanaInicio extends Application {
 							paneCrNo.add(crNo3,3,11);
 							paneCrNo.add(new Label(""), 1, 12);
 							paneCrNo.add(crNo, 2, 13);
+							crNo.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+							});
 							ustage.setCenter(paneCrNo);
 						}
 					});
