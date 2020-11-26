@@ -734,7 +734,6 @@ public class VentanaInicio extends Application {
 	Button est3;
 	Button est4;
 	Button crear;
-	Button informe;
 	Button pro1;
 	Button pro2;
 	Button gra1;
