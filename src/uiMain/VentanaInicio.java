@@ -267,7 +267,8 @@ public class VentanaInicio extends Application {
 							paneMejEst.add(new Label(""),1,2);
 							paneMejEst.add(descrip,2,3);
 							//PROCESO DE MUESTRA
-							String resultado = Main.mejoresColegio();
+							
+							String resultado = p.mejoresColegio();
 							Label resul = new Label(resultado);
 							paneMejEst.add(new Label(""),1,4);
 							resul.setFont(new Font("Tahoma", 11.5));
@@ -708,7 +709,7 @@ public class VentanaInicio extends Application {
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
 									int res = Integer.parseInt(cuaHo.getText());
-									String resultado = Main.cuadroHonor(res);
+									String resultado = p.cuadroHonor(res);
 									Label resu = new Label(resultado);
 									resu.setFont(new Font("Tahoma", 11.5));
 									GridPane cuad = new GridPane();
@@ -949,7 +950,7 @@ public class VentanaInicio extends Application {
 	public static void main(String args[]) {
 		launch(args);
 	}
-
+	Main p = new Main(); 
 	String ini = "01";
 	Stage primario;
 	Scene prisce;

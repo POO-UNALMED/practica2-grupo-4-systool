@@ -29,16 +29,20 @@ public class Main {
 	static ArrayList<Profesor> profesores1;
 	static ArrayList<Asignatura> asignaturas1;
 	static ArrayList<Grado> grados1;
+	
+	public Main() {
+		Serializacion.b2();
+	}
 
 	public static void crearEst(int dni, String nombre, String apellido, int edad, String acudiente) {
-		Serializacion.b2();
+//		Serializacion.b2();
 		Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
 		estudiantes1 = Serializacion.getEstudiantes();
 //		System.out.println(e1.getNombre());
 	}
 
 	public static String informeNotas(int dni) {
-		Serializacion.b2();
+//		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
 		String salida = "";
 		if (estudiantes1.size() > 0) {
@@ -58,9 +62,9 @@ public class Main {
 		return salida;
 	}
 
-	public static String mejoresColegio() {
+	public String mejoresColegio() {
 		String salida = "";
-		Serializacion.b2();
+//		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
 		for (Estudiante e : estudiantes1) {
 			e.promedio_general();
@@ -210,9 +214,9 @@ public class Main {
 		return salida;
 	}
 
-	public static String cuadroHonor(int idg) {
+	public String cuadroHonor(int idg) {
 		String salida = "";
-		Serializacion.b2();
+//		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
 		grados1 = Serializacion.getGrados();
 
