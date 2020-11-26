@@ -201,6 +201,19 @@ public class VentanaInicio extends Application {
 							Label descrip = new Label("Al ingresar el DNI del estudiante, el programa\n\rmostrará cada nota con su materia correspondiente.");
 							descrip.setFont(new Font("Tahoma", 13));
 							informe = new Button("Ver informe");
+							informe.setOnAction(new EventHandler<ActionEvent>() {
+								@Override
+								public void handle(ActionEvent event) {
+									GridPane resultinfo = new GridPane();
+									Label des = new Label("Hola");
+									
+									resultinfo.add(des, 1, 1);
+									ustage.setCenter(resultinfo);
+								}
+								
+							});
+							
+							
 							paneInfEst = new GridPane();
 							paneInfEst.setAlignment(Pos.CENTER);
 							paneInfEst.add(describ,2,1);
