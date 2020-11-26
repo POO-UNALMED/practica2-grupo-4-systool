@@ -47,6 +47,7 @@ public class Main {
 					System.out.println("Sus notas son: ");
 					System.out.println(e.misNotas());
 					salida = e.misNotas();
+					System.out.println(salida);
 				}
 			}
 			if (!dnis.contains(dni)) {
