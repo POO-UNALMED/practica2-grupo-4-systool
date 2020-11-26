@@ -468,7 +468,8 @@ public class VentanaInicio extends Application {
 					gra1.setOnAction(new EventHandler<ActionEvent>() {
 						@Override
 						public void handle(ActionEvent e) {
-							TextField creGr = new TextField();
+							TextField creGr1 = new TextField();
+							TextField creGr2 = new TextField();
 							Label alerta = new Label("Por favor complete el campo solicitado.");
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("CREAR GRADO");
@@ -485,18 +486,21 @@ public class VentanaInicio extends Application {
 							paneCreGr.add(alerta,3,5);
 							paneCreGr.add(new Label(""), 1, 6);
 							paneCreGr.add(new Label("ID*: "),1,7);
-							paneCreGr.add(creGr,3,7);
+							paneCreGr.add(creGr1,3,7);
 							paneCreGr.add(new Label(""), 1, 8);
-							paneCreGr.add(crearGr, 2, 9);
+							paneCreGr.add(new Label("Nombre*: "),1,9);
+							paneCreGr.add(creGr2,3,9);
+							paneCreGr.add(new Label(""), 1, 10);
+							paneCreGr.add(crearGr, 2, 11);
 							crearGr.setOnAction(new EventHandler<ActionEvent>() {
 
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									int DNI = Integer.parseInt(creGr.getText());
-//									String nombres = crePro2.getText();
+									int DNI = Integer.parseInt(creGr1.getText());
+									String nombres = creGr2.getText();
 									
-//									Main.crearGr(DNI, nombres);
+									Main.crearGr(DNI, nombres);
 								}
 								
 							});
