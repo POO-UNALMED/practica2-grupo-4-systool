@@ -240,7 +240,6 @@ public class VentanaInicio extends Application {
 	MenuItem asig;
 	GridPane paneEst;
 	GridPane paneCreEst;
-	GridPane paneInfoEst;
 	Label title1;
 	Button informe;
 	Button est1;
