@@ -399,6 +399,11 @@ public class VentanaInicio extends Application {
 									int edad = Integer.parseInt(crePro4.getText());
 									String titulo = crePro5.getText();
 									String email = crePro6.getText();
+									Alert confirm = new Alert(AlertType.NONE); 
+									confirm.setAlertType(AlertType.INFORMATION); 
+									confirm.setTitle("Crear Profesor");
+									confirm.setHeaderText("Profesor creado exitosamente.");
+									confirm.show(); 
 									Main.crearProf(DNI, nombres, apellidos, edad, titulo, email);
 									
 								}
@@ -519,6 +524,11 @@ public class VentanaInicio extends Application {
 									// TODO Auto-generated method stub
 									int DNI = Integer.parseInt(creGr1.getText());
 									String nombres = creGr2.getText();
+									Alert confirm = new Alert(AlertType.NONE); 
+									confirm.setAlertType(AlertType.INFORMATION); 
+									confirm.setTitle("Crear Grado");
+									confirm.setHeaderText("Grado creado exitosamente.");
+									confirm.show(); 
 									
 									Main.crearGr(DNI, nombres);
 								}
@@ -563,7 +573,11 @@ public class VentanaInicio extends Application {
 									// TODO Auto-generated method stub
 									int dni = Integer.parseInt(crePrEn1.getText());
 									int idg = Integer.parseInt(crePrEn2.getText());
-									
+									Alert confirm = new Alert(AlertType.NONE); 
+									confirm.setAlertType(AlertType.INFORMATION); 
+									confirm.setTitle("Asignar Profesor");
+									confirm.setHeaderText("Profesor asignado a grado exitosamente.");
+									confirm.show(); 
 									Main.profEnc(dni, idg);
 								
 								}
@@ -606,7 +620,11 @@ public class VentanaInicio extends Application {
 									// TODO Auto-generated method stub
 									int dni = Integer.parseInt(asiEs1.getText());
 									int idg = Integer.parseInt(asiEs2.getText());
-									
+									Alert confirm = new Alert(AlertType.NONE); 
+									confirm.setAlertType(AlertType.INFORMATION); 
+									confirm.setTitle("Asignar Estudiante");
+									confirm.setHeaderText("Estudiante asignado al grado exitosamente.");
+									confirm.show(); 
 									Main.aggEstGr(dni, idg);
 								}
 								
@@ -857,7 +875,11 @@ public class VentanaInicio extends Application {
 									int id = Integer.parseInt(crAs1.getText());
 									String nombre = crAs2.getText();
 									int numero = Integer.parseInt(crAs3.getText());
-									
+									Alert confirm = new Alert(AlertType.NONE); 
+									confirm.setAlertType(AlertType.INFORMATION); 
+									confirm.setTitle("Crear Asignatura");
+									confirm.setHeaderText("Asignatura creado exitosamente.");
+									confirm.show(); 
 									Main.crearAsig(id, nombre, numero);
 								}
 								
@@ -904,7 +926,11 @@ public class VentanaInicio extends Application {
 									float cal = Float.parseFloat(crNo1.getText());
 									int asignatura = Integer.parseInt(crNo2.getText());
 									int dni = Integer.parseInt(crNo3.getText());
-									
+									Alert confirm = new Alert(AlertType.NONE); 
+									confirm.setAlertType(AlertType.INFORMATION); 
+									confirm.setTitle("Crear Nota");
+									confirm.setHeaderText("Nota creado exitosamente.");
+									confirm.show(); 
 									Main.crearNota(cal, asignatura, dni);
 								}
 								
