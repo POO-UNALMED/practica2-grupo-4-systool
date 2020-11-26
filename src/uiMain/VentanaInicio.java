@@ -200,7 +200,22 @@ public class VentanaInicio extends Application {
 							paneCreEst.add(creEs5,3,14);
 							paneCreEst.add(new Label(""), 2, 15);
 							paneCreEst.add(crear,2,16);
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
 
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									creEs1.setText("");
+									creEs2.setText("");
+									creEs3.setText("");
+									creEs4.setText("");
+									creEs5.setText("");
+								}
+								
+							});
+							paneCreEst.add(borrar,3,16);
 							ustage.setCenter(paneCreEst);
 							///EXCEPCION 
 							///int J  = Integer.parseInt(creEs1.getText());
@@ -219,6 +234,17 @@ public class VentanaInicio extends Application {
 							Label descrip = new Label("Al ingresar el DNI del estudiante, el programa\n\rmostrará cada nota con su materia correspondiente.");
 							descrip.setFont(new Font("Tahoma", 13));
 							informe = new Button("Ver informe");
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									infEs1.setText("");
+								}
+								
+							});
 							informe.setOnAction(new EventHandler<ActionEvent>() {
 								@Override
 								public void handle(ActionEvent event) {
@@ -238,7 +264,6 @@ public class VentanaInicio extends Application {
 								
 							});
 							
-							
 							paneInfEst = new GridPane();
 							paneInfEst.setAlignment(Pos.CENTER);
 							paneInfEst.add(describ,2,1);
@@ -251,6 +276,18 @@ public class VentanaInicio extends Application {
 							paneInfEst.add(infEs1,3,7);
 							paneInfEst.add(new Label(""), 1, 8);
 							paneInfEst.add(informe, 2, 9);
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									infEs1.setText("");
+								}
+								
+							});
+							paneInfEst.add(borrar, 3, 9);
 							ustage.setCenter(paneInfEst);
 						}
 					});
@@ -332,6 +369,18 @@ public class VentanaInicio extends Application {
 							paneInfoEst.add(infoEs1,3,7);
 							paneInfoEst.add(new Label(""), 1, 8);
 							paneInfoEst.add(informe, 2, 9);
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									infoEs1.setText("");
+								}
+								
+							});
+							paneInfoEst.add(borrar, 3, 9);
 							ustage.setCenter(paneInfoEst);
 						}
 					});
@@ -410,6 +459,23 @@ public class VentanaInicio extends Application {
 								}
 								
 							});
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									crePro1.setText("");
+									crePro2.setText("");
+									crePro3.setText("");
+									crePro4.setText("");
+									crePro5.setText("");
+									crePro6.setText("");
+								}
+								
+							});
+							paneCrePro.add(borrar, 3, 18);
 
 							ustage.setCenter(paneCrePro);
 						}
@@ -457,6 +523,18 @@ public class VentanaInicio extends Application {
 								}
 								
 							});
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									infoPro1.setText("");
+								}
+								
+							});
+							paneInfoPro.add(borrar, 3, 9);
 							ustage.setCenter(paneInfoPro);
 						}
 					});
@@ -535,7 +613,19 @@ public class VentanaInicio extends Application {
 								}
 								
 							});
-							
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									creGr1.setText("");
+									creGr2.setText("");
+								}
+								
+							});
+							paneCreGr.add(borrar, 3, 11);
 							
 							ustage.setCenter(paneCreGr);
 						}
@@ -584,6 +674,19 @@ public class VentanaInicio extends Application {
 								}
 								
 							});
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									crePrEn1.setText("");
+									crePrEn2.setText("");
+								}
+								
+							});
+							paneCreGr.add(borrar, 3, 11);
 							ustage.setCenter(paneCreGr);
 						}
 					});
@@ -630,6 +733,19 @@ public class VentanaInicio extends Application {
 								}
 								
 							});
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									asiEs1.setText("");
+									asiEs2.setText("");
+								}
+								
+							});
+							paneAsiEs.add(borrar, 3, 11);
 							ustage.setCenter(paneAsiEs);
 						}
 					});
@@ -677,6 +793,18 @@ public class VentanaInicio extends Application {
 								}
 								
 							});
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									verGr.setText("");
+								}
+								
+							});
+							paneInfG.add(borrar, 3, 9);
 							ustage.setCenter(paneInfG);
 						}
 					});
@@ -724,6 +852,18 @@ public class VentanaInicio extends Application {
 								}
 								
 							});
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									cuaHo.setText("");
+								}
+								
+							});
+							paneCuaH.add(borrar, 3, 9);
 							ustage.setCenter(paneCuaH);
 						}
 					});
@@ -771,6 +911,18 @@ public class VentanaInicio extends Application {
 								}
 								
 							});
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									prev.setText("");
+								}
+								
+							});
+							panePrev.add(borrar, 3, 9);
 							ustage.setCenter(panePrev);
 						}
 					});
@@ -819,6 +971,18 @@ public class VentanaInicio extends Application {
 								}
 								
 							});
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									promG.setText("");
+								}
+								
+							});
+							paneProG.add(borrar, 3, 9);
 							ustage.setCenter(paneProG);
 						}
 					});
@@ -885,6 +1049,20 @@ public class VentanaInicio extends Application {
 								}
 								
 							});
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									crAs1.setText("");
+									crAs2.setText("");
+									crAs3.setText("");
+								}
+								
+							});
+							paneCrAs.add(borrar, 3, 13);
 							ustage.setCenter(paneCrAs);
 						}
 					});
@@ -936,6 +1114,20 @@ public class VentanaInicio extends Application {
 								}
 								
 							});
+							borrar = new Button("Borrar");
+							borrar.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									crNo1.setText("");
+									crNo2.setText("");
+									crNo3.setText("");
+								}
+								
+							});
+							paneCrNo.add(borrar, 3, 13);
 							ustage.setCenter(paneCrNo);
 						}
 					});
@@ -1018,6 +1210,7 @@ public class VentanaInicio extends Application {
 	Button asig2;
 	Button crAs;
 	Button crNo;
+	Button borrar;
 	
 	Label des;
 
