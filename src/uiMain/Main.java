@@ -33,6 +33,7 @@ public class Main {
 	public static void crearEst(int dni, String nombre, String apellido, int edad, String acudiente) {
 		Serializacion.b2();
 		Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
+		estudiantes1 = Serializacion.getEstudiantes();
 //		System.out.println(e1.getNombre());
 	}
 
@@ -99,6 +100,7 @@ public class Main {
 	public static void crearProf(int DNI, String nombres, String apellidos, int edad, String titulo, String email) {
 		Serializacion.b2();
 		Profesor p1 = new Profesor(DNI, nombres, apellidos, edad, titulo, email);
+		profesores1 = Serializacion.getProfesores();
 //		System.out.println(e1.getNombre());
 	}
 
@@ -127,6 +129,7 @@ public class Main {
 	public static void crearGr(int id, String nombre) {
 		Serializacion.b2();
 		Grado g1 = new Grado(id, nombre);
+		grados1 = Serializacion.getGrados();
 	}
 
 	public static void profEnc(int idg, int dni) {
@@ -142,6 +145,8 @@ public class Main {
 					dnis.add(p.getDNI());
 					if (p.getDNI() == dni && g.getId() == idg) {
 						g.setProfesor_encargado(p);
+						profesores1 = Serializacion.getProfesores();
+						grados1 = Serializacion.getGrados();
 //						System.out.println("Profesor agregado correctamente.");
 					}
 				}
@@ -170,6 +175,8 @@ public class Main {
 					est.add(es.getDNI());
 					if (es.getDNI() == e && g.getId() == idg) {
 						g.agregarEstudiante(es);
+						estudiantes1 = Serializacion.getEstudiantes();
+						grados1 = Serializacion.getGrados();
 //						System.out.println("Estudiante Matriculado exitosamente");
 					}
 				}
@@ -280,6 +287,7 @@ public class Main {
 	public static void crearAsig(int id, String nombre, int numero) {
 		Serializacion.b2();
 		Asignatura a1 = new Asignatura(id, nombre, numero);
+		asignaturas1 = Serializacion.getAsignaturas();
 	}
 
 	public static void crearNota(float cal, int asignatura, int dni) {
@@ -307,6 +315,10 @@ public class Main {
 
 			if (id_asign.contains(asignatura) && dnis.contains(dni)) {
 				Nota n1 =new Nota(cal, e1, a2);
+				estudiantes1 = Serializacion.getEstudiantes();
+				asignaturas1 = Serializacion.getAsignaturas();
+				profesores1 = Serializacion.getProfesores();
+				grados1 = Serializacion.getGrados();
 				System.out.println("Nota creada exitosamente");
 			} else {
 				System.out.println("Asignatura o estudiante ingresado no existe, por vaya ingrese datos existentes.");
