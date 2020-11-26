@@ -225,10 +225,10 @@ public class VentanaInicio extends Application {
 									GridPane resultinfo = new GridPane();
 									Label des = new Label("Hola");
 									resultinfo.add(des, 1, 1);
-									
+									infEs1.setText("");
 									int res = Integer.parseInt(infEs1.getText());
 									String resultado = Main.informeNotas(res);
-									infEs1.setText("");
+									
 									System.out.println(resultado);
 									ustage.setCenter(resultinfo);
 								}
@@ -264,7 +264,9 @@ public class VentanaInicio extends Application {
 							paneMejEst.add(new Label(""),1,2);
 							paneMejEst.add(descrip,2,3);
 							//PROCESO DE MUESTRA
+							String resultado = Main.mejoresColegio();
 							
+							System.out.println(resultado);
 							
 							
 							
@@ -293,6 +295,10 @@ public class VentanaInicio extends Application {
 //									String resultado = Main.informeNotas(res);
 //									describ.setText("");
 //									System.out.println(resultado);
+									int res = Integer.parseInt(infoEs1.getText());
+									String resultado = Main.infoEst(res);
+									
+									System.out.println(resultado);
 									ustage.setCenter(resultinfo);
 									
 								}
@@ -375,6 +381,13 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									int DNI = Integer.parseInt(crePro1.getText());
+									String nombres = crePro2.getText();
+									String apellidos = crePro3.getText();
+									int edad = Integer.parseInt(crePro4.getText());
+									String titulo = crePro5.getText();
+									String email = crePro6.getText();
+									Main.crearProf(DNI, nombres, apellidos, edad, titulo, email);
 									
 								}
 								
@@ -411,7 +424,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									int res = Integer.parseInt(infoPro1.getText());
+									String resultado = Main.infoProf(res);
 									
+									System.out.println(resultado);
 								}
 								
 							});
@@ -477,7 +493,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									int DNI = Integer.parseInt(creGr.getText());
+//									String nombres = crePro2.getText();
 									
+//									Main.crearGr(DNI, nombres);
 								}
 								
 							});
@@ -518,7 +537,11 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									int dni = Integer.parseInt(crePrEn1.getText());
+									int idg = Integer.parseInt(crePrEn2.getText());
 									
+									Main.profEnc(dni, idg);
+								
 								}
 								
 							});
@@ -557,7 +580,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									int dni = Integer.parseInt(asiEs1.getText());
+									int idg = Integer.parseInt(asiEs2.getText());
 									
+									Main.aggEstGr(dni, idg);
 								}
 								
 							});
@@ -592,7 +618,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									int res = Integer.parseInt(verGr.getText());
+									String resultado = Main.infoGr(res);
 									
+									System.out.println(resultado);
 								}
 								
 							});
@@ -627,7 +656,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									int res = Integer.parseInt(cuaHo.getText());
+									String resultado = Main.cuadroHonor(res);
 									
+									System.out.println(resultado);
 								}
 								
 							});
@@ -662,7 +694,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									int res = Integer.parseInt(prev.getText());
+									String resultado = Main.prevencion(res);
 									
+									System.out.println(resultado);
 								}
 								
 							});
@@ -697,7 +732,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									int res = Integer.parseInt(promG.getText());
+									float resultado = Main.promedioGr(res);
 									
+									System.out.println(resultado);
 								}
 								
 							});
@@ -755,7 +793,11 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									int id = Integer.parseInt(crAs1.getText());
+									String nombre = crAs2.getText();
+									int numero = Integer.parseInt(crAs3.getText());
 									
+									Main.crearAsig(id, nombre, numero);
 								}
 								
 							});
@@ -798,7 +840,11 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									float cal = Float.parseFloat(crNo1.getText());
+									int asignatura = Integer.parseInt(crNo2.getText());
+									int dni = Integer.parseInt(crNo3.getText());
 									
+									Main.crearNota(cal, asignatura, dni);
 								}
 								
 							});
