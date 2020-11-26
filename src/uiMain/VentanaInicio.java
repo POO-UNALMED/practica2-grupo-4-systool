@@ -365,7 +365,7 @@ public class VentanaInicio extends Application {
 					gra4 = new Button("Ver información de grado");
 					gra5 = new Button("Cuadro de honor");
 					gra6 = new Button("Prevención de bajo rendimiento");
-					gra7 = new Button("Ver promedios de los grados");
+					gra7 = new Button("Ver promedio del grado");
 					paneGra.setAlignment(Pos.CENTER);
 					paneGra.add(title1, 1, 1);
 					paneGra.add(new Label(""), 1, 2);
