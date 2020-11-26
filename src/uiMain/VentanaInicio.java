@@ -223,13 +223,16 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									GridPane resultinfo = new GridPane();
-									Label des = new Label("Hola");
-									resultinfo.add(des, 1, 1);
-									
+									resultinfo.setAlignment(Pos.CENTER);
+									resultinfo.add(describ, 2, 1);	
+									resultinfo.add(new Label(""), 1, 2);
 									int res = Integer.parseInt(infEs1.getText());
 									String resultado = Main.informeNotas(res);
 									infEs1.setText("");
-									System.out.println(resultado);
+									Label resu = new Label(resultado);
+									resu.setFont(new Font("Tahoma", 11.5));
+									resultinfo.add(resu,2,3);
+									//System.out.println(resultado);
 									ustage.setCenter(resultinfo);
 								}
 								
@@ -265,8 +268,12 @@ public class VentanaInicio extends Application {
 							paneMejEst.add(descrip,2,3);
 							//PROCESO DE MUESTRA
 							String resultado = Main.mejoresColegio();
+							Label resul = new Label(resultado);
+							paneMejEst.add(new Label(""),1,4);
+							resul.setFont(new Font("Tahoma", 11.5));
+							paneMejEst.add(resul, 2, 5);
 							
-							System.out.println(resultado);
+							//System.out.println(resultado);
 							
 							
 							
@@ -288,7 +295,9 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent arg0) {
 									GridPane resultinfo = new GridPane();
-									Label des = new Label("Hola");
+									Label des = new Label("INFORMACION DE ESTUDIANTE");
+									des.setFont(new Font("Tahoma", 17));
+									resultinfo.setAlignment(Pos.CENTER);
 									resultinfo.add(des, 1, 1);
 									
 //									int res = Integer.parseInt(describ.getText());
@@ -297,8 +306,11 @@ public class VentanaInicio extends Application {
 //									System.out.println(resultado);
 									int res = Integer.parseInt(infoEs1.getText());
 									String resultado = Main.infoEst(res);
-									
-									System.out.println(resultado);
+									Label resu = new Label(resultado);
+									resu.setFont(new Font("Tahoma", 11.5));
+									resultinfo.add(new Label(""), 1,2);
+									resultinfo.add(resu, 1,3);
+									//System.out.println(resultado);
 									ustage.setCenter(resultinfo);
 									
 								}
@@ -426,8 +438,16 @@ public class VentanaInicio extends Application {
 									// TODO Auto-generated method stub
 									int res = Integer.parseInt(infoPro1.getText());
 									String resultado = Main.infoProf(res);
-									
-									System.out.println(resultado);
+									Label resu = new Label(resultado);
+									resu.setFont(new Font("Tahoma", 11.5));
+									GridPane infP = new GridPane();
+									Label des = new Label("INFORMACION DE PROFESOR");
+									des.setFont(new Font("Tahoma", 17));
+									infP.setAlignment(Pos.CENTER);
+									infP.add(des, 1, 1);
+									infP.add(new Label(""), 1, 2);
+									infP.add(resu, 1, 3);
+									ustage.setCenter(infP);
 								}
 								
 							});
@@ -624,8 +644,17 @@ public class VentanaInicio extends Application {
 									// TODO Auto-generated method stub
 									int res = Integer.parseInt(verGr.getText());
 									String resultado = Main.infoGr(res);
-									
-									System.out.println(resultado);
+									Label resu = new Label(resultado);
+									resu.setFont(new Font("Tahoma", 11.5));
+									GridPane infG = new GridPane();
+									Label des = new Label("INFORMACION DEL GRADO");
+									des.setFont(new Font("Tahoma", 17));
+									infG.setAlignment(Pos.CENTER);
+									infG.add(des, 1, 1);
+									infG.add(new Label(""), 1, 2);
+									infG.add(resu, 1, 3);
+									ustage.setCenter(infG);
+									//System.out.println(resultado);
 								}
 								
 							});
@@ -662,8 +691,17 @@ public class VentanaInicio extends Application {
 									// TODO Auto-generated method stub
 									int res = Integer.parseInt(cuaHo.getText());
 									String resultado = Main.cuadroHonor(res);
-									
-									System.out.println(resultado);
+									Label resu = new Label(resultado);
+									resu.setFont(new Font("Tahoma", 11.5));
+									GridPane cuad = new GridPane();
+									Label des = new Label("CUADRO DE HONOR");
+									des.setFont(new Font("Tahoma", 17));
+									cuad.setAlignment(Pos.CENTER);
+									cuad.add(des, 1, 1);
+									cuad.add(new Label(""), 1, 2);
+									cuad.add(resu, 1, 3);
+									ustage.setCenter(cuad);
+									//System.out.println(resultado);
 								}
 								
 							});
@@ -700,8 +738,17 @@ public class VentanaInicio extends Application {
 									// TODO Auto-generated method stub
 									int res = Integer.parseInt(prev.getText());
 									String resultado = Main.prevencion(res);
-									
-									System.out.println(resultado);
+									Label resu = new Label(resultado);
+									resu.setFont(new Font("Tahoma", 11.5));
+									GridPane prev = new GridPane();
+									Label des = new Label("PREVENCION BAJO RENDIMIENTO");
+									des.setFont(new Font("Tahoma", 17));
+									prev.setAlignment(Pos.CENTER);
+									prev.add(des, 1, 1);
+									prev.add(new Label(""), 1, 2);
+									prev.add(resu, 1, 3);
+									ustage.setCenter(prev);
+									//System.out.println(resultado);
 								}
 								
 							});
@@ -739,7 +786,17 @@ public class VentanaInicio extends Application {
 									int res = Integer.parseInt(promG.getText());
 									float resultado = Main.promedioGr(res);
 									
-									System.out.println(resultado);
+									Label resu = new Label("El prodemio del Grado es: "+resultado);
+									resu.setFont(new Font("Tahoma", 11.5));
+									GridPane prev = new GridPane();
+									Label des = new Label("PROMEDIO DEL GRADO");
+									des.setFont(new Font("Tahoma", 17));
+									prev.setAlignment(Pos.CENTER);
+									prev.add(des, 1, 1);
+									prev.add(new Label(""), 1, 2);
+									prev.add(resu, 1, 3);
+									ustage.setCenter(prev);
+									//System.out.println(resultado);
 								}
 								
 							});
