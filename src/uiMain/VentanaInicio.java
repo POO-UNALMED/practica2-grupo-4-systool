@@ -1,5 +1,9 @@
 package uiMain;
 
+import gestorAplicacion.academico.Asignatura;
+import gestorAplicacion.academico.Grado;
+import gestorAplicacion.perfiles.Estudiante;
+import gestorAplicacion.perfiles.Profesor;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -155,18 +159,17 @@ public class VentanaInicio extends Application {
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
 									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
-									int dni = Integer.parseInt(creEs1.getText());
-									String nombre = creEs2.getText();
-									String apellido = creEs3.getText();
-									int edad = Integer.parseInt(creEs4.getText());
-									String acudiente = creEs5.getText();
-									creEs1.setText("");
-									creEs2.setText("");
-									creEs3.setText("");
-									creEs4.setText("");
-									creEs5.setText("");
 									
-									Main.crearEst(dni, nombre, apellido, edad, acudiente);
+									if (Main.crearEst(creEs1, creEs2, creEs3, creEs4, creEs5)) {
+										int dni = Integer.parseInt(creEs1.getText());
+										String nombre = creEs2.getText();
+										String apellido = creEs3.getText();
+										int edad = Integer.parseInt(creEs4.getText());
+										String acudiente = creEs5.getText();
+										Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
+									}
+									
+									
 									confirm.setAlertType(AlertType.INFORMATION); 
 									confirm.setTitle("Crear Estudiante");
 									confirm.setHeaderText("Estudiante creado exitosamente.");
@@ -305,7 +308,7 @@ public class VentanaInicio extends Application {
 							paneMejEst.add(descrip,2,3);
 							//PROCESO DE MUESTRA
 							
-							String resultado = p.mejoresColegio();
+							String resultado = Main.mejoresColegio();
 							Label resul = new Label(resultado);
 							paneMejEst.add(new Label(""),1,4);
 							resul.setFont(new Font("Tahoma", 11.5));
@@ -443,18 +446,22 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									int DNI = Integer.parseInt(crePro1.getText());
-									String nombres = crePro2.getText();
-									String apellidos = crePro3.getText();
-									int edad = Integer.parseInt(crePro4.getText());
-									String titulo = crePro5.getText();
-									String email = crePro6.getText();
+									
 									Alert confirm = new Alert(AlertType.NONE); 
 									confirm.setAlertType(AlertType.INFORMATION); 
 									confirm.setTitle("Crear Profesor");
 									confirm.setHeaderText("Profesor creado exitosamente.");
 									confirm.show(); 
-									Main.crearProf(DNI, nombres, apellidos, edad, titulo, email);
+									
+									if (Main.crearProf(crePro1, crePro2, crePro3, crePro4, crePro5, crePro6)) {
+										int DNI = Integer.parseInt(crePro1.getText());
+										String nombres = crePro2.getText();
+										String apellidos = crePro3.getText();
+										int edad = Integer.parseInt(crePro4.getText());
+										String titulo = crePro5.getText();
+										String email = crePro6.getText();
+										Profesor p1 = new Profesor(DNI, nombres, apellidos, edad, titulo, email);
+									}
 									
 								}
 								
@@ -601,15 +608,19 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									int DNI = Integer.parseInt(creGr1.getText());
-									String nombres = creGr2.getText();
 									Alert confirm = new Alert(AlertType.NONE); 
 									confirm.setAlertType(AlertType.INFORMATION); 
 									confirm.setTitle("Crear Grado");
 									confirm.setHeaderText("Grado creado exitosamente.");
 									confirm.show(); 
 									
-									Main.crearGr(DNI, nombres);
+									if (Main.crearGr(creGr1, creGr2)) {
+										int DNI = Integer.parseInt(creGr1.getText());
+										String nombres = creGr2.getText();
+										Grado g1 = new Grado(DNI, nombres);
+									}
+									
+									
 								}
 								
 							});
@@ -837,7 +848,7 @@ public class VentanaInicio extends Application {
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
 									int res = Integer.parseInt(cuaHo.getText());
-									String resultado = p.cuadroHonor(res);
+									String resultado = Main.cuadroHonor(res);
 									Label resu = new Label(resultado);
 									resu.setFont(new Font("Tahoma", 11.5));
 									GridPane cuad = new GridPane();
@@ -955,7 +966,7 @@ public class VentanaInicio extends Application {
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
 									int res = Integer.parseInt(promG.getText());
-									float resultado = Main.promedioGr(res);
+									String resultado = Main.promedioGr(res);
 									
 									Label resu = new Label("El prodemio del Grado es: "+resultado);
 									resu.setFont(new Font("Tahoma", 11.5));
@@ -1037,15 +1048,19 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									int id = Integer.parseInt(crAs1.getText());
-									String nombre = crAs2.getText();
-									int numero = Integer.parseInt(crAs3.getText());
+									
 									Alert confirm = new Alert(AlertType.NONE); 
 									confirm.setAlertType(AlertType.INFORMATION); 
 									confirm.setTitle("Crear Asignatura");
 									confirm.setHeaderText("Asignatura creado exitosamente.");
 									confirm.show(); 
-									Main.crearAsig(id, nombre, numero);
+									
+									if(Main.crearAsig(crAs1, crAs2, crAs3)) {
+										int id = Integer.parseInt(crAs1.getText());
+										String nombre = crAs2.getText();
+										int numero = Integer.parseInt(crAs3.getText());
+										Asignatura a1 = new Asignatura(id, nombre, numero);
+									}
 								}
 								
 							});
@@ -1142,7 +1157,7 @@ public class VentanaInicio extends Application {
 	public static void main(String args[]) {
 		launch(args);
 	}
-	Main p = new Main(); 
+//	Main p = new Main(); 
 	String ini = "01";
 	Stage primario;
 	Scene prisce;

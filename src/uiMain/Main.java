@@ -3,11 +3,14 @@ package uiMain;
 import java.util.*;
 
 import BaseDatos.Serializacion;
+import excepciones.Error1;
+import excepciones.Error2;
 import gestorAplicacion.academico.Asignatura;
 import gestorAplicacion.academico.Grado;
 import gestorAplicacion.academico.Nota;
 import gestorAplicacion.perfiles.Estudiante;
 import gestorAplicacion.perfiles.Profesor;
+import javafx.scene.control.TextField;
 
 public class Main {
 
@@ -23,314 +26,408 @@ public class Main {
 
 	// -------------------------------------------------------------------------------------------------------------------------
 
-	// Serializacion.b2();
-
 	static ArrayList<Estudiante> estudiantes1;
 	static ArrayList<Profesor> profesores1;
 	static ArrayList<Asignatura> asignaturas1;
 	static ArrayList<Grado> grados1;
+	private static String alerta = "";
+
+	public static String getAlerta() {
+		return alerta;
+	}
+	public static void setAlerta(String a) {
+		alerta = a;
+	}
 	
 	public Main() {
 		Serializacion.b2();
 	}
 
-	public static void crearEst(int dni, String nombre, String apellido, int edad, String acudiente) {
-//		Serializacion.b2();
-		Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
+	public static boolean crearEst(TextField creEs1, TextField creEs2, TextField creEs3, TextField creEs4,
+			TextField creEs5) {
+		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
-//		System.out.println(e1.getNombre());
+
+		int dni = Integer.parseInt(creEs1.getText());
+		String nombre = creEs2.getText();
+		String apellido = creEs3.getText();
+		int edad = Integer.parseInt(creEs4.getText());
+		String acudiente = creEs5.getText();
+		Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
+
+		boolean salida = true;
+
+		try {
+			try {
+				if (creEs1.getText().equals("") || creEs2.getText().equals("") || creEs3.getText().equals("")
+						|| creEs1.getText().equals("") || creEs1.getText().equals("")) {
+					throw new Error1(4);
+				}
+			} catch (Error1 e2) {
+				alerta = e2.getSalida();
+				System.out.println(e2.getSalida());
+			}
+
+			throw new Error1(creEs1, creEs2, creEs3, creEs4, creEs5);
+
+		} catch (Error1 e) {
+			salida = e.isA();
+		}
+		return salida;
 	}
 
 	public static String informeNotas(int dni) {
 //		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
 		String salida = "";
-		if (estudiantes1.size() > 0) {
-			ArrayList<Integer> dnis = new ArrayList<>();
-			for (Estudiante e : estudiantes1) {
-				dnis.add(e.getDNI());
-				if (e.getDNI() == dni) {
-					salida = e.misNotas();
+		try {
+			if (estudiantes1.size() > 0) {
+				ArrayList<Integer> dnis = new ArrayList<>();
+				for (Estudiante e : estudiantes1) {
+					dnis.add(e.getDNI());
+					if (e.getDNI() == dni) {
+						salida = e.misNotas();
+					}
 				}
+				try {
+					if (!dnis.contains(dni)) {
+						throw new Error1(3);
+					}
+				} catch (Error1 e) {
+					salida = e.getSalida();
+				}
+			} else {
+				throw new Error1(2);
 			}
-			if (!dnis.contains(dni)) {
-				System.out.println("El estudiante con DNI " + dni + " no se encuentra registrado.");
-			}
-		} else {
-			System.out.println("Usted no ha creado estudiantes, por favor vaya a la sección de crear estudiantes.");
+		} catch (Error1 e) {
+			salida = e.getSalida();
 		}
 		return salida;
 	}
 
-	public String mejoresColegio() {
-		String salida = "";
+	public static String mejoresColegio() {
 //		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
-		for (Estudiante e : estudiantes1) {
-			e.promedio_general();
+		String salida = "";
+		try {
+			for (Estudiante e : estudiantes1) {
+				e.promedio_general();
+			}
+			if (estudiantes1.size() > 9) {
+				salida = Estudiante.mejores_colegio();
+			} else {
+				throw new Error2(1);
+			}
+		} catch (Error2 e) {
+			salida = e.getSalida();
 		}
-		if (estudiantes1.size() > 9) {
-			salida = Estudiante.mejores_colegio();
-//			System.out.println(Estudiante.mejores_colegio());
-		} else {
-			System.out.println(
-					"Usted no ha creado estudiantes o no tiene minimo 10 estudiantes, por favor vaya a la sección de crear estudiantes.");
-		}
+
 		return salida;
 	}
 
 	public static String infoEst(int dni) {
-		String salida = "";
-		Serializacion.b2();
+//		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
-		if (estudiantes1.size() > 0) {
-			ArrayList<Integer> dnis = new ArrayList<>();
-			for (Estudiante e : estudiantes1) {
-				dnis.add(e.getDNI());
-				if (e.getDNI() == dni) {
-					salida = e.toString();
-//					System.out.println(e.toString());
+		String salida = "";
+		try {
+			if (estudiantes1.size() > 0) {
+				ArrayList<Integer> dnis = new ArrayList<>();
+				for (Estudiante e : estudiantes1) {
+					dnis.add(e.getDNI());
+					if (e.getDNI() == dni) {
+						salida = e.toString();
+					}
 				}
+				if (!dnis.contains(dni)) {
+					throw new Error1(3);
+				}
+			} else {
+				throw new Error1(2);
 			}
-			if (!dnis.contains(dni)) {
-				System.out.println("El estudiante con DNI " + dni + " no se encuentra registrado.");
-			}
-		} else {
-			System.out.println("Usted no ha creado estudiantes, por favor vaya a la sección de crear estudiantes.");
+		} catch (Error1 e) {
+			salida = e.getSalida();
 		}
+
 		return salida;
 	}
 
-	public static void crearProf(int DNI, String nombres, String apellidos, int edad, String titulo, String email) {
+	public static boolean crearProf(TextField crePro1, TextField crePro2, TextField crePro3, TextField crePro4,
+			TextField crePro5, TextField crePro6) {
 		Serializacion.b2();
-		Profesor p1 = new Profesor(DNI, nombres, apellidos, edad, titulo, email);
-//		profesores1 = Serializacion.getProfesores();
-//		System.out.println(e1.getNombre());
+		profesores1 = Serializacion.getProfesores();
+		boolean salida = true;
+
+		try {
+			throw new Error2(crePro1, crePro2, crePro3, crePro4, crePro5, crePro6);
+		} catch (Error2 e) {
+			salida = e.isEsNum();
+		}
+		return salida;
 	}
 
 	public static String infoProf(int dni) {
-		String salida = "";
-		Serializacion.b2();
+//		Serializacion.b2();
 		profesores1 = Serializacion.getProfesores();
-		if (profesores1.size() > 0) {
-			ArrayList<Integer> dnis = new ArrayList<>();
-			for (Profesor p : profesores1) {
-				dnis.add(p.getDNI());
-				if (p.getDNI() == dni) {
-					salida = p.toString();
-//					System.out.println(p.toString());
+		String salida = "";
+		try {
+			if (profesores1.size() > 0) {
+				ArrayList<Integer> dnis = new ArrayList<>();
+				for (Profesor p : profesores1) {
+					dnis.add(p.getDNI());
+					if (p.getDNI() == dni) {
+						salida = p.toString();
+					}
 				}
+				if (!dnis.contains(dni)) {
+					throw new Error1(3);
+				}
+			} else {
+				throw new Error1(2);
 			}
-			if (!dnis.contains(dni)) {
-				System.out.println("El profesor con DNI " + dni + " no se encuentra registrado.");
-			}
-		} else {
-			System.out.println("Usted no ha creado profesores, por favor vaya a la sección de crear profesores.");
+		} catch (Error1 e) {
+			salida = e.getSalida();
+		}
+
+		return salida;
+	}
+
+	public static boolean crearGr(TextField creGr1, TextField creGr2) {
+		Serializacion.b2();
+		grados1 = Serializacion.getGrados();
+		boolean salida = true;
+
+		try {
+			throw new Error2(creGr1, creGr2);
+		} catch (Error2 e) {
+			salida = e.isEsNum();
 		}
 		return salida;
 	}
 
-	public static void crearGr(int id, String nombre) {
-		Serializacion.b2();
-		Grado g1 = new Grado(id, nombre);
-//		grados1 = Serializacion.getGrados();
-	}
-
-	public static void profEnc(int idg, int dni) {
+	public static String profEnc(int idg, int dni) {
 		Serializacion.b2();
 		profesores1 = Serializacion.getProfesores();
 		grados1 = Serializacion.getGrados();
-		if (profesores1.size() > 0 && grados1.size() > 0) {
-			ArrayList<Integer> dnis = new ArrayList<>();
-			ArrayList<Integer> ids = new ArrayList<>();
-			for (Grado g : grados1) {
-				ids.add(g.getId());
-				for (Profesor p : profesores1) {
-					dnis.add(p.getDNI());
-					if (p.getDNI() == dni && g.getId() == idg) {
-						g.setProfesor_encargado(p);
-//						profesores1 = Serializacion.getProfesores();
-//						grados1 = Serializacion.getGrados();
-//						System.out.println("Profesor agregado correctamente.");
+		String salida = "";
+		try {
+			if (profesores1.size() > 0 && grados1.size() > 0) {
+				ArrayList<Integer> dnis = new ArrayList<>();
+				ArrayList<Integer> ids = new ArrayList<>();
+				for (Grado g : grados1) {
+					ids.add(g.getId());
+					for (Profesor p : profesores1) {
+						dnis.add(p.getDNI());
+						if (p.getDNI() == dni && g.getId() == idg) {
+							g.setProfesor_encargado(p);
+							salida = "Profesor agregado exitosamente";
+						}
 					}
 				}
-
+				if (!ids.contains(idg) || !dnis.contains(dni)) {
+					throw new Error1(3);
+				}
+			} else {
+				throw new Error1(2);
 			}
-			if (!ids.contains(idg) || !dnis.contains(dni)) {
-				System.out.println("Grado o profesor ingreado no existente, por favor vaya a la sección de creaciones");
-			}
-		} else {
-			System.out
-					.println("No existen profesores o grados registrados, por favor vaya a la sección de creaciones.");
+		} catch (Error1 e) {
+			salida = e.getSalida();
 		}
+		return salida;
+
 	}
 
-	public static void aggEstGr(int idg, int e) {
+	public static String aggEstGr(int idg, int e) {
 		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
 		grados1 = Serializacion.getGrados();
+		String salida = "";
 
-		if (grados1.size() > 0 && estudiantes1.size() > 0) {
-			ArrayList<Integer> nombres = new ArrayList<>();
-			ArrayList<Integer> est = new ArrayList<>();
-			for (Grado g : grados1) {
-				nombres.add(g.getId());
-				for (Estudiante es : estudiantes1) {
-					est.add(es.getDNI());
-					if (es.getDNI() == e && g.getId() == idg) {
-						g.agregarEstudiante(es);
-//						estudiantes1 = Serializacion.getEstudiantes();
-//						grados1 = Serializacion.getGrados();
-//						System.out.println("Estudiante Matriculado exitosamente");
+		try {
+			if (grados1.size() > 0 && estudiantes1.size() > 0) {
+				ArrayList<Integer> nombres = new ArrayList<>();
+				ArrayList<Integer> est = new ArrayList<>();
+				for (Grado g : grados1) {
+					nombres.add(g.getId());
+					for (Estudiante es : estudiantes1) {
+						est.add(es.getDNI());
+						if (es.getDNI() == e && g.getId() == idg) {
+							g.agregarEstudiante(es);
+							salida = "Estudiante agregado exitosamente";
+						}
 					}
 				}
+				if (!nombres.contains(idg) || !est.contains(e)) {
+					throw new Error1(3);
+				}
+			} else {
+				throw new Error1(2);
 			}
-			if (!nombres.contains(idg) || !est.contains(e)) {
-				System.out
-						.println("Grado o estudiante ingreado no existente, por favor vaya a la sección de creaciones");
-			}
+		} catch (Error1 er) {
+			salida = er.getSalida();
 		}
+		return salida;
 	}
 
 	public static String infoGr(int dni) {
-		String salida = "";
-		Serializacion.b2();
+//		Serializacion.b2();
 		grados1 = Serializacion.getGrados();
-		if (grados1.size() > 0) {
-			ArrayList<Integer> ids = new ArrayList<>();
-			for (Grado e : grados1) {
-				ids.add(e.getId());
-				if (e.getId() == dni) {
-					salida = e.toString();
-//					System.out.println(e.toString());
+		String salida = "";
+		try {
+			if (grados1.size() > 0) {
+				ArrayList<Integer> ids = new ArrayList<>();
+				for (Grado e : grados1) {
+					ids.add(e.getId());
+					if (e.getId() == dni) {
+						salida = e.toString();
+					}
 				}
+				if (!ids.contains(dni)) {
+					throw new Error1(3);
+				}
+			} else {
+				throw new Error1(2);
 			}
-			if (!ids.contains(dni)) {
-				System.out.println("El grado con ID " + dni + " no se encuentra registrado.");
-			}
-		} else {
-			System.out.println("Usted no ha creado grados, por favor vaya a la sección de crear estudiantes.");
+		} catch (Error1 e) {
+			salida = e.getSalida();
 		}
 		return salida;
 	}
 
-	public String cuadroHonor(int idg) {
-		String salida = "";
+	public static String cuadroHonor(int idg) {
 //		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
 		grados1 = Serializacion.getGrados();
+		String salida = "";
 
-		if (grados1.size() > 0 && estudiantes1.size() > 0) {
-			ArrayList<Integer> ids = new ArrayList<>();
-			for (Grado g : grados1) {
-				ids.add(g.getId());
-				if (g.getId() == idg) {
-					salida = Estudiante.cuadro_Honor(idg);
-//					System.out.println(Estudiante.cuadro_Honor(idg));
+		try {
+			if (grados1.size() > 0 && estudiantes1.size() > 0) {
+				ArrayList<Integer> ids = new ArrayList<>();
+				for (Grado g : grados1) {
+					ids.add(g.getId());
+					if (g.getId() == idg) {
+						salida = Estudiante.cuadro_Honor(idg);
+					}
 				}
+				if (!ids.contains(idg)) {
+					throw new Error1(3);
+				}
+			} else {
+				throw new Error1(2);
 			}
-			if (!ids.contains(idg)) {
-				System.out.println("El grado con DNI " + idg + " no se encuentra registrado.");
-			}
-		} else {
-			System.out.println(
-					"No existen grados o estudiantes registrados, por favor vaya a las secciones de creaciones.");
+		} catch (Error1 e) {
+			salida = e.getSalida();
 		}
+
 		return salida;
 	}
 
 	public static String prevencion(int idg) {
+//		Serializacion.b2();
+		estudiantes1 = Serializacion.getEstudiantes();
+		grados1 = Serializacion.getGrados();
 		String salida = "";
-		Serializacion.b2();
+
+		try {
+			if (grados1.size() > 0 && estudiantes1.size() > 0) {
+				ArrayList<Integer> ids = new ArrayList<>();
+				for (Grado g : grados1) {
+					ids.add(g.getId());
+					if (g.getId() == idg) {
+						salida = Estudiante.prevencion_bajo_rendimiento(idg);
+					}
+				}
+				if (!ids.contains(idg)) {
+					throw new Error1(3);
+				}
+			} else {
+				throw new Error1(2);
+			}
+		} catch (Error1 e) {
+			salida = e.getSalida();
+		}
+
+		return salida;
+	}
+
+	public static String promedioGr(int idg) {
+//		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
 		grados1 = Serializacion.getGrados();
-
-		if (grados1.size() > 0 && estudiantes1.size() > 0) {
-			ArrayList<Integer> ids = new ArrayList<>();
-			for (Grado g : grados1) {
-				ids.add(g.getId());
-				if (g.getId() == idg) {
-					salida = Estudiante.prevencion_bajo_rendimiento(idg);
-//				System.out.println(Estudiante.prevencion_bajo_rendimiento(idg));
+		String salida = "";
+		try {
+			if (grados1.size() > 0 && estudiantes1.size() > 0) {
+				ArrayList<Integer> ids = new ArrayList<>();
+				for (Grado g : grados1) {
+					ids.add(g.getId());
+					if (g.getId() == idg) {
+						salida = Float.toString(Estudiante.promedio_grado(idg));
+					}
 				}
+				if (!ids.contains(idg)) {
+					throw new Error1(3);
+				}
+			} else {
+				throw new Error1(2);
 			}
-			if (!ids.contains(idg)) {
-				System.out.println("El grado con DNI " + idg + " no se encuentra registrado.");
-			}
-		} else {
-			System.out.println(
-					"No existen grados o estudiantes registrados, por favor vaya a las secciones de creaciones.");
+		} catch (Error1 e) {
+			salida = e.getSalida();
 		}
 		return salida;
 	}
 
-	public static float promedioGr(int idg) {
-		float salida = 0;
+	public static boolean crearAsig(TextField crAs1, TextField crAs2, TextField crAs3) {
 		Serializacion.b2();
-		estudiantes1 = Serializacion.getEstudiantes();
-		grados1 = Serializacion.getGrados();
-		if (grados1.size() > 0 && estudiantes1.size() > 0) {
-			ArrayList<Integer> ids = new ArrayList<>();
-			for (Grado g : grados1) {
-				ids.add(g.getId());
-				if (g.getId() == idg) {
-					salida = Estudiante.promedio_grado(idg);
-//				System.out.println("El promedio del grado es: " + Estudiante.promedio_grado(idg));
-				}
-			}
-			if (!ids.contains(idg)) {
-				System.out.println("El grado con DNI " + idg + " no se encuentra registrado.");
-			}
-		} else {
-			System.out.println(
-					"No existen grados o estudiantes registrados, por favor vaya a las secciones de creaciones.");
+		asignaturas1 = Serializacion.getAsignaturas();
+		boolean salida = true;
+		try {
+			throw new Error2(crAs1, crAs2, crAs3);
+		} catch (Error2 e) {
+			salida = e.isEsNum();
 		}
 		return salida;
 	}
 
-	public static void crearAsig(int id, String nombre, int numero) {
-		Serializacion.b2();
-		Asignatura a1 = new Asignatura(id, nombre, numero);
-//		asignaturas1 = Serializacion.getAsignaturas();
-	}
-
-	public static void crearNota(float cal, int asignatura, int dni) {
+	public static String crearNota(float cal, int asignatura, int dni) {
 		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
 		asignaturas1 = Serializacion.getAsignaturas();
-		if (asignaturas1.size() > 0 && estudiantes1.size() > 0) {
-			Asignatura a2 = null;
-			Estudiante e1 = null;
+		String salida = "";
 
-			ArrayList<Integer> id_asign = new ArrayList<>();
-			for (Asignatura a : asignaturas1) {
-				id_asign.add(a.getId());
-				if (a.getId() == asignatura) {
-					a2 = a;
-				}
-			}
-			ArrayList<Integer> dnis = new ArrayList<>();
-			for (Estudiante e : estudiantes1) {
-				dnis.add(e.getDNI());
-				if (e.getDNI() == dni) {
-					e1 = e;
-				}
-			}
+		try {
+			if (asignaturas1.size() > 0 && estudiantes1.size() > 0) {
+				Asignatura a2 = null;
+				Estudiante e1 = null;
 
-			if (id_asign.contains(asignatura) && dnis.contains(dni)) {
-				Nota n1 =new Nota(cal, e1, a2);
-//				estudiantes1 = Serializacion.getEstudiantes();
-//				asignaturas1 = Serializacion.getAsignaturas();
-//				profesores1 = Serializacion.getProfesores();
-//				grados1 = Serializacion.getGrados();
-				System.out.println("Nota creada exitosamente");
+				ArrayList<Integer> id_asign = new ArrayList<>();
+				for (Asignatura a : asignaturas1) {
+					id_asign.add(a.getId());
+					if (a.getId() == asignatura) {
+						a2 = a;
+					}
+				}
+				ArrayList<Integer> dnis = new ArrayList<>();
+				for (Estudiante e : estudiantes1) {
+					dnis.add(e.getDNI());
+					if (e.getDNI() == dni) {
+						e1 = e;
+					}
+				}
+
+				if (id_asign.contains(asignatura) && dnis.contains(dni)) {
+					Nota n1 = new Nota(cal, e1, a2);
+					salida = "nota creada exitosamente";
+				} else {
+					throw new Error1(3);
+				}
+
 			} else {
-				System.out.println("Asignatura o estudiante ingresado no existe, por vaya ingrese datos existentes.");
+				throw new Error1(2);
 			}
-
-		} else {
-			System.out.println("No existen asignaturas creadas, por favor vaya a la sección de crear asignaturas.");
+		} catch (Error1 e) {
+			salida = e.getSalida();
 		}
+		return salida;
+
 	}
 	// -------------------------------------------------------------------------------------------------------------------------
 
