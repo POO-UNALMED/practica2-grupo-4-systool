@@ -266,7 +266,13 @@ public class VentanaInicio extends Application {
 							informe.setOnAction(new EventHandler<ActionEvent>() {
 								@Override
 								public void handle(ActionEvent event) {
-									if (Main.getAlerta().equals("")) {
+									if (infEs1.getText().equals("")) {
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
 										GridPane resultinfo = new GridPane();
 										resultinfo.setAlignment(Pos.CENTER);
 										resultinfo.add(describ, 2, 1);
@@ -279,13 +285,8 @@ public class VentanaInicio extends Application {
 										resultinfo.add(resu, 2, 3);
 										// System.out.println(resultado);
 										ustage.setCenter(resultinfo);
-									}else {
-										confirm.setAlertType(AlertType.ERROR);
-										confirm.setTitle("Crear Estudiante");
-										confirm.setHeaderText("Complete todos los campos.");
-										confirm.show();
-										Main.setAlerta("");
 									}
+
 								}
 
 							});
@@ -324,6 +325,7 @@ public class VentanaInicio extends Application {
 							paneMejEst.setAlignment(Pos.CENTER);
 							Label describ = new Label("MEJORES 10 ESTUDIANTES DEL COLEGIO");
 							describ.setFont(new Font("Tahoma", 17));
+							Alert confirm = new Alert(AlertType.NONE);
 							Label descrip = new Label(
 									"El programa mostrará una lista de\n\rlos 10 mejores estudiantes del colegio.");
 							descrip.setFont(new Font("Tahoma", 13));
@@ -351,6 +353,7 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("INFORMACION DE ESTUDIANTE");
 							describ.setFont(new Font("Tahoma", 17));
+							Alert confirm = new Alert(AlertType.NONE);
 							Label descrip = new Label(
 									"Al ingresar el DNI del estudiante, el programa\n\rmostrará los datos del estudiante.");
 							descrip.setFont(new Font("Tahoma", 13));
@@ -358,24 +361,32 @@ public class VentanaInicio extends Application {
 							informe.setOnAction(new EventHandler<ActionEvent>() {
 								@Override
 								public void handle(ActionEvent arg0) {
-									GridPane resultinfo = new GridPane();
-									Label des = new Label("INFORMACION DE ESTUDIANTE");
-									des.setFont(new Font("Tahoma", 17));
-									resultinfo.setAlignment(Pos.CENTER);
-									resultinfo.add(des, 1, 1);
+									if (infoEs1.getText().equals("")) {
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
+										GridPane resultinfo = new GridPane();
+										Label des = new Label("INFORMACION DE ESTUDIANTE");
+										des.setFont(new Font("Tahoma", 17));
+										resultinfo.setAlignment(Pos.CENTER);
+										resultinfo.add(des, 1, 1);
 
 //									int res = Integer.parseInt(describ.getText());
 //									String resultado = Main.informeNotas(res);
 //									describ.setText("");
 //									System.out.println(resultado);
-									int res = Integer.parseInt(infoEs1.getText());
-									String resultado = Main.infoEst(res);
-									Label resu = new Label(resultado);
-									resu.setFont(new Font("Tahoma", 11.5));
-									resultinfo.add(new Label(""), 1, 2);
-									resultinfo.add(resu, 1, 3);
-									// System.out.println(resultado);
-									ustage.setCenter(resultinfo);
+										int res = Integer.parseInt(infoEs1.getText());
+										String resultado = Main.infoEst(res);
+										Label resu = new Label(resultado);
+										resu.setFont(new Font("Tahoma", 11.5));
+										resultinfo.add(new Label(""), 1, 2);
+										resultinfo.add(resu, 1, 3);
+										// System.out.println(resultado);
+										ustage.setCenter(resultinfo);
+									}
 
 								}
 
@@ -468,23 +479,36 @@ public class VentanaInicio extends Application {
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
 
-									Alert confirm = new Alert(AlertType.NONE);
-									confirm.setAlertType(AlertType.INFORMATION);
-									confirm.setTitle("Crear Profesor");
-									confirm.setHeaderText("Profesor creado exitosamente.");
-									confirm.show();
+									
 
-									if (Main.crearProf(crePro1, crePro2, crePro3, crePro4, crePro5, crePro6)) {
-										int DNI = Integer.parseInt(crePro1.getText());
-										String nombres = crePro2.getText();
-										String apellidos = crePro3.getText();
-										int edad = Integer.parseInt(crePro4.getText());
-										String titulo = crePro5.getText();
-										String email = crePro6.getText();
-										Serializacion.b2();
-										Main.profesores1 = Serializacion.getProfesores();
-										Profesor p1 = new Profesor(DNI, nombres, apellidos, edad, titulo, email);
+									if (crePro1.getText().equals("")||crePro2.getText().equals("")||crePro3.getText().equals("")
+											||crePro4.getText().equals("")||crePro5.getText().equals("")||crePro6.getText().equals("")) {
+										Alert confirm1 = new Alert(AlertType.NONE);
+										confirm1.setAlertType(AlertType.ERROR);
+										confirm1.setTitle("Crear Estudiante");
+										confirm1.setHeaderText("Complete todos los campos.");
+										confirm1.show();
+										Main.setAlerta("");
+									} else {
+										Alert confirm2 = new Alert(AlertType.NONE);
+										confirm2.setAlertType(AlertType.INFORMATION);
+										confirm2.setTitle("Crear Profesor");
+										confirm2.setHeaderText("Profesor creado exitosamente.");
+										confirm2.show();
+										if (Main.crearProf(crePro1, crePro2, crePro3, crePro4, crePro5, crePro6)) {
+											int DNI = Integer.parseInt(crePro1.getText());
+											String nombres = crePro2.getText();
+											String apellidos = crePro3.getText();
+											int edad = Integer.parseInt(crePro4.getText());
+											String titulo = crePro5.getText();
+											String email = crePro6.getText();
+											Serializacion.b2();
+											Main.profesores1 = Serializacion.getProfesores();
+											Profesor p1 = new Profesor(DNI, nombres, apellidos, edad, titulo, email);
+										}
 									}
+
+									
 
 								}
 
@@ -539,6 +563,27 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									if (infoPro1.getText().equals("")) {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
+										int res = Integer.parseInt(infoPro1.getText());
+										String resultado = Main.infoProf(res);
+										Label resu = new Label(resultado);
+										resu.setFont(new Font("Tahoma", 11.5));
+										GridPane infP = new GridPane();
+										Label des = new Label("INFORMACION DE PROFESOR");
+										des.setFont(new Font("Tahoma", 17));
+										infP.setAlignment(Pos.CENTER);
+										infP.add(des, 1, 1);
+										infP.add(new Label(""), 1, 2);
+										infP.add(resu, 1, 3);
+										ustage.setCenter(infP);
+									}
 									int res = Integer.parseInt(infoPro1.getText());
 									String resultado = Main.infoProf(res);
 									Label resu = new Label(resultado);
@@ -633,19 +678,29 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									Alert confirm = new Alert(AlertType.NONE);
-									confirm.setAlertType(AlertType.INFORMATION);
-									confirm.setTitle("Crear Grado");
-									confirm.setHeaderText("Grado creado exitosamente.");
-									confirm.show();
+									if (creGr1.getText().equals("")||creGr2.getText().equals("")) {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.INFORMATION);
+										confirm.setTitle("Crear Grado");
+										confirm.setHeaderText("Grado creado exitosamente.");
+										confirm.show();
 
-									if (Main.crearGr(creGr1, creGr2)) {
-										int DNI = Integer.parseInt(creGr1.getText());
-										String nombres = creGr2.getText();
-										Serializacion.b2();
-										Main.grados1 = Serializacion.getGrados();
-										Grado g1 = new Grado(DNI, nombres);
+										if (Main.crearGr(creGr1, creGr2)) {
+											int DNI = Integer.parseInt(creGr1.getText());
+											String nombres = creGr2.getText();
+											Serializacion.b2();
+											Main.grados1 = Serializacion.getGrados();
+											Grado g1 = new Grado(DNI, nombres);
+										}
 									}
+									
 
 								}
 
@@ -700,14 +755,24 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									int dni = Integer.parseInt(crePrEn1.getText());
-									int idg = Integer.parseInt(crePrEn2.getText());
-									Alert confirm = new Alert(AlertType.NONE);
-									confirm.setAlertType(AlertType.INFORMATION);
-									confirm.setTitle("Asignar Profesor");
-									confirm.setHeaderText("Profesor asignado a grado exitosamente.");
-									confirm.show();
-									Main.profEnc(dni, idg);
+									if (crePrEn1.getText().equals("")||crePrEn2.getText().equals("")) {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
+										int dni = Integer.parseInt(crePrEn1.getText());
+										int idg = Integer.parseInt(crePrEn2.getText());
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.INFORMATION);
+										confirm.setTitle("Asignar Profesor");
+										confirm.setHeaderText("Profesor asignado a grado exitosamente.");
+										confirm.show();
+										Main.profEnc(dni, idg);
+									}
+									
 
 								}
 
@@ -761,14 +826,24 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									int dni = Integer.parseInt(asiEs1.getText());
-									int idg = Integer.parseInt(asiEs2.getText());
-									Alert confirm = new Alert(AlertType.NONE);
-									confirm.setAlertType(AlertType.INFORMATION);
-									confirm.setTitle("Asignar Estudiante");
-									confirm.setHeaderText("Estudiante asignado al grado exitosamente.");
-									confirm.show();
-									Main.aggEstGr(dni, idg);
+									if (asiEs1.getText().equals("")||asiEs2.getText().equals("")) {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
+										int dni = Integer.parseInt(asiEs1.getText());
+										int idg = Integer.parseInt(asiEs2.getText());
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.INFORMATION);
+										confirm.setTitle("Asignar Estudiante");
+										confirm.setHeaderText("Estudiante asignado al grado exitosamente.");
+										confirm.show();
+										Main.aggEstGr(dni, idg);
+									}
+									
 								}
 
 							});
@@ -817,18 +892,28 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									int res = Integer.parseInt(verGr.getText());
-									String resultado = Main.infoGr(res);
-									Label resu = new Label(resultado);
-									resu.setFont(new Font("Tahoma", 11.5));
-									GridPane infG = new GridPane();
-									Label des = new Label("INFORMACION DEL GRADO");
-									des.setFont(new Font("Tahoma", 17));
-									infG.setAlignment(Pos.CENTER);
-									infG.add(des, 1, 1);
-									infG.add(new Label(""), 1, 2);
-									infG.add(resu, 1, 3);
-									ustage.setCenter(infG);
+									
+									if (verGr.getText().equals("")) {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
+										int res = Integer.parseInt(verGr.getText());
+										String resultado = Main.infoGr(res);
+										Label resu = new Label(resultado);
+										resu.setFont(new Font("Tahoma", 11.5));
+										GridPane infG = new GridPane();
+										Label des = new Label("INFORMACION DEL GRADO");
+										des.setFont(new Font("Tahoma", 17));
+										infG.setAlignment(Pos.CENTER);
+										infG.add(des, 1, 1);
+										infG.add(new Label(""), 1, 2);
+										infG.add(resu, 1, 3);
+										ustage.setCenter(infG);
+									}
 									// System.out.println(resultado);
 								}
 
@@ -877,18 +962,28 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									int res = Integer.parseInt(cuaHo.getText());
-									String resultado = Main.cuadroHonor(res);
-									Label resu = new Label(resultado);
-									resu.setFont(new Font("Tahoma", 11.5));
-									GridPane cuad = new GridPane();
-									Label des = new Label("CUADRO DE HONOR");
-									des.setFont(new Font("Tahoma", 17));
-									cuad.setAlignment(Pos.CENTER);
-									cuad.add(des, 1, 1);
-									cuad.add(new Label(""), 1, 2);
-									cuad.add(resu, 1, 3);
-									ustage.setCenter(cuad);
+									if (cuaHo.getText().equals("")) {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
+										int res = Integer.parseInt(cuaHo.getText());
+										String resultado = Main.cuadroHonor(res);
+										Label resu = new Label(resultado);
+										resu.setFont(new Font("Tahoma", 11.5));
+										GridPane cuad = new GridPane();
+										Label des = new Label("CUADRO DE HONOR");
+										des.setFont(new Font("Tahoma", 17));
+										cuad.setAlignment(Pos.CENTER);
+										cuad.add(des, 1, 1);
+										cuad.add(new Label(""), 1, 2);
+										cuad.add(resu, 1, 3);
+										ustage.setCenter(cuad);
+									}
+									
 									// System.out.println(resultado);
 								}
 
@@ -937,18 +1032,28 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									int res = Integer.parseInt(prev.getText());
-									String resultado = Main.prevencion(res);
-									Label resu = new Label(resultado);
-									resu.setFont(new Font("Tahoma", 11.5));
-									GridPane prev = new GridPane();
-									Label des = new Label("PREVENCION BAJO RENDIMIENTO");
-									des.setFont(new Font("Tahoma", 17));
-									prev.setAlignment(Pos.CENTER);
-									prev.add(des, 1, 1);
-									prev.add(new Label(""), 1, 2);
-									prev.add(resu, 1, 3);
-									ustage.setCenter(prev);
+									if (prev.getText().equals("")) {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
+										int res = Integer.parseInt(prev.getText());
+										String resultado = Main.prevencion(res);
+										Label resu = new Label(resultado);
+										resu.setFont(new Font("Tahoma", 11.5));
+										GridPane prev = new GridPane();
+										Label des = new Label("PREVENCION BAJO RENDIMIENTO");
+										des.setFont(new Font("Tahoma", 17));
+										prev.setAlignment(Pos.CENTER);
+										prev.add(des, 1, 1);
+										prev.add(new Label(""), 1, 2);
+										prev.add(resu, 1, 3);
+										ustage.setCenter(prev);
+									}
+									
 									// System.out.println(resultado);
 								}
 
@@ -997,19 +1102,29 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									int res = Integer.parseInt(promG.getText());
-									String resultado = Main.promedioGr(res);
+									if (promG.getText().equals("")) {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
+										int res = Integer.parseInt(promG.getText());
+										String resultado = Main.promedioGr(res);
 
-									Label resu = new Label("El prodemio del Grado es: " + resultado);
-									resu.setFont(new Font("Tahoma", 11.5));
-									GridPane prev = new GridPane();
-									Label des = new Label("PROMEDIO DEL GRADO");
-									des.setFont(new Font("Tahoma", 17));
-									prev.setAlignment(Pos.CENTER);
-									prev.add(des, 1, 1);
-									prev.add(new Label(""), 1, 2);
-									prev.add(resu, 1, 3);
-									ustage.setCenter(prev);
+										Label resu = new Label("El prodemio del Grado es: " + resultado);
+										resu.setFont(new Font("Tahoma", 11.5));
+										GridPane prev = new GridPane();
+										Label des = new Label("PROMEDIO DEL GRADO");
+										des.setFont(new Font("Tahoma", 17));
+										prev.setAlignment(Pos.CENTER);
+										prev.add(des, 1, 1);
+										prev.add(new Label(""), 1, 2);
+										prev.add(resu, 1, 3);
+										ustage.setCenter(prev);
+									}
+									
 									// System.out.println(resultado);
 								}
 
@@ -1081,21 +1196,30 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
+									if (crAs1.getText().equals("")||crAs2.getText().equals("")||crAs3.getText().equals("")) {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.INFORMATION);
+										confirm.setTitle("Crear Asignatura");
+										confirm.setHeaderText("Asignatura creado exitosamente.");
+										confirm.show();
 
-									Alert confirm = new Alert(AlertType.NONE);
-									confirm.setAlertType(AlertType.INFORMATION);
-									confirm.setTitle("Crear Asignatura");
-									confirm.setHeaderText("Asignatura creado exitosamente.");
-									confirm.show();
-
-									if (Main.crearAsig(crAs1, crAs2, crAs3)) {
-										int id = Integer.parseInt(crAs1.getText());
-										String nombre = crAs2.getText();
-										int numero = Integer.parseInt(crAs3.getText());
-										Serializacion.b2();
-										Main.asignaturas1 = Serializacion.getAsignaturas();
-										Asignatura a1 = new Asignatura(id, nombre, numero);
+										if (Main.crearAsig(crAs1, crAs2, crAs3)) {
+											int id = Integer.parseInt(crAs1.getText());
+											String nombre = crAs2.getText();
+											int numero = Integer.parseInt(crAs3.getText());
+											Serializacion.b2();
+											Main.asignaturas1 = Serializacion.getAsignaturas();
+											Asignatura a1 = new Asignatura(id, nombre, numero);
+										}
 									}
+									
 								}
 
 							});
@@ -1153,16 +1277,26 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									float cal = Float.parseFloat(crNo1.getText());
-									int asignatura = Integer.parseInt(crNo2.getText());
-									int dni = Integer.parseInt(crNo3.getText());
-									Alert confirm = new Alert(AlertType.NONE);
-									confirm.setAlertType(AlertType.INFORMATION);
-									confirm.setTitle("Crear Nota");
-									confirm.setHeaderText("Nota creada exitosamente.");
-									confirm.show();
-									Serializacion.b2();
-									Main.crearNota(cal, asignatura, dni);
+									if (crNo1.getText().equals("")||crNo2.getText().equals("")||crNo3.getText().equals("")) {
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									} else {
+										float cal = Float.parseFloat(crNo1.getText());
+										int asignatura = Integer.parseInt(crNo2.getText());
+										int dni = Integer.parseInt(crNo3.getText());
+										Alert confirm = new Alert(AlertType.NONE);
+										confirm.setAlertType(AlertType.INFORMATION);
+										confirm.setTitle("Crear Nota");
+										confirm.setHeaderText("Nota creada exitosamente.");
+										confirm.show();
+										Serializacion.b2();
+										Main.crearNota(cal, asignatura, dni);
+									}
+									
 								}
 
 							});
