@@ -68,7 +68,7 @@ public class Serializacion {
 			File archivo = new File("");
 
 			ObjectOutputStream guardar_estudiantes = new ObjectOutputStream(
-					new FileOutputStream(System.getProperty("user.dir") + "\\src\\BaseDatos\\temp\\Estudiantes.txt"));
+					new FileOutputStream(System.getProperty("user.dir") + "\\BaseDatos\\temp\\Estudiantes.txt"));
 			
 			//ArrayList<Estudiante> temp_e = Estudiante.getEstudiantes();
 			//temp_e.addAll(estudiantes);
@@ -77,7 +77,7 @@ public class Serializacion {
 			guardar_estudiantes.close();
 
 			ObjectOutputStream guardar_profesores = new ObjectOutputStream(
-					new FileOutputStream(System.getProperty("user.dir") + "\\src\\BaseDatos\\temp\\Profesores.txt"));
+					new FileOutputStream(System.getProperty("user.dir") + "\\BaseDatos\\temp\\Profesores.txt"));
 			
 			//ArrayList<Profesor> temp_p = Profesor.getProfesores();
 			//temp_p.addAll(profesores);
@@ -86,7 +86,7 @@ public class Serializacion {
 			guardar_profesores.close();
 
 			ObjectOutputStream guardar_asignaturas = new ObjectOutputStream(
-					new FileOutputStream(System.getProperty("user.dir") + "\\src\\BaseDatos\\temp\\Asignaturas.txt"));
+					new FileOutputStream(System.getProperty("user.dir") + "\\BaseDatos\\temp\\Asignaturas.txt"));
 			//ArrayList<Asignatura> temp_a = Asignatura.getAsignaturas();
 			//temp_a.addAll(asignaturas);
 			//Asignatura.setAsignaturas(temp_a);
@@ -94,7 +94,7 @@ public class Serializacion {
 			guardar_asignaturas.close();
 
 			ObjectOutputStream guardar_grados = new ObjectOutputStream(
-					new FileOutputStream(System.getProperty("user.dir") + "\\src\\BaseDatos\\temp\\Grados.txt"));
+					new FileOutputStream(System.getProperty("user.dir") + "\\BaseDatos\\temp\\Grados.txt"));
 			//ArrayList<Grado> temp_g = Grado.getGrados();
 			//temp_g.addAll(grados);
 			//Grado.setGrados(temp_g);
@@ -139,7 +139,7 @@ public class Serializacion {
 		try {
 			
 			ObjectInputStream recuperar_profesores = new ObjectInputStream(
-					new FileInputStream(System.getProperty("user.dir") + "\\src\\BaseDatos\\temp\\Profesores.txt"));
+					new FileInputStream(System.getProperty("user.dir") + "\\BaseDatos\\temp\\Profesores.txt"));
 			profesores = (ArrayList<Profesor>) recuperar_profesores.readObject();
 			ArrayList<Profesor> temp_p = Profesor.getProfesores();
 			temp_p.addAll(profesores);
@@ -148,7 +148,7 @@ public class Serializacion {
 			
 			
 			ObjectInputStream recuperar_estudiantes = new ObjectInputStream(
-					new FileInputStream(System.getProperty("user.dir") + "\\src\\BaseDatos\\temp\\Estudiantes.txt"));
+					new FileInputStream(System.getProperty("user.dir") + "\\BaseDatos\\temp\\Estudiantes.txt"));
 			estudiantes = (ArrayList<Estudiante>) recuperar_estudiantes.readObject();
 			ArrayList<Estudiante> temp_e = Estudiante.getEstudiantes();
 			temp_e.addAll(estudiantes);
@@ -156,7 +156,7 @@ public class Serializacion {
 			recuperar_estudiantes.close();
 
 			ObjectInputStream recuperar_asignaturas = new ObjectInputStream(
-					new FileInputStream(System.getProperty("user.dir") + "\\src\\BaseDatos\\temp\\Asignaturas.txt"));
+					new FileInputStream(System.getProperty("user.dir") + "\\BaseDatos\\temp\\Asignaturas.txt"));
 			asignaturas = (ArrayList<Asignatura>) recuperar_asignaturas.readObject();
 			ArrayList<Asignatura> temp_a = Asignatura.getAsignaturas();
 			temp_a.addAll(asignaturas);
@@ -164,7 +164,7 @@ public class Serializacion {
 			recuperar_asignaturas.close();
 
 			ObjectInputStream recuperar_grados = new ObjectInputStream(
-					new FileInputStream(System.getProperty("user.dir") + "\\src\\BaseDatos\\temp\\Grados.txt"));
+					new FileInputStream(System.getProperty("user.dir") + "\\BaseDatos\\temp\\Grados.txt"));
 			grados = (ArrayList<Grado>) recuperar_grados.readObject();
 			ArrayList<Grado> temp_g = Grado.getGrados();
 			temp_g.addAll(grados);
