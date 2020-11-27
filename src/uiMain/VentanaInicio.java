@@ -1157,7 +1157,7 @@ public class VentanaInicio extends Application {
 	public static void main(String args[]) {
 		launch(args);
 	}
-//	Main p = new Main(); 
+	Main p = new Main(); 
 	String ini = "01";
 	Stage primario;
 	Scene prisce;
