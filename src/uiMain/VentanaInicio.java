@@ -1,5 +1,6 @@
 package uiMain;
 
+import BaseDatos.Serializacion;
 import gestorAplicacion.academico.Asignatura;
 import gestorAplicacion.academico.Grado;
 import gestorAplicacion.perfiles.Estudiante;
@@ -166,6 +167,8 @@ public class VentanaInicio extends Application {
 										String apellido = creEs3.getText();
 										int edad = Integer.parseInt(creEs4.getText());
 										String acudiente = creEs5.getText();
+										Serializacion.b2();
+										Main.estudiantes1 = Serializacion.getEstudiantes();
 										Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
 									}
 									
@@ -460,6 +463,8 @@ public class VentanaInicio extends Application {
 										int edad = Integer.parseInt(crePro4.getText());
 										String titulo = crePro5.getText();
 										String email = crePro6.getText();
+										Serializacion.b2();
+										Main.profesores1 = Serializacion.getProfesores();
 										Profesor p1 = new Profesor(DNI, nombres, apellidos, edad, titulo, email);
 									}
 									
@@ -617,6 +622,8 @@ public class VentanaInicio extends Application {
 									if (Main.crearGr(creGr1, creGr2)) {
 										int DNI = Integer.parseInt(creGr1.getText());
 										String nombres = creGr2.getText();
+										Serializacion.b2();
+										Main.grados1 = Serializacion.getGrados();
 										Grado g1 = new Grado(DNI, nombres);
 									}
 									
@@ -1059,6 +1066,8 @@ public class VentanaInicio extends Application {
 										int id = Integer.parseInt(crAs1.getText());
 										String nombre = crAs2.getText();
 										int numero = Integer.parseInt(crAs3.getText());
+										Serializacion.b2();
+										Main.asignaturas1 = Serializacion.getAsignaturas();
 										Asignatura a1 = new Asignatura(id, nombre, numero);
 									}
 								}
@@ -1123,8 +1132,9 @@ public class VentanaInicio extends Application {
 									Alert confirm = new Alert(AlertType.NONE); 
 									confirm.setAlertType(AlertType.INFORMATION); 
 									confirm.setTitle("Crear Nota");
-									confirm.setHeaderText("Nota creado exitosamente.");
+									confirm.setHeaderText("Nota creada exitosamente.");
 									confirm.show(); 
+									Serializacion.b2();
 									Main.crearNota(cal, asignatura, dni);
 								}
 								
