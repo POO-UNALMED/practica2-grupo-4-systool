@@ -160,23 +160,36 @@ public class VentanaInicio extends Application {
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
 									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
-									
-									if (Main.crearEst(creEs1, creEs2, creEs3, creEs4, creEs5)) {
-										int dni = Integer.parseInt(creEs1.getText());
-										String nombre = creEs2.getText();
-										String apellido = creEs3.getText();
-										int edad = Integer.parseInt(creEs4.getText());
-										String acudiente = creEs5.getText();
-										Serializacion.b2();
-										Main.estudiantes1 = Serializacion.getEstudiantes();
-										Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
+									if(Main.getAlerta().equals("")) {
+										if (Main.crearEst(creEs1, creEs2, creEs3, creEs4, creEs5)) {
+											int dni = Integer.parseInt(creEs1.getText());
+											String nombre = creEs2.getText();
+											String apellido = creEs3.getText();
+											int edad = Integer.parseInt(creEs4.getText());
+											String acudiente = creEs5.getText();
+											Serializacion.b2();
+											Main.estudiantes1 = Serializacion.getEstudiantes();
+											Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
+											
+											confirm.setAlertType(AlertType.INFORMATION); 
+											confirm.setTitle("Crear Estudiante");
+											confirm.setHeaderText("Estudiante creado exitosamente.");
+											confirm.show(); 
+										}else {
+											confirm.setAlertType(AlertType.ERROR); 
+											confirm.setTitle("Crear Estudiante");
+											confirm.setHeaderText("Datos inválidos, tipo de dato incorrecto.");
+											confirm.show(); 
+										}
+									}else {
+										confirm.setAlertType(AlertType.ERROR); 
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show(); 
+										Main.setAlerta("");
 									}
 									
 									
-									confirm.setAlertType(AlertType.INFORMATION); 
-									confirm.setTitle("Crear Estudiante");
-									confirm.setHeaderText("Estudiante creado exitosamente.");
-									confirm.show(); 
 								}
 								
 							});

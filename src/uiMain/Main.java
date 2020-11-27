@@ -48,12 +48,6 @@ public class Main {
 		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
 
-		int dni = Integer.parseInt(creEs1.getText());
-		String nombre = creEs2.getText();
-		String apellido = creEs3.getText();
-		int edad = Integer.parseInt(creEs4.getText());
-		String acudiente = creEs5.getText();
-		Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
 
 		boolean salida = true;
 
@@ -65,7 +59,6 @@ public class Main {
 				}
 			} catch (Error1 e2) {
 				alerta = e2.getSalida();
-				System.out.println(e2.getSalida());
 			}
 
 			throw new Error1(creEs1, creEs2, creEs3, creEs4, creEs5);
