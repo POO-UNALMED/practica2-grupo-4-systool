@@ -38,7 +38,8 @@ public class VentanaInicio extends Application {
 	EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() {
 		@Override
 		public void handle(MouseEvent mouseEvent) {
-			if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals("Sebastian Agudelo Osorio,\r\n20 años, estudiante de la \r\nUniversidad Nacional De Colombia,\r\nproductor, fanático de las tecnologías")) {
+			if (mouseEvent.getEventType().toString().equals("MOUSE_PRESSED") && hoja.getText().equals(
+					"Sebastian Agudelo Osorio,\r\n20 años, estudiante de la \r\nUniversidad Nacional De Colombia,\r\nproductor, fanático de las tecnologías")) {
 				hoja.setText(
 						"Daniela Guardia Cuervo, 21 años de edad.\r\nEstudiante de ingeniería de sistemas e \r\ninformática, sexto semestre.");
 				fot01 = new Image(getClass().getResourceAsStream("/fotos/dani.png"));
@@ -110,7 +111,7 @@ public class VentanaInicio extends Application {
 		}
 
 	};
-	
+
 	EventHandler<ActionEvent> clase = new EventHandler<ActionEvent>() {
 		@Override
 		public void handle(ActionEvent c) {
@@ -138,12 +139,9 @@ public class VentanaInicio extends Application {
 					paneEst.add(new Label(""), 1, 9);
 					paneEst.add(est4, 1, 10);
 					ustage.setCenter(paneEst);
-					
-					
-					
-					
+
 					////////////////////////////////////////////////
-					
+
 					est1.setOnAction(new EventHandler<ActionEvent>() {
 						@Override
 						public void handle(ActionEvent e) {
@@ -152,15 +150,15 @@ public class VentanaInicio extends Application {
 							TextField creEs3 = new TextField();
 							TextField creEs4 = new TextField();
 							TextField creEs5 = new TextField();
-							Alert confirm = new Alert(AlertType.NONE); 
+							Alert confirm = new Alert(AlertType.NONE);
 							crear = new Button("Crear");
 							crear.setOnAction(new EventHandler<ActionEvent>() {
 
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
-									if(Main.getAlerta().equals("")) {
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									if (Main.getAlerta().equals("")) {
 										if (Main.crearEst(creEs1, creEs2, creEs3, creEs4, creEs5)) {
 											int dni = Integer.parseInt(creEs1.getText());
 											String nombre = creEs2.getText();
@@ -170,28 +168,27 @@ public class VentanaInicio extends Application {
 											Serializacion.b2();
 											Main.estudiantes1 = Serializacion.getEstudiantes();
 											Estudiante e1 = new Estudiante(dni, nombre, apellido, edad, acudiente);
-											
-											confirm.setAlertType(AlertType.INFORMATION); 
+
+											confirm.setAlertType(AlertType.INFORMATION);
 											confirm.setTitle("Crear Estudiante");
 											confirm.setHeaderText("Estudiante creado exitosamente.");
-											confirm.show(); 
-										}else {
-											confirm.setAlertType(AlertType.ERROR); 
+											confirm.show();
+										} else {
+											confirm.setAlertType(AlertType.ERROR);
 											confirm.setTitle("Crear Estudiante");
 											confirm.setHeaderText("Datos inválidos, tipo de dato incorrecto.");
-											confirm.show(); 
+											confirm.show();
 										}
-									}else {
-										confirm.setAlertType(AlertType.ERROR); 
+									} else {
+										confirm.setAlertType(AlertType.ERROR);
 										confirm.setTitle("Crear Estudiante");
 										confirm.setHeaderText("Complete todos los campos.");
-										confirm.show(); 
+										confirm.show();
 										Main.setAlerta("");
 									}
-									
-									
+
 								}
-								
+
 							});
 							Label alerta = new Label("Por favor complete todos los campos solicitados.");
 							alerta.setTextFill(Color.web("FIREBRICK"));
@@ -199,46 +196,46 @@ public class VentanaInicio extends Application {
 							describ.setFont(new Font("Tahoma", 17));
 							paneCreEst = new GridPane();
 							paneCreEst.setAlignment(Pos.CENTER);
-							paneCreEst.add(describ,2,1);
+							paneCreEst.add(describ, 2, 1);
 							paneCreEst.add(new Label(""), 1, 2);
-							paneCreEst.add(alerta,3,4);
+							paneCreEst.add(alerta, 3, 4);
 							paneCreEst.add(new Label(""), 1, 5);
-							paneCreEst.add(new Label("DNI*: "),1,6);
-							paneCreEst.add(creEs1,3,6);
+							paneCreEst.add(new Label("DNI*: "), 1, 6);
+							paneCreEst.add(creEs1, 3, 6);
 							paneCreEst.add(new Label(""), 1, 7);
-							paneCreEst.add(new Label("Nombre*: "),1,8);
-							paneCreEst.add(creEs2,3,8);
+							paneCreEst.add(new Label("Nombre*: "), 1, 8);
+							paneCreEst.add(creEs2, 3, 8);
 							paneCreEst.add(new Label(""), 1, 9);
-							paneCreEst.add(new Label("Apellido*: "),1,10);
-							paneCreEst.add(creEs3,3,10);
+							paneCreEst.add(new Label("Apellido*: "), 1, 10);
+							paneCreEst.add(creEs3, 3, 10);
 							paneCreEst.add(new Label(""), 1, 11);
-							paneCreEst.add(new Label("Edad*: "),1,12);
-							paneCreEst.add(creEs4,3,12);
+							paneCreEst.add(new Label("Edad*: "), 1, 12);
+							paneCreEst.add(creEs4, 3, 12);
 							paneCreEst.add(new Label(""), 1, 13);
-							paneCreEst.add(new Label("Acudiente*: "),1,14);
-							paneCreEst.add(creEs5,3,14);
+							paneCreEst.add(new Label("Acudiente*: "), 1, 14);
+							paneCreEst.add(creEs5, 3, 14);
 							paneCreEst.add(new Label(""), 2, 15);
-							paneCreEst.add(crear,2,16);
+							paneCreEst.add(crear, 2, 16);
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
 
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									creEs1.setText("");
 									creEs2.setText("");
 									creEs3.setText("");
 									creEs4.setText("");
 									creEs5.setText("");
 								}
-								
+
 							});
-							paneCreEst.add(borrar,3,16);
+							paneCreEst.add(borrar, 3, 16);
 							ustage.setCenter(paneCreEst);
-							///EXCEPCION 
-							///int J  = Integer.parseInt(creEs1.getText());
-							
+							/// EXCEPCION
+							/// int J = Integer.parseInt(creEs1.getText());
+
 						}
 
 					});
@@ -250,7 +247,9 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("INFORME DE NOTAS INDIVIDUAL");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar el DNI del estudiante, el programa\n\rmostrará cada nota con su materia correspondiente.");
+							Alert confirm = new Alert(AlertType.NONE);
+							Label descrip = new Label(
+									"Al ingresar el DNI del estudiante, el programa\n\rmostrará cada nota con su materia correspondiente.");
 							descrip.setFont(new Font("Tahoma", 13));
 							informe = new Button("Ver informe");
 							borrar = new Button("Borrar");
@@ -259,40 +258,48 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									infEs1.setText("");
 								}
-								
+
 							});
 							informe.setOnAction(new EventHandler<ActionEvent>() {
 								@Override
 								public void handle(ActionEvent event) {
-									GridPane resultinfo = new GridPane();
-									resultinfo.setAlignment(Pos.CENTER);
-									resultinfo.add(describ, 2, 1);	
-									resultinfo.add(new Label(""), 1, 2);
-									int res = Integer.parseInt(infEs1.getText());
-									String resultado = Main.informeNotas(res);
-									infEs1.setText("");
-									Label resu = new Label(resultado);
-									resu.setFont(new Font("Tahoma", 11.5));
-									resultinfo.add(resu,2,3);
-									//System.out.println(resultado);
-									ustage.setCenter(resultinfo);
+									if (Main.getAlerta().equals("")) {
+										GridPane resultinfo = new GridPane();
+										resultinfo.setAlignment(Pos.CENTER);
+										resultinfo.add(describ, 2, 1);
+										resultinfo.add(new Label(""), 1, 2);
+										int res = Integer.parseInt(infEs1.getText());
+										String resultado = Main.informeNotas(res, infEs1);
+										infEs1.setText("");
+										Label resu = new Label(resultado);
+										resu.setFont(new Font("Tahoma", 11.5));
+										resultinfo.add(resu, 2, 3);
+										// System.out.println(resultado);
+										ustage.setCenter(resultinfo);
+									}else {
+										confirm.setAlertType(AlertType.ERROR);
+										confirm.setTitle("Crear Estudiante");
+										confirm.setHeaderText("Complete todos los campos.");
+										confirm.show();
+										Main.setAlerta("");
+									}
 								}
-								
+
 							});
-							
+
 							paneInfEst = new GridPane();
 							paneInfEst.setAlignment(Pos.CENTER);
-							paneInfEst.add(describ,2,1);
+							paneInfEst.add(describ, 2, 1);
 							paneInfEst.add(new Label(""), 1, 2);
-							paneInfEst.add(descrip,2,3);
+							paneInfEst.add(descrip, 2, 3);
 							paneInfEst.add(new Label(""), 1, 4);
-							paneInfEst.add(alerta,3,5);
+							paneInfEst.add(alerta, 3, 5);
 							paneInfEst.add(new Label(""), 1, 6);
-							paneInfEst.add(new Label("DNI*: "),1,7);
-							paneInfEst.add(infEs1,3,7);
+							paneInfEst.add(new Label("DNI*: "), 1, 7);
+							paneInfEst.add(infEs1, 3, 7);
 							paneInfEst.add(new Label(""), 1, 8);
 							paneInfEst.add(informe, 2, 9);
 							borrar = new Button("Borrar");
@@ -301,10 +308,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									infEs1.setText("");
 								}
-								
+
 							});
 							paneInfEst.add(borrar, 3, 9);
 							ustage.setCenter(paneInfEst);
@@ -317,23 +324,22 @@ public class VentanaInicio extends Application {
 							paneMejEst.setAlignment(Pos.CENTER);
 							Label describ = new Label("MEJORES 10 ESTUDIANTES DEL COLEGIO");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("El programa mostrará una lista de\n\rlos 10 mejores estudiantes del colegio.");
+							Label descrip = new Label(
+									"El programa mostrará una lista de\n\rlos 10 mejores estudiantes del colegio.");
 							descrip.setFont(new Font("Tahoma", 13));
 							paneMejEst.add(describ, 2, 1);
-							paneMejEst.add(new Label(""),1,2);
-							paneMejEst.add(descrip,2,3);
-							//PROCESO DE MUESTRA
-							
+							paneMejEst.add(new Label(""), 1, 2);
+							paneMejEst.add(descrip, 2, 3);
+							// PROCESO DE MUESTRA
+
 							String resultado = Main.mejoresColegio();
 							Label resul = new Label(resultado);
-							paneMejEst.add(new Label(""),1,4);
+							paneMejEst.add(new Label(""), 1, 4);
 							resul.setFont(new Font("Tahoma", 11.5));
 							paneMejEst.add(resul, 2, 5);
-							
-							//System.out.println(resultado);
-							
-							
-							
+
+							// System.out.println(resultado);
+
 							ustage.setCenter(paneMejEst);
 						}
 					});
@@ -345,7 +351,8 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("INFORMACION DE ESTUDIANTE");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar el DNI del estudiante, el programa\n\rmostrará los datos del estudiante.");
+							Label descrip = new Label(
+									"Al ingresar el DNI del estudiante, el programa\n\rmostrará los datos del estudiante.");
 							descrip.setFont(new Font("Tahoma", 13));
 							informe = new Button("Buscar informacion");
 							informe.setOnAction(new EventHandler<ActionEvent>() {
@@ -356,7 +363,7 @@ public class VentanaInicio extends Application {
 									des.setFont(new Font("Tahoma", 17));
 									resultinfo.setAlignment(Pos.CENTER);
 									resultinfo.add(des, 1, 1);
-									
+
 //									int res = Integer.parseInt(describ.getText());
 //									String resultado = Main.informeNotas(res);
 //									describ.setText("");
@@ -365,27 +372,25 @@ public class VentanaInicio extends Application {
 									String resultado = Main.infoEst(res);
 									Label resu = new Label(resultado);
 									resu.setFont(new Font("Tahoma", 11.5));
-									resultinfo.add(new Label(""), 1,2);
-									resultinfo.add(resu, 1,3);
-									//System.out.println(resultado);
+									resultinfo.add(new Label(""), 1, 2);
+									resultinfo.add(resu, 1, 3);
+									// System.out.println(resultado);
 									ustage.setCenter(resultinfo);
-									
+
 								}
-								
+
 							});
-							
-							
-							
+
 							paneInfoEst = new GridPane();
 							paneInfoEst.setAlignment(Pos.CENTER);
-							paneInfoEst.add(describ,2,1);
+							paneInfoEst.add(describ, 2, 1);
 							paneInfoEst.add(new Label(""), 1, 2);
-							paneInfoEst.add(descrip,2,3);
+							paneInfoEst.add(descrip, 2, 3);
 							paneInfoEst.add(new Label(""), 1, 4);
-							paneInfoEst.add(alerta,3,5);
+							paneInfoEst.add(alerta, 3, 5);
 							paneInfoEst.add(new Label(""), 1, 6);
-							paneInfoEst.add(new Label("DNI*: "),1,7);
-							paneInfoEst.add(infoEs1,3,7);
+							paneInfoEst.add(new Label("DNI*: "), 1, 7);
+							paneInfoEst.add(infoEs1, 3, 7);
 							paneInfoEst.add(new Label(""), 1, 8);
 							paneInfoEst.add(informe, 2, 9);
 							borrar = new Button("Borrar");
@@ -394,16 +399,16 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									infoEs1.setText("");
 								}
-								
+
 							});
 							paneInfoEst.add(borrar, 3, 9);
 							ustage.setCenter(paneInfoEst);
 						}
 					});
-				} else if(control.equals(prof)) {
+				} else if (control.equals(prof)) {
 					panePro = new GridPane();
 					title1 = new Label("MENU PROFESOR");
 					title1.setTextFill(Color.web("BLACK"));
@@ -434,41 +439,41 @@ public class VentanaInicio extends Application {
 							describ.setFont(new Font("Tahoma", 17));
 							paneCrePro = new GridPane();
 							paneCrePro.setAlignment(Pos.CENTER);
-							paneCrePro.add(describ,2,1);
+							paneCrePro.add(describ, 2, 1);
 							paneCrePro.add(new Label(""), 1, 2);
-							paneCrePro.add(alerta,3,4);
+							paneCrePro.add(alerta, 3, 4);
 							paneCrePro.add(new Label(""), 1, 5);
-							paneCrePro.add(new Label("DNI*: "),1,6);
-							paneCrePro.add(crePro1,3,6);
+							paneCrePro.add(new Label("DNI*: "), 1, 6);
+							paneCrePro.add(crePro1, 3, 6);
 							paneCrePro.add(new Label(""), 1, 7);
-							paneCrePro.add(new Label("Nombre*: "),1,8);
-							paneCrePro.add(crePro2,3,8);
+							paneCrePro.add(new Label("Nombre*: "), 1, 8);
+							paneCrePro.add(crePro2, 3, 8);
 							paneCrePro.add(new Label(""), 1, 9);
-							paneCrePro.add(new Label("Apellido*: "),1,10);
-							paneCrePro.add(crePro3,3,10);
+							paneCrePro.add(new Label("Apellido*: "), 1, 10);
+							paneCrePro.add(crePro3, 3, 10);
 							paneCrePro.add(new Label(""), 1, 11);
-							paneCrePro.add(new Label("Edad*: "),1,12);
-							paneCrePro.add(crePro4,3,12);
+							paneCrePro.add(new Label("Edad*: "), 1, 12);
+							paneCrePro.add(crePro4, 3, 12);
 							paneCrePro.add(new Label(""), 1, 13);
-							paneCrePro.add(new Label("Titulo*: "),1,14);
-							paneCrePro.add(crePro5,3,14);
+							paneCrePro.add(new Label("Titulo*: "), 1, 14);
+							paneCrePro.add(crePro5, 3, 14);
 							paneCrePro.add(new Label(""), 2, 15);
-							paneCrePro.add(new Label("E-mail*: "),1,16);
-							paneCrePro.add(crePro6,3,16);
+							paneCrePro.add(new Label("E-mail*: "), 1, 16);
+							paneCrePro.add(crePro6, 3, 16);
 							paneCrePro.add(new Label(""), 2, 17);
-							paneCrePro.add(crear,2,18);
+							paneCrePro.add(crear, 2, 18);
 							crear.setOnAction(new EventHandler<ActionEvent>() {
 
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									
-									Alert confirm = new Alert(AlertType.NONE); 
-									confirm.setAlertType(AlertType.INFORMATION); 
+
+									Alert confirm = new Alert(AlertType.NONE);
+									confirm.setAlertType(AlertType.INFORMATION);
 									confirm.setTitle("Crear Profesor");
 									confirm.setHeaderText("Profesor creado exitosamente.");
-									confirm.show(); 
-									
+									confirm.show();
+
 									if (Main.crearProf(crePro1, crePro2, crePro3, crePro4, crePro5, crePro6)) {
 										int DNI = Integer.parseInt(crePro1.getText());
 										String nombres = crePro2.getText();
@@ -480,9 +485,9 @@ public class VentanaInicio extends Application {
 										Main.profesores1 = Serializacion.getProfesores();
 										Profesor p1 = new Profesor(DNI, nombres, apellidos, edad, titulo, email);
 									}
-									
+
 								}
-								
+
 							});
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
@@ -490,7 +495,7 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									crePro1.setText("");
 									crePro2.setText("");
 									crePro3.setText("");
@@ -498,7 +503,7 @@ public class VentanaInicio extends Application {
 									crePro5.setText("");
 									crePro6.setText("");
 								}
-								
+
 							});
 							paneCrePro.add(borrar, 3, 18);
 
@@ -513,19 +518,20 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("INFORMACION DE PROFESOR");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar el DNI del profesor, el programa\n\rmostrará los datos del profesor.");
+							Label descrip = new Label(
+									"Al ingresar el DNI del profesor, el programa\n\rmostrará los datos del profesor.");
 							descrip.setFont(new Font("Tahoma", 13));
 							informe = new Button("Buscar informacion");
 							paneInfoPro = new GridPane();
 							paneInfoPro.setAlignment(Pos.CENTER);
-							paneInfoPro.add(describ,2,1);
+							paneInfoPro.add(describ, 2, 1);
 							paneInfoPro.add(new Label(""), 1, 2);
-							paneInfoPro.add(descrip,2,3);
+							paneInfoPro.add(descrip, 2, 3);
 							paneInfoPro.add(new Label(""), 1, 4);
-							paneInfoPro.add(alerta,3,5);
+							paneInfoPro.add(alerta, 3, 5);
 							paneInfoPro.add(new Label(""), 1, 6);
-							paneInfoPro.add(new Label("DNI*: "),1,7);
-							paneInfoPro.add(infoPro1,3,7);
+							paneInfoPro.add(new Label("DNI*: "), 1, 7);
+							paneInfoPro.add(infoPro1, 3, 7);
 							paneInfoPro.add(new Label(""), 1, 8);
 							paneInfoPro.add(informe, 2, 9);
 							informe.setOnAction(new EventHandler<ActionEvent>() {
@@ -546,7 +552,7 @@ public class VentanaInicio extends Application {
 									infP.add(resu, 1, 3);
 									ustage.setCenter(infP);
 								}
-								
+
 							});
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
@@ -554,10 +560,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									infoPro1.setText("");
 								}
-								
+
 							});
 							paneInfoPro.add(borrar, 3, 9);
 							ustage.setCenter(paneInfoPro);
@@ -603,22 +609,23 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("CREAR GRADO");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar el ID del grado, el programa\n\rcreara dicho grado.");
+							Label descrip = new Label(
+									"Al ingresar el ID del grado, el programa\n\rcreara dicho grado.");
 							descrip.setFont(new Font("Tahoma", 13));
 							crearGr = new Button("Crear");
 							paneCreGr = new GridPane();
 							paneCreGr.setAlignment(Pos.CENTER);
-							paneCreGr.add(describ,2,1);
+							paneCreGr.add(describ, 2, 1);
 							paneCreGr.add(new Label(""), 1, 2);
-							paneCreGr.add(descrip,2,3);
+							paneCreGr.add(descrip, 2, 3);
 							paneCreGr.add(new Label(""), 1, 4);
-							paneCreGr.add(alerta,3,5);
+							paneCreGr.add(alerta, 3, 5);
 							paneCreGr.add(new Label(""), 1, 6);
-							paneCreGr.add(new Label("ID*: "),1,7);
-							paneCreGr.add(creGr1,3,7);
+							paneCreGr.add(new Label("ID*: "), 1, 7);
+							paneCreGr.add(creGr1, 3, 7);
 							paneCreGr.add(new Label(""), 1, 8);
-							paneCreGr.add(new Label("Nombre*: "),1,9);
-							paneCreGr.add(creGr2,3,9);
+							paneCreGr.add(new Label("Nombre*: "), 1, 9);
+							paneCreGr.add(creGr2, 3, 9);
 							paneCreGr.add(new Label(""), 1, 10);
 							paneCreGr.add(crearGr, 2, 11);
 							crearGr.setOnAction(new EventHandler<ActionEvent>() {
@@ -626,12 +633,12 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									Alert confirm = new Alert(AlertType.NONE); 
-									confirm.setAlertType(AlertType.INFORMATION); 
+									Alert confirm = new Alert(AlertType.NONE);
+									confirm.setAlertType(AlertType.INFORMATION);
 									confirm.setTitle("Crear Grado");
 									confirm.setHeaderText("Grado creado exitosamente.");
-									confirm.show(); 
-									
+									confirm.show();
+
 									if (Main.crearGr(creGr1, creGr2)) {
 										int DNI = Integer.parseInt(creGr1.getText());
 										String nombres = creGr2.getText();
@@ -639,10 +646,9 @@ public class VentanaInicio extends Application {
 										Main.grados1 = Serializacion.getGrados();
 										Grado g1 = new Grado(DNI, nombres);
 									}
-									
-									
+
 								}
-								
+
 							});
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
@@ -650,14 +656,14 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									creGr1.setText("");
 									creGr2.setText("");
 								}
-								
+
 							});
 							paneCreGr.add(borrar, 3, 11);
-							
+
 							ustage.setCenter(paneCreGr);
 						}
 					});
@@ -670,22 +676,23 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("ASIGNAR PROFESOR ENCARGADO");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar el ID del grado, el DNI del profesor\n\rel programa lo asignara al grado.");
+							Label descrip = new Label(
+									"Al ingresar el ID del grado, el DNI del profesor\n\rel programa lo asignara al grado.");
 							descrip.setFont(new Font("Tahoma", 13));
 							asiPr = new Button("Asignar profesor");
 							paneCreGr = new GridPane();
 							paneCreGr.setAlignment(Pos.CENTER);
-							paneCreGr.add(describ,2,1);
+							paneCreGr.add(describ, 2, 1);
 							paneCreGr.add(new Label(""), 1, 2);
-							paneCreGr.add(descrip,2,3);
+							paneCreGr.add(descrip, 2, 3);
 							paneCreGr.add(new Label(""), 1, 4);
-							paneCreGr.add(alerta,3,5);
+							paneCreGr.add(alerta, 3, 5);
 							paneCreGr.add(new Label(""), 1, 6);
-							paneCreGr.add(new Label("ID*: "),1,7);
-							paneCreGr.add(crePrEn1,3,7);
+							paneCreGr.add(new Label("ID*: "), 1, 7);
+							paneCreGr.add(crePrEn1, 3, 7);
 							paneCreGr.add(new Label(""), 1, 8);
-							paneCreGr.add(new Label("DNI*: "),1,9);
-							paneCreGr.add(crePrEn2,3,9);
+							paneCreGr.add(new Label("DNI*: "), 1, 9);
+							paneCreGr.add(crePrEn2, 3, 9);
 							paneCreGr.add(new Label(""), 1, 10);
 							paneCreGr.add(asiPr, 2, 11);
 							asiPr.setOnAction(new EventHandler<ActionEvent>() {
@@ -695,15 +702,15 @@ public class VentanaInicio extends Application {
 									// TODO Auto-generated method stub
 									int dni = Integer.parseInt(crePrEn1.getText());
 									int idg = Integer.parseInt(crePrEn2.getText());
-									Alert confirm = new Alert(AlertType.NONE); 
-									confirm.setAlertType(AlertType.INFORMATION); 
+									Alert confirm = new Alert(AlertType.NONE);
+									confirm.setAlertType(AlertType.INFORMATION);
 									confirm.setTitle("Asignar Profesor");
 									confirm.setHeaderText("Profesor asignado a grado exitosamente.");
-									confirm.show(); 
+									confirm.show();
 									Main.profEnc(dni, idg);
-								
+
 								}
-								
+
 							});
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
@@ -711,11 +718,11 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									crePrEn1.setText("");
 									crePrEn2.setText("");
 								}
-								
+
 							});
 							paneCreGr.add(borrar, 3, 11);
 							ustage.setCenter(paneCreGr);
@@ -730,22 +737,23 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("ASIGNAR ESTUDIANTE");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar el ID del grado, el DNI del estudiante\n\rel programa lo asignara al grado.");
+							Label descrip = new Label(
+									"Al ingresar el ID del grado, el DNI del estudiante\n\rel programa lo asignara al grado.");
 							descrip.setFont(new Font("Tahoma", 13));
 							asiEs = new Button("Asignar estudiante");
 							paneAsiEs = new GridPane();
 							paneAsiEs.setAlignment(Pos.CENTER);
-							paneAsiEs.add(describ,2,1);
+							paneAsiEs.add(describ, 2, 1);
 							paneAsiEs.add(new Label(""), 1, 2);
-							paneAsiEs.add(descrip,2,3);
+							paneAsiEs.add(descrip, 2, 3);
 							paneAsiEs.add(new Label(""), 1, 4);
-							paneAsiEs.add(alerta,3,5);
+							paneAsiEs.add(alerta, 3, 5);
 							paneAsiEs.add(new Label(""), 1, 6);
-							paneAsiEs.add(new Label("ID*: "),1,7);
-							paneAsiEs.add(asiEs1,3,7);
+							paneAsiEs.add(new Label("ID*: "), 1, 7);
+							paneAsiEs.add(asiEs1, 3, 7);
 							paneAsiEs.add(new Label(""), 1, 8);
-							paneAsiEs.add(new Label("DNI*: "),1,9);
-							paneAsiEs.add(asiEs2,3,9);
+							paneAsiEs.add(new Label("DNI*: "), 1, 9);
+							paneAsiEs.add(asiEs2, 3, 9);
 							paneAsiEs.add(new Label(""), 1, 10);
 							paneAsiEs.add(asiEs, 2, 11);
 							asiEs.setOnAction(new EventHandler<ActionEvent>() {
@@ -755,14 +763,14 @@ public class VentanaInicio extends Application {
 									// TODO Auto-generated method stub
 									int dni = Integer.parseInt(asiEs1.getText());
 									int idg = Integer.parseInt(asiEs2.getText());
-									Alert confirm = new Alert(AlertType.NONE); 
-									confirm.setAlertType(AlertType.INFORMATION); 
+									Alert confirm = new Alert(AlertType.NONE);
+									confirm.setAlertType(AlertType.INFORMATION);
 									confirm.setTitle("Asignar Estudiante");
 									confirm.setHeaderText("Estudiante asignado al grado exitosamente.");
-									confirm.show(); 
+									confirm.show();
 									Main.aggEstGr(dni, idg);
 								}
-								
+
 							});
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
@@ -770,11 +778,11 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									asiEs1.setText("");
 									asiEs2.setText("");
 								}
-								
+
 							});
 							paneAsiEs.add(borrar, 3, 11);
 							ustage.setCenter(paneAsiEs);
@@ -788,19 +796,20 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("VER INFORMACION DEL GRADO");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar el ID del grado, el programa\n\rmostrará la información del grado.");
+							Label descrip = new Label(
+									"Al ingresar el ID del grado, el programa\n\rmostrará la información del grado.");
 							descrip.setFont(new Font("Tahoma", 13));
 							infGr = new Button("Ver informacion del grado");
 							paneInfG = new GridPane();
 							paneInfG.setAlignment(Pos.CENTER);
-							paneInfG.add(describ,2,1);
+							paneInfG.add(describ, 2, 1);
 							paneInfG.add(new Label(""), 1, 2);
-							paneInfG.add(descrip,2,3);
+							paneInfG.add(descrip, 2, 3);
 							paneInfG.add(new Label(""), 1, 4);
-							paneInfG.add(alerta,3,5);
+							paneInfG.add(alerta, 3, 5);
 							paneInfG.add(new Label(""), 1, 6);
-							paneInfG.add(new Label("ID*: "),1,7);
-							paneInfG.add(verGr,3,7);
+							paneInfG.add(new Label("ID*: "), 1, 7);
+							paneInfG.add(verGr, 3, 7);
 							paneInfG.add(new Label(""), 1, 8);
 							paneInfG.add(infGr, 2, 9);
 							infGr.setOnAction(new EventHandler<ActionEvent>() {
@@ -820,9 +829,9 @@ public class VentanaInicio extends Application {
 									infG.add(new Label(""), 1, 2);
 									infG.add(resu, 1, 3);
 									ustage.setCenter(infG);
-									//System.out.println(resultado);
+									// System.out.println(resultado);
 								}
-								
+
 							});
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
@@ -830,10 +839,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									verGr.setText("");
 								}
-								
+
 							});
 							paneInfG.add(borrar, 3, 9);
 							ustage.setCenter(paneInfG);
@@ -847,19 +856,20 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("CUADRO DE HONOR");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar el ID del grado, el programa\n\rmostrará el cuadro de honor.");
+							Label descrip = new Label(
+									"Al ingresar el ID del grado, el programa\n\rmostrará el cuadro de honor.");
 							descrip.setFont(new Font("Tahoma", 13));
 							vcuah = new Button("Ver cuadro de honor");
 							paneCuaH = new GridPane();
 							paneCuaH.setAlignment(Pos.CENTER);
-							paneCuaH.add(describ,2,1);
+							paneCuaH.add(describ, 2, 1);
 							paneCuaH.add(new Label(""), 1, 2);
-							paneCuaH.add(descrip,2,3);
+							paneCuaH.add(descrip, 2, 3);
 							paneCuaH.add(new Label(""), 1, 4);
-							paneCuaH.add(alerta,3,5);
+							paneCuaH.add(alerta, 3, 5);
 							paneCuaH.add(new Label(""), 1, 6);
-							paneCuaH.add(new Label("ID*: "),1,7);
-							paneCuaH.add(cuaHo,3,7);
+							paneCuaH.add(new Label("ID*: "), 1, 7);
+							paneCuaH.add(cuaHo, 3, 7);
 							paneCuaH.add(new Label(""), 1, 8);
 							paneCuaH.add(vcuah, 2, 9);
 							vcuah.setOnAction(new EventHandler<ActionEvent>() {
@@ -879,9 +889,9 @@ public class VentanaInicio extends Application {
 									cuad.add(new Label(""), 1, 2);
 									cuad.add(resu, 1, 3);
 									ustage.setCenter(cuad);
-									//System.out.println(resultado);
+									// System.out.println(resultado);
 								}
-								
+
 							});
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
@@ -889,10 +899,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									cuaHo.setText("");
 								}
-								
+
 							});
 							paneCuaH.add(borrar, 3, 9);
 							ustage.setCenter(paneCuaH);
@@ -906,19 +916,20 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("PREVENCION DE BAJO RENDIMIENTO");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar el ID del grado, el programa mostrará\n\rlos estudiantes con malos promedios academicos.");
+							Label descrip = new Label(
+									"Al ingresar el ID del grado, el programa mostrará\n\rlos estudiantes con malos promedios academicos.");
 							descrip.setFont(new Font("Tahoma", 13));
 							prevB = new Button("Ver prevencion por bajo rendimiento");
 							panePrev = new GridPane();
 							panePrev.setAlignment(Pos.CENTER);
-							panePrev.add(describ,2,1);
+							panePrev.add(describ, 2, 1);
 							panePrev.add(new Label(""), 1, 2);
-							panePrev.add(descrip,2,3);
+							panePrev.add(descrip, 2, 3);
 							panePrev.add(new Label(""), 1, 4);
-							panePrev.add(alerta,3,5);
+							panePrev.add(alerta, 3, 5);
 							panePrev.add(new Label(""), 1, 6);
-							panePrev.add(new Label("ID*: "),1,7);
-							panePrev.add(prev,3,7);
+							panePrev.add(new Label("ID*: "), 1, 7);
+							panePrev.add(prev, 3, 7);
 							panePrev.add(new Label(""), 1, 8);
 							panePrev.add(prevB, 2, 9);
 							prevB.setOnAction(new EventHandler<ActionEvent>() {
@@ -938,9 +949,9 @@ public class VentanaInicio extends Application {
 									prev.add(new Label(""), 1, 2);
 									prev.add(resu, 1, 3);
 									ustage.setCenter(prev);
-									//System.out.println(resultado);
+									// System.out.println(resultado);
 								}
-								
+
 							});
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
@@ -948,10 +959,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									prev.setText("");
 								}
-								
+
 							});
 							panePrev.add(borrar, 3, 9);
 							ustage.setCenter(panePrev);
@@ -965,19 +976,20 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("PROMEDIO DEL GRADO");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar el ID del grado, el programa mostrará\n\rel promedio del grado.");
+							Label descrip = new Label(
+									"Al ingresar el ID del grado, el programa mostrará\n\rel promedio del grado.");
 							descrip.setFont(new Font("Tahoma", 13));
 							promGr = new Button("Ver promedio");
 							paneProG = new GridPane();
 							paneProG.setAlignment(Pos.CENTER);
-							paneProG.add(describ,2,1);
+							paneProG.add(describ, 2, 1);
 							paneProG.add(new Label(""), 1, 2);
-							paneProG.add(descrip,2,3);
+							paneProG.add(descrip, 2, 3);
 							paneProG.add(new Label(""), 1, 4);
-							paneProG.add(alerta,3,5);
+							paneProG.add(alerta, 3, 5);
 							paneProG.add(new Label(""), 1, 6);
-							paneProG.add(new Label("ID*: "),1,7);
-							paneProG.add(promG,3,7);
+							paneProG.add(new Label("ID*: "), 1, 7);
+							paneProG.add(promG, 3, 7);
 							paneProG.add(new Label(""), 1, 8);
 							paneProG.add(promGr, 2, 9);
 							promGr.setOnAction(new EventHandler<ActionEvent>() {
@@ -987,8 +999,8 @@ public class VentanaInicio extends Application {
 									// TODO Auto-generated method stub
 									int res = Integer.parseInt(promG.getText());
 									String resultado = Main.promedioGr(res);
-									
-									Label resu = new Label("El prodemio del Grado es: "+resultado);
+
+									Label resu = new Label("El prodemio del Grado es: " + resultado);
 									resu.setFont(new Font("Tahoma", 11.5));
 									GridPane prev = new GridPane();
 									Label des = new Label("PROMEDIO DEL GRADO");
@@ -998,9 +1010,9 @@ public class VentanaInicio extends Application {
 									prev.add(new Label(""), 1, 2);
 									prev.add(resu, 1, 3);
 									ustage.setCenter(prev);
-									//System.out.println(resultado);
+									// System.out.println(resultado);
 								}
-								
+
 							});
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
@@ -1008,10 +1020,10 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									promG.setText("");
 								}
-								
+
 							});
 							paneProG.add(borrar, 3, 9);
 							ustage.setCenter(paneProG);
@@ -1042,25 +1054,26 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("CREAR ASIGNATURA");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar los datos solicitados, el programa\n\rcreara la asignatura.");
+							Label descrip = new Label(
+									"Al ingresar los datos solicitados, el programa\n\rcreara la asignatura.");
 							descrip.setFont(new Font("Tahoma", 13));
 							crAs = new Button("Crear");
 							paneCrAs = new GridPane();
 							paneCrAs.setAlignment(Pos.CENTER);
-							paneCrAs.add(describ,2,1);
+							paneCrAs.add(describ, 2, 1);
 							paneCrAs.add(new Label(""), 1, 2);
-							paneCrAs.add(descrip,2,3);
+							paneCrAs.add(descrip, 2, 3);
 							paneCrAs.add(new Label(""), 1, 4);
-							paneCrAs.add(alerta,3,5);
+							paneCrAs.add(alerta, 3, 5);
 							paneCrAs.add(new Label(""), 1, 6);
-							paneCrAs.add(new Label("ID*: "),1,7);
-							paneCrAs.add(crAs1,3,7);
+							paneCrAs.add(new Label("ID*: "), 1, 7);
+							paneCrAs.add(crAs1, 3, 7);
 							paneCrAs.add(new Label(""), 1, 8);
-							paneCrAs.add(new Label("Nombre*: "),1,9);
-							paneCrAs.add(crAs2,3,9);
+							paneCrAs.add(new Label("Nombre*: "), 1, 9);
+							paneCrAs.add(crAs2, 3, 9);
 							paneCrAs.add(new Label(""), 1, 10);
-							paneCrAs.add(new Label("Numero de notas*: "),1,11);
-							paneCrAs.add(crAs3,3,11);
+							paneCrAs.add(new Label("Numero de notas*: "), 1, 11);
+							paneCrAs.add(crAs3, 3, 11);
 							paneCrAs.add(new Label(""), 1, 12);
 							paneCrAs.add(crAs, 2, 13);
 							crAs.setOnAction(new EventHandler<ActionEvent>() {
@@ -1068,14 +1081,14 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									
-									Alert confirm = new Alert(AlertType.NONE); 
-									confirm.setAlertType(AlertType.INFORMATION); 
+
+									Alert confirm = new Alert(AlertType.NONE);
+									confirm.setAlertType(AlertType.INFORMATION);
 									confirm.setTitle("Crear Asignatura");
 									confirm.setHeaderText("Asignatura creado exitosamente.");
-									confirm.show(); 
-									
-									if(Main.crearAsig(crAs1, crAs2, crAs3)) {
+									confirm.show();
+
+									if (Main.crearAsig(crAs1, crAs2, crAs3)) {
 										int id = Integer.parseInt(crAs1.getText());
 										String nombre = crAs2.getText();
 										int numero = Integer.parseInt(crAs3.getText());
@@ -1084,7 +1097,7 @@ public class VentanaInicio extends Application {
 										Asignatura a1 = new Asignatura(id, nombre, numero);
 									}
 								}
-								
+
 							});
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
@@ -1092,12 +1105,12 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									crAs1.setText("");
 									crAs2.setText("");
 									crAs3.setText("");
 								}
-								
+
 							});
 							paneCrAs.add(borrar, 3, 13);
 							ustage.setCenter(paneCrAs);
@@ -1113,25 +1126,26 @@ public class VentanaInicio extends Application {
 							alerta.setTextFill(Color.web("FIREBRICK"));
 							Label describ = new Label("CREAR NOTA");
 							describ.setFont(new Font("Tahoma", 17));
-							Label descrip = new Label("Al ingresar los datos solicitados, el programa\n\rcreara la nota.");
+							Label descrip = new Label(
+									"Al ingresar los datos solicitados, el programa\n\rcreara la nota.");
 							descrip.setFont(new Font("Tahoma", 13));
 							crNo = new Button("Crear");
 							paneCrNo = new GridPane();
 							paneCrNo.setAlignment(Pos.CENTER);
-							paneCrNo.add(describ,2,1);
+							paneCrNo.add(describ, 2, 1);
 							paneCrNo.add(new Label(""), 1, 2);
-							paneCrNo.add(descrip,2,3);
+							paneCrNo.add(descrip, 2, 3);
 							paneCrNo.add(new Label(""), 1, 4);
-							paneCrNo.add(alerta,3,5);
+							paneCrNo.add(alerta, 3, 5);
 							paneCrNo.add(new Label(""), 1, 6);
-							paneCrNo.add(new Label("Calificacion*: "),1,7);
-							paneCrNo.add(crNo1,3,7);
+							paneCrNo.add(new Label("Calificacion*: "), 1, 7);
+							paneCrNo.add(crNo1, 3, 7);
 							paneCrNo.add(new Label(""), 1, 8);
-							paneCrNo.add(new Label("ID de la asignatura*: "),1,9);
-							paneCrNo.add(crNo2,3,9);
+							paneCrNo.add(new Label("ID de la asignatura*: "), 1, 9);
+							paneCrNo.add(crNo2, 3, 9);
 							paneCrNo.add(new Label(""), 1, 10);
-							paneCrNo.add(new Label("DNI del estudiante*: "),1,11);
-							paneCrNo.add(crNo3,3,11);
+							paneCrNo.add(new Label("DNI del estudiante*: "), 1, 11);
+							paneCrNo.add(crNo3, 3, 11);
 							paneCrNo.add(new Label(""), 1, 12);
 							paneCrNo.add(crNo, 2, 13);
 							crNo.setOnAction(new EventHandler<ActionEvent>() {
@@ -1142,15 +1156,15 @@ public class VentanaInicio extends Application {
 									float cal = Float.parseFloat(crNo1.getText());
 									int asignatura = Integer.parseInt(crNo2.getText());
 									int dni = Integer.parseInt(crNo3.getText());
-									Alert confirm = new Alert(AlertType.NONE); 
-									confirm.setAlertType(AlertType.INFORMATION); 
+									Alert confirm = new Alert(AlertType.NONE);
+									confirm.setAlertType(AlertType.INFORMATION);
 									confirm.setTitle("Crear Nota");
 									confirm.setHeaderText("Nota creada exitosamente.");
-									confirm.show(); 
+									confirm.show();
 									Serializacion.b2();
 									Main.crearNota(cal, asignatura, dni);
 								}
-								
+
 							});
 							borrar = new Button("Borrar");
 							borrar.setOnAction(new EventHandler<ActionEvent>() {
@@ -1158,12 +1172,12 @@ public class VentanaInicio extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
+									// MAÑANA PONER PASO DE INFORMACION OSEA AQUÍ VA LA FUNCIOND EL MAIN
 									crNo1.setText("");
 									crNo2.setText("");
 									crNo3.setText("");
 								}
-								
+
 							});
 							paneCrNo.add(borrar, 3, 13);
 							ustage.setCenter(paneCrNo);
@@ -1173,14 +1187,12 @@ public class VentanaInicio extends Application {
 			}
 		}
 	};
-	
-	
-	
 
 	public static void main(String args[]) {
 		launch(args);
 	}
-	Main p = new Main(); 
+
+	Main p = new Main();
 	String ini = "01";
 	Stage primario;
 	Scene prisce;
@@ -1249,7 +1261,7 @@ public class VentanaInicio extends Application {
 	Button crAs;
 	Button crNo;
 	Button borrar;
-	
+
 	Label des;
 
 	@Override
@@ -1268,10 +1280,10 @@ public class VentanaInicio extends Application {
 		ustage.setTop(mainmenu);
 
 		//////////////////////////////////////////////////////
-		//USUARIO
-		aruser = new MenuItem ("Usuario");
+		// USUARIO
+		aruser = new MenuItem("Usuario");
 		arsalir = new MenuItem("Salir");
-		archivo.getItems().addAll(aruser,arsalir);
+		archivo.getItems().addAll(aruser, arsalir);
 		GridPane a = new GridPane();
 		GridPane bb = new GridPane();
 		ustage.setCenter(a);
@@ -1280,31 +1292,30 @@ public class VentanaInicio extends Application {
 //		title.setTextFill(Color.web("LIGHTSEAGREEN"));
 //		title.setFont(new Font("Nirmala UI Semilight Bold", 50));
 //		BorderPane.setAlignment(title, Pos.CENTER);
-		
+
 		Image sys = new Image(getClass().getResourceAsStream("/imagenes/01.png"));
 		ImageView mysys = new ImageView(sys);
 		mysys.setFitWidth(300);
 		mysys.setFitHeight(200);
 		BorderPane.setAlignment(mysys, Pos.CENTER);
 		bb.add(mysys, 1, 1);
-		
+
 		a.setAlignment(Pos.CENTER);
 		a.add(mysys, 1, 1);
 		a.add(bb, 1, 2);
 		bb.setAlignment(Pos.CENTER);
 		a.setPadding(new Insets(15, 15, 15, 15));
 		bb.setPadding(new Insets(15, 15, 15, 15));
-		//EVENTOS DE ARCHIVO
+		// EVENTOS DE ARCHIVO
 		aruser.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg0) {
 				ustage.setCenter(a);
-				
+
 			}
-			
-		}
-		);
+
+		});
 		arsalir.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -1312,12 +1323,11 @@ public class VentanaInicio extends Application {
 				primario.setScene(prisce);
 				primario.setTitle("SYSTOOL 2.0v");
 			}
-			
-		}
-		);	
+
+		});
 
 		// -------------------------------------------------------------------------------------------
-		//PROCESOS Y CONSULTAS
+		// PROCESOS Y CONSULTAS
 		est = new MenuItem("Estudiante");
 		prof = new MenuItem("Profesor");
 		gr = new MenuItem("Grado");
@@ -1327,12 +1337,11 @@ public class VentanaInicio extends Application {
 		prof.setOnAction(clase);
 		gr.setOnAction(clase);
 		asig.setOnAction(clase);
-		
 
 		// -------------------------------------------------------------------------------------------
-		
-		//AYUDA
-		
+
+		// AYUDA
+
 		MenuItem acerca = new MenuItem("Acerca de SYSTOOL");
 		aiuda.getItems().add(acerca);
 		Alert info = new Alert(AlertType.NONE);
@@ -1342,21 +1351,16 @@ public class VentanaInicio extends Application {
 			public void handle(ActionEvent event) {
 				info.setAlertType(AlertType.INFORMATION);
 				info.setTitle("Conoce sobre SYSTOOL");
-				
-				info.setHeaderText("SYSTOOL\r\nPlataforma creada por:\r\nCristian David Quinchia Ramirez\r\nDaniela Guardia Cuervo\r\nSebastian Agudelo Osorio");
+
+				info.setHeaderText(
+						"SYSTOOL\r\nPlataforma creada por:\r\nCristian David Quinchia Ramirez\r\nDaniela Guardia Cuervo\r\nSebastian Agudelo Osorio");
 				info.setContentText("Gracias por preferir SYSTOOL");
-				
+
 				info.show();
 			}
-		
+
 		});
-		
-		
-		
-		
-		
-		
-		
+
 		///////////////////////////////////////
 		// ESCENARIO DEFAULT
 		BorderPane inicio = new BorderPane();
@@ -1386,7 +1390,7 @@ public class VentanaInicio extends Application {
 		GridPane p6 = new GridPane();
 		inicio.setLeft(p1);
 		inicio.setRight(p2);
-		//p1.setStyle("-fx-border-color: black");
+		// p1.setStyle("-fx-border-color: black");
 //		p2.setStyle("-fx-border-color: black");
 		// DEFAULT DE LOS PANELES
 		////////////////////////////////////////

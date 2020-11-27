@@ -69,30 +69,40 @@ public class Main {
 		return salida;
 	}
 
-	public static String informeNotas(int dni) {
+	public static String informeNotas(int dni,TextField inf) {
 //		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
 		String salida = "";
 		try {
-			if (estudiantes1.size() > 0) {
-				ArrayList<Integer> dnis = new ArrayList<>();
-				for (Estudiante e : estudiantes1) {
-					dnis.add(e.getDNI());
-					if (e.getDNI() == dni) {
-						salida = e.misNotas();
-					}
-				}
-
-				if (!dnis.contains(dni)) {
-					throw new Error1(3);
-				}
-
-			} else {
-				throw new Error1(2);
+			if (inf.getText().equals("")) {
+				throw new Error1(4);
 			}
-		} catch (Error1 e) {
-			salida = e.getSalida();
+			else {
+				try {
+					if (estudiantes1.size() > 0) {
+						ArrayList<Integer> dnis = new ArrayList<>();
+						for (Estudiante e : estudiantes1) {
+							dnis.add(e.getDNI());
+							if (e.getDNI() == dni) {
+								salida = e.misNotas();
+							}
+						}
+
+						if (!dnis.contains(dni)) {
+							throw new Error1(3);
+						}
+
+					} else {
+						throw new Error1(2);
+					}
+				} catch (Error1 e) {
+					salida = e.getSalida();
+				}
+			}
+		} catch (Error1 e2) {
+			alerta = e2.getSalida();
 		}
+		
 		return salida;
 	}
 
