@@ -35,10 +35,11 @@ public class Main {
 	public static String getAlerta() {
 		return alerta;
 	}
+
 	public static void setAlerta(String a) {
 		alerta = a;
 	}
-	
+
 	public Main() {
 		Serializacion.b2();
 	}
@@ -47,7 +48,6 @@ public class Main {
 			TextField creEs5) {
 		Serializacion.b2();
 		estudiantes1 = Serializacion.getEstudiantes();
-
 
 		boolean salida = true;
 
@@ -82,13 +82,11 @@ public class Main {
 						salida = e.misNotas();
 					}
 				}
-				try {
-					if (!dnis.contains(dni)) {
-						throw new Error1(3);
-					}
-				} catch (Error1 e) {
-					salida = e.getSalida();
+
+				if (!dnis.contains(dni)) {
+					throw new Error1(3);
 				}
+
 			} else {
 				throw new Error1(2);
 			}
